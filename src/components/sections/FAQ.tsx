@@ -11,7 +11,7 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-32 bg-[#02040a] relative z-10 border-t border-white/5">
+    <section id="faq" className="py-32 bg-[#ECEBE6] dark:bg-[#02040a] relative z-10 border-t border-[#1C1C18]/5 dark:border-white/5 transition-colors duration-500">
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         
         <div className="grid lg:grid-cols-12 gap-16">
@@ -25,7 +25,7 @@ export const FAQ = () => {
             <h2 className="text-xs font-semibold tracking-[0.3em] text-[#2563eb] uppercase mb-4">
               Intelligence
             </h2>
-            <h3 className="text-4xl md:text-5xl font-light text-white uppercase tracking-tighter leading-tight">
+            <h3 className="text-4xl md:text-5xl font-light text-[#1C1C18] dark:text-white uppercase tracking-tighter leading-tight transition-colors duration-500">
               Parameters & <br/><span className="font-bold">Protocols</span>
             </h3>
           </motion.div>
@@ -43,7 +43,7 @@ export const FAQ = () => {
                 <motion.div 
                   key={i} 
                   variants={fadeIn}
-                  className="border-b border-white/10"
+                  className="border-b border-[#1C1C18]/10 dark:border-white/10 transition-colors duration-500"
                 >
                   <button 
                     onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -51,13 +51,13 @@ export const FAQ = () => {
                   >
                     <span className={cn(
                       "text-xl md:text-2xl font-light tracking-wide transition-colors duration-300 pr-8",
-                      isOpen ? "text-white" : "text-white/50 group-hover:text-white"
+                      isOpen ? "text-[#1C1C18] dark:text-white" : "text-[#1C1C18]/50 dark:text-white/50 group-hover:text-[#1C1C18] dark:group-hover:text-white"
                     )}>
                       {faq.question}
                     </span>
                     <div className={cn(
                       "transition-transform duration-500",
-                      isOpen ? "text-white rotate-90" : "text-white/30 group-hover:text-white"
+                      isOpen ? "text-[#1C1C18] dark:text-white rotate-90" : "text-[#1C1C18]/30 dark:text-white/30 group-hover:text-[#1C1C18] dark:group-hover:text-white"
                     )}>
                       {isOpen ? <X size={24} /> : <Plus size={24} />}
                     </div>
@@ -72,7 +72,7 @@ export const FAQ = () => {
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="pb-8 text-white/50 text-lg font-light leading-relaxed max-w-3xl">
+                        <div className="pb-8 text-[#1C1C18]/50 dark:text-white/50 text-lg font-light leading-relaxed max-w-3xl transition-colors duration-500">
                           {faq.content}
                         </div>
                       </motion.div>

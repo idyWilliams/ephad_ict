@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,17 +25,17 @@ export const Header = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b border-white/5",
-      scrolled ? "bg-[#02040a]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b border-[#1C1C18]/10 dark:border-white/5",
+      scrolled ? "bg-[#F4F3EF]/90 dark:bg-[#02040a]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
     )}>
       <div className="container mx-auto px-6 md:px-[10%] flex items-center justify-between">
         
         {/* Brand */}
         <Link href="/" className="flex items-center gap-6 group z-50">
-          <div className="w-10 h-10 border border-white/20 flex items-center justify-center text-white font-bold text-lg group-hover:bg-white group-hover:text-black transition-all">
+          <div className="w-10 h-10 border border-[#1C1C18]/20 dark:border-white/20 flex items-center justify-center text-[#1C1C18] dark:text-white font-bold text-lg group-hover:bg-[#1C1C18] group-hover:text-[#F4F3EF] dark:group-hover:bg-white dark:group-hover:text-black transition-all">
             E.
           </div>
-          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-white">
+          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[#1C1C18] dark:text-white">
             EPHAD
           </span>
         </Link>
@@ -45,26 +46,30 @@ export const Header = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-semibold tracking-[0.2em] uppercase text-white/50 hover:text-white transition-colors"
+              className="text-xs font-semibold tracking-[0.2em] uppercase text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
             >
               {link.name}
             </Link>
           ))}
+          <ThemeToggle />
           <Link 
             href="#register" 
             className="relative px-6 py-3 border border-[var(--color-brand-sky)] text-[var(--color-brand-sky)] text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[var(--color-brand-sky)] hover:text-white transition-colors"
           >
-            Apply Nav
+            Apply Now
           </Link>
         </nav>
 
         {/* Mobile Toggle */}
-        <button
-          className="md:hidden z-50 text-white p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex md:hidden items-center gap-4 z-50">
+          <ThemeToggle />
+          <button
+            className="text-[#1C1C18] dark:text-white p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         {/* Mobile Nav Overlay */}
         <AnimatePresence>
@@ -74,14 +79,14 @@ export const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 right-0 h-screen bg-[#02040a] border-t border-white/10 p-8 flex flex-col items-center justify-center gap-10"
+              className="absolute top-full left-0 right-0 h-screen bg-[#F4F3EF] dark:bg-[#02040a] border-t border-[#1C1C18]/10 dark:border-white/10 p-8 flex flex-col items-center justify-center gap-10"
             >
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-4xl font-light uppercase tracking-widest text-white/80 hover:text-white transition-colors"
+                  className="text-4xl font-light uppercase tracking-widest text-[#1C1C18]/80 dark:text-white/80 hover:text-[#1C1C18] dark:hover:text-white transition-colors"
                 >
                   {link.name}
                 </Link>
