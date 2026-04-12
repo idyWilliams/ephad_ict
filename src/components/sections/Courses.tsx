@@ -2,109 +2,94 @@
 
 import { motion } from "framer-motion";
 import { courses } from "@/data";
-import { Clock, ArrowUpRight, Sparkles } from "lucide-react";
-import { fadeIn, staggerContainer } from "@/lib/motion";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { fadeIn, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export const Courses = () => {
   return (
-    <section id="courses" className="py-32 bg-[#0a0f1c] relative z-10">
-      {/* Background Ambience */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-[var(--color-brand-blue)]/10 rounded-[100%] blur-[120px] pointer-events-none" />
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="max-w-4xl mb-20">
+    <section id="courses" className="py-32 bg-[var(--color-brand-navy)] relative z-10">
+      
+      <div className="container mx-auto px-6 md:px-[10%] relative z-20">
+        <div className="mb-24 md:flex items-end justify-between border-b border-white/10 pb-12">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="flex flex-col md:flex-row md:items-end justify-between gap-8"
+            variants={fadeIn}
           >
-            <div>
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 mb-6 text-xs font-semibold tracking-widest uppercase text-white/70">
-                <Sparkles size={14} className="text-[var(--color-brand-sky)]" /> Curriculum
-              </motion.div>
-              <motion.h2 variants={fadeIn} className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight">
-                Architect Your <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/40">Tech Trajectory</span>
-              </motion.h2>
-            </div>
-            <motion.p variants={fadeIn} className="text-white/50 text-lg max-w-sm font-light">
-              Carefully curated paths designed to take you from foundational concepts to industry-grade engineering and design.
-            </motion.p>
+            <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight uppercase">
+              The <span className="font-bold">Syllabus.</span>
+            </h2>
           </motion.div>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="text-white/40 max-w-xs text-sm uppercase tracking-widest mt-8 md:mt-0 font-medium"
+          >
+            Select your discipline. Zero filler. 100% execution.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {courses.map((course, i) => {
-            const isFeatured = i === 3 || i === 8; // Highlight specific sophisticated programs
-            
-            return (
-              <motion.div
-                key={course.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, delay: (i % 3) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={cn(
-                  "group relative rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2",
-                  isFeatured ? "md:col-span-2 lg:col-span-2" : "col-span-1"
-                )}
-              >
-                {/* Glass Card Surface */}
-                <div className={cn(
-                  "absolute inset-0 border transition-colors duration-500",
-                  isFeatured 
-                    ? "bg-gradient-to-br from-[#1a3673]/40 to-[#0d1224]/80 border-[var(--color-brand-sky)]/30 group-hover:border-[var(--color-brand-sky)]/50" 
-                    : "bg-white/5 border-white/5 group-hover:bg-white/10 group-hover:border-white/10"
-                )} />
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={staggerContainer}
+          className="flex flex-col"
+        >
+          {courses.map((course, i) => (
+            <motion.div
+              key={course.id}
+              variants={fadeIn}
+              className="group relative border-b border-white/10 py-10 md:py-16 transition-all duration-500 hover:bg-white/[0.02]"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-0 bg-[var(--color-brand-sky)] group-hover:w-1 transition-all duration-500" />
+              
+              <div className="grid md:grid-cols-12 gap-8 items-center pl-6 md:pl-10">
                 
-                <div className="relative p-8 md:p-10 h-full flex flex-col z-10 backdrop-blur-sm">
-                  {/* Header Row */}
-                  <div className="flex justify-between items-start mb-12">
-                    <div className={cn(
-                      "px-4 py-2 rounded-full text-xs font-semibold tracking-wider",
-                      isFeatured ? "bg-[var(--color-brand-sky)] text-white" : "bg-white/5 text-white/60"
-                    )}>
-                      {course.duration}
-                    </div>
-                    <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-[#0d1224] text-white transition-all duration-500 transform group-hover:rotate-45">
-                      <ArrowUpRight size={20} />
-                    </div>
-                  </div>
+                {/* Index Number */}
+                <div className="col-span-12 md:col-span-2">
+                  <span className="text-2xl md:text-4xl font-light text-white/20 group-hover:text-white/80 transition-colors">
+                    {(i+1).toString().padStart(2, '0')}
+                  </span>
+                </div>
 
-                  {/* Body Content */}
-                  <h3 className={cn(
-                    "font-bold text-white mb-4 leading-tight group-hover:text-[var(--color-brand-sky)] transition-colors",
-                    isFeatured ? "text-3xl md:text-5xl max-w-xl" : "text-2xl"
-                  )}>
+                {/* Course Title */}
+                <div className="col-span-12 md:col-span-5">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:text-[var(--color-brand-sky)] transition-colors leading-tight">
                     {course.title}
                   </h3>
-                  
-                  <p className="text-white/60 mb-12 flex-grow font-light leading-relaxed max-w-lg">
+                </div>
+
+                {/* Description & Metrics */}
+                <div className="col-span-12 md:col-span-4 flex flex-col gap-4">
+                  <p className="text-white/50 font-light leading-relaxed text-sm md:text-base">
                     {course.description}
                   </p>
-
-                  {/* Footer Row */}
-                  <div className="flex items-center justify-between pt-6 border-t border-white/10">
-                    <div className="text-xl font-medium text-white">
-                      {course.price}
-                    </div>
-                    <Link 
-                      href={`#register?course=${course.id}`} 
-                      className="text-sm font-semibold text-white/80 hover:text-white pb-1 border-b border-white/30 hover:border-white transition-colors"
-                    >
-                      Enroll Now
-                    </Link>
+                  <div className="flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-white/30 group-hover:text-white/70 transition-colors">
+                    <span>{course.duration}</span>
+                    <span>{course.price}</span>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
+
+                {/* Arrow Action */}
+                <div className="col-span-12 md:col-span-1 flex md:justify-end">
+                  <Link 
+                    href={`#register?course=${course.id}`}
+                    className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/40 group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-500"
+                  >
+                    <ArrowRight size={20} className="-rotate-45 group-hover:rotate-0 transition-transform duration-500" />
+                  </Link>
+                </div>
+              </div>
+
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
