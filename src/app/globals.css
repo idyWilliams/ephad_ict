@@ -5,14 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-brand-navy: #1B2A4A;
-  --color-brand-blue: #1F4E9E;
-  --color-brand-sky: #4A90D9;
-  --color-brand-steel: #C8D6E8;
-  --color-brand-charcoal: #1A1A2E;
-  
+  --color-brand-navy: #0d1224; /* Deepened for more premium impact */
+  --color-brand-blue: #1a3673; 
+  --color-brand-sky: #3b82f6; 
+  --color-brand-steel: #94a3b8;
+  --color-brand-charcoal: #0a0f1c;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Premium Gradients */
+  --color-glow-blue: rgba(59, 130, 246, 0.5);
+  --color-glow-navy: rgba(26, 54, 115, 0.5);
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
