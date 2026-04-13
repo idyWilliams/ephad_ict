@@ -41,7 +41,7 @@ export const Footer = () => {
             <ul className="flex flex-col gap-4">
               {['Syllabus', 'Intel', 'Intercepts', 'Registration'].map((item) => (
                 <li key={item}>
-                  <Link href={`#${item.toLowerCase()}`} className="text-[#1C1C18]/60 dark:text-white/60 hover:text-[#1C1C18] dark:hover:text-white uppercase tracking-widest text-sm font-light transition-colors">
+                  <Link href={item === 'Registration' ? '/#register' : `/#${item.toLowerCase()}`} className="text-[#1C1C18]/60 dark:text-white/60 hover:text-[#1C1C18] dark:hover:text-white uppercase tracking-widest text-sm font-light transition-colors">
                     {item}
                   </Link>
                 </li>

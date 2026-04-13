@@ -18,9 +18,10 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Syllabus", href: "#courses" },
-    { name: "Intel", href: "#about" },
-    { name: "Intercepts", href: "#testimonials" },
+    { name: "Syllabus", href: "/#courses" },
+    { name: "Youth Labs", href: "/kids-teens" },
+    { name: "Intel", href: "/#about" },
+    { name: "Intercepts", href: "/#testimonials" },
   ];
 
   return (
@@ -53,7 +54,7 @@ export const Header = () => {
           ))}
           <ThemeToggle />
           <Link 
-            href="#register" 
+            href="/#register" 
             className="relative px-6 py-3 border border-[var(--color-brand-sky)] text-[var(--color-brand-sky)] text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[var(--color-brand-sky)] hover:text-white transition-colors"
           >
             Apply Now
@@ -92,7 +93,7 @@ export const Header = () => {
                 </Link>
               ))}
               <Link 
-                href="#register" 
+                href="/#register" 
                 onClick={() => setMobileMenuOpen(false)} 
                 className="mt-8 text-xl font-bold uppercase tracking-[0.3em] text-[var(--color-brand-sky)]"
               >

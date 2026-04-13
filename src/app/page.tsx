@@ -4,6 +4,7 @@ import { Courses } from "@/components/sections/Courses";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
+import { KidsCTA } from "@/components/sections/KidsCTA";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <Courses />
+      <KidsCTA />
       <Testimonials />
       <FAQ />
       <CTA />
