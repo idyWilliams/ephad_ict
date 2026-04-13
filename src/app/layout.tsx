@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import { WhatsAppRibbon } from "@/components/ui/WhatsAppRibbon";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Header />
           <main className="min-h-screen pt-0">{children}</main>
           <Footer />
+          <WhatsAppRibbon />
           <Toaster position="bottom-right" />
         </ThemeProvider>
       </body>
