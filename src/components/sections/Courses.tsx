@@ -14,6 +14,13 @@ const SectionLabel = ({ text }: { text: string }) => (
   </div>
 );
 
+const calculateDiscountedPrice = (priceStr: string) => {
+  const numericPrice = parseInt(priceStr.replace(/\D/g, ""), 10);
+  if (isNaN(numericPrice)) return priceStr;
+  const discounted = numericPrice * 0.9;
+  return `₦${discounted.toLocaleString()}`;
+};
+
 export const Courses = () => {
   return (
     <section id="courses" className="relative z-10 transition-colors duration-500">
@@ -56,10 +63,16 @@ export const Courses = () => {
                     <h3 className="text-2xl md:text-3xl font-bold text-[#1C1C18] dark:text-white group-hover:text-[var(--color-brand-sky)] transition-colors leading-tight">
                       {course.title}
                     </h3>
-                    <div className="flex items-center gap-4 mt-3 text-xs uppercase tracking-widest text-[#1C1C18]/40 dark:text-white/40 font-semibold">
-                      <span>{course.duration}</span>
-                      <span>·</span>
-                      <span>{course.price}</span>
+                    <div className="flex flex-col gap-1 mt-3">
+                      <div className="flex items-center flex-wrap gap-3 text-xs uppercase tracking-widest text-[#1C1C18]/40 dark:text-white/40 font-semibold">
+                        <span>{course.duration}</span>
+                        <span>·</span>
+                        <span className="line-through decoration-[#1C1C18]/40 dark:decoration-white/40">{course.price}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-sm font-bold text-[#1C1C18] dark:text-white">{calculateDiscountedPrice(course.price)}</span>
+                        <span className="text-[9px] bg-[var(--color-brand-sky)]/10 text-[var(--color-brand-sky)] px-1.5 py-0.5 rounded font-black tracking-wider border border-[var(--color-brand-sky)]/20 shadow-sm">10% OFF</span>
+                      </div>
                     </div>
                   </div>
                   <div className="md:col-span-4">
@@ -142,7 +155,13 @@ export const Courses = () => {
                   </div>
                   <div className="md:col-span-2 flex flex-col items-start gap-1">
                     <span className="text-xs uppercase tracking-widest text-[#1C1C18]/40 dark:text-white/40 font-bold">{course.duration}</span>
-                    <span className="text-sm font-bold text-[#1C1C18] dark:text-white">{course.price}</span>
+                    <div className="flex flex-col items-start gap-1 mt-1">
+                      <span className="text-xs font-medium text-[#1C1C18]/50 dark:text-white/50 line-through decoration-[#1C1C18]/40 dark:decoration-white/40">{course.price}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold text-[#1C1C18] dark:text-white">{calculateDiscountedPrice(course.price)}</span>
+                        <span className="text-[9px] bg-[var(--color-brand-sky)]/10 text-[var(--color-brand-sky)] px-1.5 py-0.5 rounded font-black tracking-wider uppercase border border-[var(--color-brand-sky)]/20 shadow-sm">10% OFF</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>
