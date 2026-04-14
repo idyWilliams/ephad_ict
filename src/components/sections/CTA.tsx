@@ -21,10 +21,14 @@ export const CTA = () => {
 
   return (
     /* lm-elevated — the deepest, most prestigious surface. Premium focal point. */
-    <section id="register" className="relative min-h-[90svh] bg-[var(--lm-elevated)] dark:bg-[#02040a] flex items-center z-10 overflow-hidden transition-colors duration-500">
+    <section id="register" className="relative min-h-[90svh] bg-[var(--lm-elevated)] dark:bg-[#090b18] flex items-center z-10 overflow-hidden transition-colors duration-500">
 
       {/* Structural center line */}
       <div className="absolute left-[50%] top-0 bottom-0 w-px bg-[var(--lm-ink)]/5 dark:bg-white/5 hidden lg:block" />
+
+      {/* Dark mode ambient orbs — match hero's directional light logic */}
+      <div className="ambient-orb ambient-float-slow w-[700px] h-[700px] bg-blue-600/[0.10] blur-[140px] top-[-20%] right-[-15%] hidden dark:block" />
+      <div className="ambient-orb ambient-float-mid  w-[400px] h-[400px] bg-indigo-500/[0.07] blur-[100px] bottom-[-10%] left-[10%]  hidden dark:block" />
 
       {/* Light mode volumetric atmosphere */}
       <div className="absolute inset-0 dark:hidden pointer-events-none">
@@ -90,7 +94,7 @@ export const CTA = () => {
               </div>
 
               <button type="submit" disabled={isSubmitting}
-                className="group relative w-full h-20 bg-[var(--lm-ink)] dark:bg-white text-white dark:text-black mt-8 overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-lg dark:shadow-none"
+                className="group relative w-full h-20 bg-[var(--lm-ink)] dark:bg-white text-white dark:text-black mt-8 overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-lg dark:shadow-none btn-glow-dark"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1a1b30] to-[var(--lm-ink)] dark:from-gray-200 dark:to-white opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="relative text-2xl font-black uppercase tracking-tighter">

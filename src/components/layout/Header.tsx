@@ -27,7 +27,7 @@ export const Header = () => {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b border-[var(--lm-ink)]/10 dark:border-white/5",
-      scrolled ? "bg-[var(--lm-base)]/90 dark:bg-[#02040a]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
+      scrolled ? "bg-[var(--lm-base)]/90 dark:bg-[#090b18]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
     )}>
       <div className="container mx-auto px-6 md:px-[10%] flex items-center justify-between">
         
@@ -80,7 +80,7 @@ export const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 right-0 h-screen bg-[var(--lm-base)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/10 p-8 flex flex-col items-center justify-center gap-10"
+              className="absolute top-full left-0 right-0 h-screen bg-[var(--lm-base)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/10 dark:border-white/10 p-8 flex flex-col items-center justify-center gap-10"
             >
               {navLinks.map((link) => (
                 <Link

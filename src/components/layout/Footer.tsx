@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 export const Footer = () => {
   return (
     /* lm-section-strong — intentionally deeper than base/section, anchors the bottom */
-    <footer className="bg-[var(--lm-section-strong)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/10 pt-24 pb-8 overflow-hidden relative z-10 transition-colors duration-500">
+    <footer className="bg-[var(--lm-section-strong)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/10 dark:border-white/10 pt-24 pb-8 overflow-hidden relative z-10 transition-colors duration-500">
 
       {/* Light mode: radial vignette from bottom-center — anchors the page visually */}
       <div className="absolute inset-0 dark:hidden pointer-events-none bg-[radial-gradient(ellipse_at_50%_110%,rgba(11,12,29,0.07)_0%,transparent_65%)]" />

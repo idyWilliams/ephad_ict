@@ -8,14 +8,14 @@ import { fadeIn } from "@/lib/motion";
 
 export const KidsCTA = () => {
   return (
-    <section className="py-24 bg-[#E6E5E0] dark:bg-[#050505] relative z-10 transition-colors duration-500 overflow-hidden">
+    <section className="py-24 bg-[#E6E5E0] dark:bg-[#0d0f1c] relative z-10 transition-colors duration-500 overflow-hidden">
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeIn}
-          className="relative rounded-[2.5rem] overflow-hidden group border border-[#1C1C18]/10 dark:border-white/10 bg-[#F4F3EF] dark:bg-[#02040a] transition-colors duration-500"
+          className="relative rounded-[2.5rem] overflow-hidden group border border-[#1C1C18]/10 dark:border-white/10 bg-[#F4F3EF] dark:bg-[#090b18] transition-colors duration-500"
         >
           {/* Subtle Background Layer */}
           <div className="absolute inset-0 z-0">
@@ -25,7 +25,7 @@ export const KidsCTA = () => {
                fill
                className="object-cover opacity-[0.05] dark:opacity-20 mix-blend-multiply dark:mix-blend-luminosity grayscale transition-transform duration-1000 group-hover:scale-105"
              />
-             <div className="absolute inset-0 bg-gradient-to-r from-[#F4F3EF] via-[#F4F3EF]/90 dark:from-[#02040a] dark:via-[#02040a]/90 to-transparent transition-colors duration-500" />
+             <div className="absolute inset-0 bg-gradient-to-r from-[#F4F3EF] via-[#F4F3EF]/90 dark:from-[#090b18] dark:via-[#090b18]/90 to-transparent transition-colors duration-500" />
           </div>
 
           <div className="relative z-10 p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">

@@ -27,7 +27,7 @@ export const Courses = () => {
       <section id="courses" className="relative z-10 transition-colors duration-500">
 
         {/* ─── FOUNDATIONAL DIGITAL SKILLS ─── */}
-        <div id="foundational" className="py-28 bg-[var(--lm-section)] dark:bg-[#06070d] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative">
+        <div id="foundational" className="py-28 bg-[var(--lm-section)] dark:bg-[#0d101e] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative">
           {/* boundary inner shadow */}
           <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[var(--lm-ink)]/[0.03] to-transparent dark:hidden pointer-events-none" />
           <div className="container mx-auto px-6 md:px-[10%]">
@@ -93,7 +93,7 @@ export const Courses = () => {
         </div>
 
         {/* ─── CAREER TECH BOOTCAMPS ─── */}
-        <div id="career-tech" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/5 relative">
+        <div id="career-tech" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/10 dark:border-white/5 relative">
           <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--lm-ink)]/[0.04] to-transparent dark:hidden pointer-events-none" />
           <div className="container mx-auto px-6 md:px-[10%]">
             <motion.div

@@ -63,7 +63,7 @@ export function WhatsAppRibbon() {
         whileTap={{ scale: 0.96 }}
         transition={{ type: "spring", stiffness: 400, damping: 20 }}
         className="pointer-events-auto relative flex items-center gap-3 rounded-full shadow-2xl overflow-hidden
-          bg-[var(--lm-ink)]/95 dark:bg-[#0f1121]/95 backdrop-blur-md
+          bg-[var(--lm-ink)]/95 dark:bg-[#090b18]/95 backdrop-blur-md
           border border-white/10 dark:border-white/8
           pl-3 pr-5 py-3 group"
       >

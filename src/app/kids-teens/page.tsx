@@ -20,10 +20,10 @@ export default function KidsTeensPage() {
     <>
       <EnrollModal course={selectedCourse} onClose={() => setSelectedCourse(null)} />
 
-      <div className="bg-[var(--lm-base)] dark:bg-[#02040a] transition-colors duration-500 overflow-hidden min-h-screen pb-32">
+      <div className="bg-[var(--lm-base)] dark:bg-[#090b18] transition-colors duration-500 overflow-hidden min-h-screen pb-32">
 
         {/* ─── 1. HERO ──────────────────────────────────────────────────────── */}
-        <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-[10%] bg-[var(--lm-elevated)] dark:bg-[#02040a] transition-colors duration-500">
+        <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-[10%] bg-[var(--lm-elevated)] dark:bg-[#090b18] transition-colors duration-500">
         <div className="absolute inset-0 z-0 overflow-hidden">
             <motion.div
               initial={{ scale: 1 }} animate={{ scale: 1.15 }}
@@ -39,7 +39,7 @@ export default function KidsTeensPage() {
               />
             </motion.div>
             {/* Dark mode blends */}
-            <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[#02040a] via-[#02040a]/90 to-[#02040a]/30" />
+            <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[#090b18] via-[#090b18]/90 to-[#090b18]/30" />
             {/* Light mode: elevated surface + volumetric corner blooms */}
             <div className="absolute inset-0 dark:hidden">
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-elevated)] via-[var(--lm-elevated)]/85 to-[var(--lm-elevated)]/20" />
@@ -83,7 +83,7 @@ export default function KidsTeensPage() {
         </section>
 
         {/* ─── 2. THE METHODOLOGY ──────────────────────────────────────────── */}
-        <section className="py-32 bg-[var(--lm-section)] dark:bg-[#050505] relative z-10 transition-colors duration-500 border-t border-[var(--lm-ink)]/8 dark:border-white/5">
+        <section className="py-32 bg-[var(--lm-section)] dark:bg-[#0d0f1c] relative z-10 transition-colors duration-500 border-t border-[var(--lm-ink)]/8 dark:border-white/5">
           <div className="container mx-auto px-6 md:px-[10%] relative z-20">
             <div className="mb-20">
               <div className="flex items-center gap-4 mb-4">
@@ -104,7 +104,7 @@ export default function KidsTeensPage() {
                     0{i + 1}
                   </span>
                   <div className="relative z-10 pt-8 border-t border-[var(--lm-ink)]/20 dark:border-white/20 group-hover:border-[var(--color-brand-sky)] transition-colors duration-500">
-                    <div className="mb-8 p-5 inline-flex bg-[var(--lm-base)] dark:bg-[#02040a] rounded-sm group-hover:bg-[var(--lm-ink)] dark:group-hover:bg-white shadow-sm transition-colors duration-500">
+                    <div className="mb-8 p-5 inline-flex bg-[var(--lm-base)] dark:bg-[#090b18] rounded-sm group-hover:bg-[var(--lm-ink)] dark:group-hover:bg-white shadow-sm transition-colors duration-500">
                       <feature.icon size={26} className="text-[var(--lm-ink)] dark:text-white group-hover:text-[var(--lm-base)] dark:group-hover:text-black transition-colors duration-500" />
                     </div>
                     <h4 className="text-2xl font-bold text-[var(--lm-ink)] dark:text-white tracking-tight leading-tight uppercase mb-6 group-hover:text-[var(--color-brand-sky)] transition-colors duration-500">{feature.title}</h4>
@@ -117,7 +117,7 @@ export default function KidsTeensPage() {
         </section>
 
         {/* ─── 3. THE TWO TRACKS ───────────────────────────────────────────── */}
-        <section id="programs" className="py-32 bg-[var(--lm-base)] dark:bg-[#02040a] relative z-10 transition-colors duration-500">
+        <section id="programs" className="py-32 bg-[var(--lm-base)] dark:bg-[#090b18] relative z-10 transition-colors duration-500">
           <div className="container mx-auto px-6 md:px-[10%] relative z-20">
             <div className="mb-20">
               <div className="flex items-center gap-4 mb-4">
@@ -137,7 +137,7 @@ export default function KidsTeensPage() {
                   onMouseLeave={() => setCourseName(null)}
                   className="border border-[var(--lm-ink)]/10 dark:border-white/10 overflow-hidden group hover:border-[var(--lm-ink)]/30 dark:hover:border-white/30 transition-colors"
                 >
-                  <div className="h-64 relative bg-[var(--lm-panel)] dark:bg-[#050505]">
+                  <div className="h-64 relative bg-[var(--lm-panel)] dark:bg-[#0d0f1c]">
                     <Image
                       src={pi === 0
                         ? "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1200"
@@ -154,7 +154,7 @@ export default function KidsTeensPage() {
                     </div>
                   </div>
 
-                  <div className="p-10 bg-[var(--lm-band)] dark:bg-[#050505]">
+                  <div className="p-10 bg-[var(--lm-band)] dark:bg-[#0d0f1c]">
                     <div className="mb-2">
                       <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--color-brand-sky)]">{prog.duration}</span>
                     </div>
@@ -182,7 +182,7 @@ export default function KidsTeensPage() {
         </section>
 
         {/* ─── 4. CONTACT / ENQUIRY FORM ───────────────────────────────────── */}
-        <section id="enroll" className="py-32 bg-[var(--lm-elevated)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/10 transition-colors duration-500 relative overflow-hidden">
+        <section id="enroll" className="py-32 bg-[var(--lm-elevated)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/10 dark:border-white/10 transition-colors duration-500 relative overflow-hidden">
           {/* light mode corner blooms */}
           <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.10)_0%,transparent_60%)] dark:hidden pointer-events-none" />
           <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/12 dark:hidden" />
@@ -207,7 +207,7 @@ export default function KidsTeensPage() {
                 </div>
               </div>
 
-              <div className="lg:col-span-7 bg-[var(--lm-base)] dark:bg-[#050505] p-10 md:p-12 border border-[var(--lm-ink)]/10 dark:border-white/10">
+              <div className="lg:col-span-7 bg-[var(--lm-base)] dark:bg-[#0d0f1c] p-10 md:p-12 border border-[var(--lm-ink)]/10 dark:border-white/10">
                 <EnquiryForm />
               </div>
             </div>
@@ -261,28 +261,28 @@ function EnquiryForm() {
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--lm-body)]/50 dark:text-white/50">Age Bracket *</label>
           <select required defaultValue="" className="bg-transparent border-b border-[var(--lm-ink)]/20 dark:border-white/20 h-12 focus:outline-none focus:border-[var(--lm-ink)] dark:focus:border-white transition-colors text-[var(--lm-ink)] dark:text-white uppercase font-light tracking-wide appearance-none cursor-pointer">
-            <option value="" disabled className="bg-[var(--lm-accent)] dark:bg-[#02040a]">Age</option>
-            <option value="7-9" className="bg-[var(--lm-accent)] dark:bg-[#02040a]">7 – 9</option>
-            <option value="10-12" className="bg-[var(--lm-accent)] dark:bg-[#02040a]">10 – 12</option>
-            <option value="13-17" className="bg-[var(--lm-accent)] dark:bg-[#02040a]">13 – 17</option>
+            <option value="" disabled className="bg-[var(--lm-accent)] dark:bg-[#090b18]">Age</option>
+            <option value="7-9" className="bg-[var(--lm-accent)] dark:bg-[#090b18]">7 – 9</option>
+            <option value="10-12" className="bg-[var(--lm-accent)] dark:bg-[#090b18]">10 – 12</option>
+            <option value="13-17" className="bg-[var(--lm-accent)] dark:bg-[#090b18]">13 – 17</option>
           </select>
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--lm-body)]/50 dark:text-white/50">Program Track *</label>
           <select required defaultValue="" className="bg-transparent border-b border-[var(--lm-ink)]/20 dark:border-white/20 h-12 focus:outline-none focus:border-[var(--lm-ink)] dark:focus:border-white transition-colors text-[var(--lm-ink)] dark:text-white uppercase font-light tracking-wide appearance-none cursor-pointer">
-            <option value="" disabled className="bg-[var(--lm-accent)] dark:bg-[#02040a]">Select</option>
+            <option value="" disabled className="bg-[var(--lm-accent)] dark:bg-[#090b18]">Select</option>
             {youthPayConfig.map(p => (
-              <option key={p.id} value={p.id} className="bg-[var(--lm-accent)] dark:bg-[#02040a]">{p.name}</option>
+              <option key={p.id} value={p.id} className="bg-[var(--lm-accent)] dark:bg-[#090b18]">{p.name}</option>
             ))}
           </select>
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--lm-body)]/50 dark:text-white/50">Preferred Format *</label>
           <select required defaultValue="" className="bg-transparent border-b border-[var(--lm-ink)]/20 dark:border-white/20 h-12 focus:outline-none focus:border-[var(--lm-ink)] dark:focus:border-white transition-colors text-[var(--lm-ink)] dark:text-white uppercase font-light tracking-wide appearance-none cursor-pointer">
-            <option value="" disabled className="bg-[var(--lm-accent)] dark:bg-[#02040a]">Format</option>
-            <option value="term" className="bg-[var(--lm-accent)] dark:bg-[#02040a]">Term-Based</option>
-            <option value="holiday" className="bg-[var(--lm-accent)] dark:bg-[#02040a]">Holiday Program</option>
-            <option value="bootcamp" className="bg-[var(--lm-accent)] dark:bg-[#02040a]">Bootcamp Sprint</option>
+            <option value="" disabled className="bg-[var(--lm-accent)] dark:bg-[#090b18]">Format</option>
+            <option value="term" className="bg-[var(--lm-accent)] dark:bg-[#090b18]">Term-Based</option>
+            <option value="holiday" className="bg-[var(--lm-accent)] dark:bg-[#090b18]">Holiday Program</option>
+            <option value="bootcamp" className="bg-[var(--lm-accent)] dark:bg-[#090b18]">Bootcamp Sprint</option>
           </select>
         </div>
       </div>

@@ -144,7 +144,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.97 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-4 md:inset-x-auto md:right-0 md:top-0 md:bottom-0 md:w-[480px] z-[101] flex flex-col top-[10%] md:top-0 max-h-[88vh] md:max-h-screen overflow-y-auto bg-[var(--lm-base)] dark:bg-[#070810] border border-[var(--lm-ink)]/10 dark:border-white/10 shadow-2xl"
+            className="fixed inset-x-4 md:inset-x-auto md:right-0 md:top-0 md:bottom-0 md:w-[480px] z-[101] flex flex-col top-[10%] md:top-0 max-h-[88vh] md:max-h-screen overflow-y-auto bg-[var(--lm-base)] dark:bg-[#0d0f1c] border border-[var(--lm-ink)]/10 dark:border-white/10 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}

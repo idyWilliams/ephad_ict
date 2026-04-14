@@ -29,10 +29,17 @@ const lines = [
 export const ProductLines = () => {
   return (
     /* Sits on lm-section-strong — clearly deeper than the About (lm-base) above it */
-    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative z-10 overflow-hidden transition-colors duration-500">
-      {/* Light mode: subtle inner-shadow top edge to reinforce depth step */}
+    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative z-10 overflow-hidden transition-colors duration-500">
+      {/* Light mode boundary shadows */}
       <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/10 dark:hidden" />
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-ink)]/[0.03] to-transparent dark:hidden pointer-events-none" />
+
+      {/* Dark mode ambient orbs — subtle blue wash behind the grid */}
+      <div className="ambient-orb ambient-float-slow w-[700px] h-[700px] bg-blue-700/[0.09] blur-[140px] top-[-20%] left-[-10%] hidden dark:block" />
+      <div className="ambient-orb ambient-float-mid  w-[500px] h-[500px] bg-indigo-600/[0.06] blur-[120px] bottom-[-10%] right-[-5%] hidden dark:block" />
+
+      {/* Light mode ambient orb */}
+      <div className="ambient-orb ambient-float-slow w-[500px] h-[500px] bg-blue-400/[0.06] blur-[100px] top-[-10%] right-[-5%] dark:hidden" />
 
       <div className="container mx-auto px-6 md:px-[10%]">
         <motion.div

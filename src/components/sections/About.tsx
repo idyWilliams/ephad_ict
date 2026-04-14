@@ -6,7 +6,7 @@ import { slideInLeft, staggerContainer, fadeIn } from "@/lib/motion";
 export const About = () => {
   return (
     /* Sits at lm-base — the page skeleton. Lightest surface, resting beat. */
-    <section id="about" className="py-32 bg-[var(--lm-base)] dark:bg-[#02040a] relative z-10 overflow-hidden border-t border-[var(--lm-ink)]/5 dark:border-white/5 transition-colors duration-500">
+    <section id="about" className="py-32 bg-[var(--lm-base)] dark:bg-[#090b18] relative z-10 overflow-hidden border-t border-[var(--lm-ink)]/5 dark:border-white/5 transition-colors duration-500">
       {/* Light mode: very faint right-side bloom to mirror hero's left/right rhythm */}
       <div className="absolute top-0 right-0 w-[40%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.05)_0%,transparent_65%)] dark:hidden pointer-events-none" />
 

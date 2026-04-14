@@ -18,7 +18,12 @@ export const Hero = () => {
           className="object-cover mix-blend-multiply dark:mix-blend-luminosity grayscale-[20%] dark:grayscale-[50%] opacity-12 dark:opacity-30"
           priority
         />
-        {/* Dark mode: standard dark gradient */}
+        {/* Dark mode: ambient floating orbs — deep space studio feel */}
+        <div className="ambient-orb ambient-float-slow w-[600px] h-[600px] bg-blue-600/[0.11] blur-[120px] top-[-15%] right-[-10%] hidden dark:block" />
+        <div className="ambient-orb ambient-float-mid  w-[400px] h-[400px] bg-indigo-500/[0.08] blur-[100px] bottom-[-5%] left-[5%] hidden dark:block" />
+        <div className="ambient-orb ambient-float-fast w-[300px] h-[300px] bg-blue-400/[0.06] blur-[80px]  top-[40%] left-[40%] hidden dark:block" />
+
+        {/* Dark mode gradient bleeds */}
         <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/80 to-transparent" />
         <div className="absolute inset-0 hidden dark:block bg-gradient-to-r from-[var(--color-brand-navy)] via-transparent to-[var(--color-brand-navy)]" />
 

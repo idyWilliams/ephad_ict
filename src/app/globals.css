@@ -6,10 +6,10 @@
 
 @theme inline {
   /* Ultra-Premium Sharp Web3 Palette */
-  --color-brand-navy: #02040a;
+  --color-brand-navy: #090B18;     /* refined deep navy — page dark base        */
   --color-brand-blue: #0b1f47;
   --color-brand-sky: #2563eb;
-  --color-brand-charcoal: #050505;
+  --color-brand-charcoal: #0D0F1C; /* section dark                              */
   --color-brand-steel: #64748b;
 
   --color-background: var(--color-brand-navy);
@@ -19,31 +19,57 @@
   --color-glow-blue: rgba(37, 99, 235, 0.2);
 
   /*
-   * ─── LIGHT MODE SURFACE SYSTEM v2 ──────────────────────────────────────────
-   * Philosophy: "Daylight inside the same world."
-   * 4 clearly distinct surface levels — 33 lightness-units of ramp, increasing chroma.
-   * Each step is visually perceptible at a glance, creating real page rhythm.
+   * ─── DESIGN TOKEN SYSTEM v3 — Color Grading Pass ────────────────────────────
    *
-   * lm-base          → F2F3FA  Ghost white. Page skeleton, alternating rests.
-   * lm-section       → E4E6F5  Pale slate. Default section bands.
-   * lm-section-strong→ D2D5EC  Visible depth. Key bands: Paths, Courses, FAQ.
-   * lm-elevated      → BFC3E3  Deep premium surface. Hero, Registration, youth Hero.
-   * lm-ink           → 0B0C1D  Near-void navy. All key headings.
-   * lm-body          → 1C1E35  Richer cool charcoal. All body / muted text.
+   * Philosophy:
+   *   Dark mode  = "Deep Space Studio" — refined navy ink, not void black.
+   *   Light mode = "Daylit Gallery"     — tinted slate paper, layered + alive.
+   *   Both share the same EPHAD blue DNA; mood changes, world stays the same.
    *
-   * Backward-compat aliases (old names → new names):
+   * ── DARK MODE SURFACES ────────────────────────────────────────────────────
+   *   All dark sections reference these values (set via component dark: classes).
+   *   --dm-base:     #090B18  deep navy (replaces void #02040a)
+   *   --dm-section:  #0D0F1C  section band — distinct from base
+   *   --dm-elevated: #141828  elevated panels — subtle lift
+   *   ...text: dark:text-white (headings), dark:text-white/60 (body) — unchanged
+   *
+   * ── LIGHT MODE SURFACES (4-level hierarchy) ───────────────────────────────
+   *   lm-base          → EDEDF7  ghost white-blue  (page skeleton / resting)
+   *   lm-section       → DFE2F5  pale slate         (default section bands)
+   *   lm-section-strong→ CACFF2  mid-depth          (paths, courses, faq)
+   *   lm-elevated      → B4BAEB  deep premium       (hero, registration)
+   *   lm-ink           → 080917  near-void navy     (headings)
+   *   lm-body          → 181A33  rich cool charcoal (body text)
+   *
+   * ── SHARED BRAND ACCENTS ──────────────────────────────────────────────────
+   *   primary   : 2563EB  (EPHAD blue)
+   *   sky       : 60A5FA  (electric sky — slightly lighter than primary)
+   *   success   : 10B981  (payment confirmed, WhatsApp)
+   *
+   * Backward-compat aliases:
    *   --lm-band   = lm-section
    *   --lm-panel  = lm-section-strong
    *   --lm-accent = lm-elevated
   */
-  --lm-base:            #F2F3FA;   /* HSL 235°,17%,97% — ghost white           */
-  --lm-section:         #E4E6F5;   /* HSL 234°,22%,93% — pale slate            */
-  --lm-section-strong:  #D2D5EC;   /* HSL 234°,27%,88% — mid-depth             */
-  --lm-elevated:        #BFC3E3;   /* HSL 234°,33%,82% — premium deep surface  */
-  --lm-ink:             #0B0C1D;   /* HSL 237°,54%,9%  — near-void navy        */
-  --lm-body:            #1C1E35;   /* HSL 235°,33%,16% — rich cool charcoal    */
 
-  /* Backward-compat aliases — existing component refs still resolve */
+  /* Dark mode surface tokens (values; apply with dark: utilities) */
+  --dm-base:            #090B18;
+  --dm-section:         #0D0F1C;
+  --dm-elevated:        #141828;
+
+  /* Light mode surface tokens */
+  --lm-base:            #EDEDF7;
+  --lm-section:         #DFE2F5;
+  --lm-section-strong:  #CACFF2;
+  --lm-elevated:        #B4BAEB;
+  --lm-ink:             #080917;
+  --lm-body:            #181A33;
+
+  /* Shared brand accents */
+  --brand-sky:          #60A5FA;
+  --brand-success:      #10B981;
+
+  /* Backward-compat aliases */
   --lm-band:   var(--lm-section);
   --lm-panel:  var(--lm-section-strong);
   --lm-accent: var(--lm-elevated);
@@ -168,5 +194,66 @@
   }
   html {
     @apply font-sans;
+  }
+
+  /* Soft off-white body text in dark mode — slightly warmer than pure #FFF */
+  .dark body {
+    color: #DDE0EF;
+  }
+}
+
+/* ─── AMBIENT MOTION ─────────────────────────────────────────────────────────
+ * CSS-only background animation for performance.
+ * Used in Hero, Three Paths, and Registration sections only.
+ * ─────────────────────────────────────────────────────────────────────────── */
+@keyframes ambientFloat {
+  0%, 100% { transform: translate(0, 0)    scale(1);    opacity: 0.7; }
+  33%       { transform: translate(16px, -12px) scale(1.04); opacity: 1;   }
+  66%       { transform: translate(-10px, 14px) scale(0.97); opacity: 0.5; }
+}
+
+@keyframes ambientDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50%       { transform: translate(-20px, 10px); }
+}
+
+@keyframes subtleShimmer {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+/* Utility classes for ambient orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.ambient-float-slow {
+  animation: ambientFloat 32s ease-in-out infinite;
+}
+
+.ambient-float-mid {
+  animation: ambientFloat 22s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+.ambient-float-fast {
+  animation: ambientFloat 18s ease-in-out infinite;
+  animation-delay: -14s;
+}
+
+.ambient-shimmer {
+  animation: subtleShimmer 8s ease-in-out infinite;
+}
+
+/* Hover glow for primary dark mode CTAs */
+@layer utilities {
+  .btn-glow-dark {
+    transition: box-shadow 0.3s ease;
+  }
+  .dark .btn-glow-dark:hover {
+    box-shadow: 0 0 32px rgba(96, 165, 250, 0.25), 0 0 80px rgba(37, 99, 235, 0.12);
   }
 }
