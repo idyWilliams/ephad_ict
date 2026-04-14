@@ -11,7 +11,14 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-32 bg-[var(--lm-band)] dark:bg-[#02040a] relative z-10 border-t border-[var(--lm-ink)]/5 dark:border-white/5 transition-colors duration-500">
+    /* lm-section-strong — same depth as ProductLines, anchors this important section */
+    <section id="faq" className="py-32 bg-[var(--lm-section-strong)] dark:bg-[#02040a] relative z-10 overflow-hidden transition-colors duration-500">
+      {/* top/bottom boundary lines — clear depth demarcation in light mode */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/10 dark:hidden" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--lm-ink)]/10 dark:hidden" />
+      {/* subtle inner-shadow top — reinforces the depth step */}
+      <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--lm-ink)]/[0.04] to-transparent dark:hidden pointer-events-none" />
+
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         <div className="grid lg:grid-cols-12 gap-16">
           <motion.div
@@ -33,7 +40,7 @@ export const FAQ = () => {
               return (
                 <motion.div
                   key={i} variants={fadeIn}
-                  className="border-b border-[var(--lm-ink)]/10 dark:border-white/10 transition-colors duration-500"
+                  className="border-b border-[var(--lm-ink)]/12 dark:border-white/10 transition-colors duration-500"
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -41,13 +48,17 @@ export const FAQ = () => {
                   >
                     <span className={cn(
                       "text-xl md:text-2xl font-light tracking-wide transition-colors duration-300 pr-8",
-                      isOpen ? "text-[var(--lm-ink)] dark:text-white" : "text-[var(--lm-body)]/50 dark:text-white/50 group-hover:text-[var(--lm-ink)] dark:group-hover:text-white"
+                      isOpen
+                        ? "text-[var(--lm-ink)] dark:text-white"
+                        : "text-[var(--lm-body)]/55 dark:text-white/50 group-hover:text-[var(--lm-ink)] dark:group-hover:text-white"
                     )}>
                       {faq.question}
                     </span>
                     <div className={cn(
-                      "transition-transform duration-500",
-                      isOpen ? "text-[var(--lm-ink)] dark:text-white rotate-90" : "text-[var(--lm-body)]/30 dark:text-white/30 group-hover:text-[var(--lm-ink)] dark:group-hover:text-white"
+                      "transition-transform duration-500 flex-shrink-0",
+                      isOpen
+                        ? "text-[var(--lm-ink)] dark:text-white rotate-90"
+                        : "text-[var(--lm-body)]/30 dark:text-white/30 group-hover:text-[var(--lm-ink)] dark:group-hover:text-white"
                     )}>
                       {isOpen ? <X size={24} /> : <Plus size={24} />}
                     </div>
@@ -62,7 +73,7 @@ export const FAQ = () => {
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="pb-8 text-[var(--lm-body)]/60 dark:text-white/50 text-lg font-light leading-relaxed max-w-3xl transition-colors duration-500">
+                        <div className="pb-8 text-[var(--lm-body)]/65 dark:text-white/50 text-lg font-light leading-relaxed max-w-3xl transition-colors duration-500">
                           {faq.content}
                         </div>
                       </motion.div>

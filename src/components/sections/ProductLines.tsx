@@ -28,7 +28,12 @@ const lines = [
 
 export const ProductLines = () => {
   return (
-    <section id="programs" className="py-28 bg-[var(--lm-base)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/5 dark:border-white/5 relative z-10 transition-colors duration-500">
+    /* Sits on lm-section-strong — clearly deeper than the About (lm-base) above it */
+    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative z-10 overflow-hidden transition-colors duration-500">
+      {/* Light mode: subtle inner-shadow top edge to reinforce depth step */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/10 dark:hidden" />
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-ink)]/[0.03] to-transparent dark:hidden pointer-events-none" />
+
       <div className="container mx-auto px-6 md:px-[10%]">
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
@@ -52,13 +57,13 @@ export const ProductLines = () => {
               key={line.index} variants={fadeIn}
               className={`relative group border-r border-b border-[var(--lm-ink)]/10 dark:border-white/10 p-10 md:p-12 flex flex-col justify-between gap-10 transition-all duration-500 ${
                 line.accent
-                  ? "bg-[var(--lm-ink)] dark:bg-white"
-                  : "bg-transparent hover:bg-[var(--lm-ink)]/[0.025] dark:hover:bg-white/[0.02]"
+                  ? "bg-[var(--lm-ink)] dark:bg-white shadow-lg"
+                  : "bg-[var(--lm-section-strong)]/60 hover:bg-[var(--lm-elevated)]/60 dark:bg-transparent dark:hover:bg-white/[0.02]"
               }`}
             >
               <div>
                 <div className="flex items-start justify-between mb-8">
-                  <div className={`p-3 border ${line.accent ? "border-white/20 bg-white/10" : "border-[var(--lm-ink)]/10 dark:border-white/10 bg-[var(--lm-ink)]/5 dark:bg-white/5"}`}>
+                  <div className={`p-3 border ${line.accent ? "border-white/20 bg-white/10" : "border-[var(--lm-ink)]/15 dark:border-white/10 bg-[var(--lm-elevated)]/50 dark:bg-white/5"}`}>
                     <line.icon size={22} className={line.accent ? "text-white dark:text-[var(--lm-ink)]" : "text-[var(--lm-ink)] dark:text-white"} />
                   </div>
                   <span className={`text-4xl font-black ${line.accent ? "text-white/10 dark:text-[var(--lm-ink)]/10" : "text-[var(--lm-ink)]/10 dark:text-white/10"}`}>{line.index}</span>
@@ -73,7 +78,7 @@ export const ProductLines = () => {
                   {line.sub}
                 </div>
 
-                <p className={`font-light leading-relaxed text-sm ${line.accent ? "text-white/70 dark:text-[var(--lm-ink)]/70" : "text-[var(--lm-body)]/60 dark:text-white/60"}`}>
+                <p className={`font-light leading-relaxed text-sm ${line.accent ? "text-white/70 dark:text-[var(--lm-ink)]/70" : "text-[var(--lm-body)]/70 dark:text-white/60"}`}>
                   {line.desc}
                 </p>
               </div>

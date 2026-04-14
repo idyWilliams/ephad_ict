@@ -7,24 +7,33 @@ import Image from "next/image";
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-[100svh] bg-[var(--lm-accent)] dark:bg-[var(--color-brand-navy)] text-[var(--lm-ink)] dark:text-white overflow-hidden flex flex-col justify-end pt-32 pb-12 transition-colors duration-500">
+    <section className="relative min-h-[100svh] bg-[var(--lm-elevated)] dark:bg-[var(--color-brand-navy)] text-[var(--lm-ink)] dark:text-white overflow-hidden flex flex-col justify-end pt-32 pb-12 transition-colors duration-500">
 
-      {/* Background Architectural Image + atmospheric tint wash */}
+      {/* Background Architectural Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
           alt="Tech background"
           fill
-          className="object-cover mix-blend-multiply dark:mix-blend-luminosity grayscale-[20%] dark:grayscale-[50%] opacity-15 dark:opacity-30"
+          className="object-cover mix-blend-multiply dark:mix-blend-luminosity grayscale-[20%] dark:grayscale-[50%] opacity-12 dark:opacity-30"
           priority
         />
-        {/* Gradient blends image into the accent surface */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-accent)] via-[var(--lm-accent)]/90 dark:from-[var(--color-brand-navy)] dark:via-[var(--color-brand-navy)]/80 to-transparent transition-colors duration-500" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--lm-accent)] via-transparent to-[var(--lm-accent)] dark:from-[var(--color-brand-navy)] dark:to-[var(--color-brand-navy)] transition-colors duration-500" />
+        {/* Dark mode: standard dark gradient */}
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--color-brand-navy)] via-[var(--color-brand-navy)]/80 to-transparent" />
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-r from-[var(--color-brand-navy)] via-transparent to-[var(--color-brand-navy)]" />
 
-        {/* Light mode: subtle blue atmosphere bloom in top-right */}
-        <div className="absolute top-[-10%] right-[-5%] w-[55%] h-[55%] bg-[var(--color-brand-sky)]/[0.05] rounded-full blur-[120px] pointer-events-none dark:hidden" />
-        <div className="absolute bottom-[10%] left-[-5%] w-[40%] h-[40%] bg-[var(--color-brand-sky)]/[0.04] rounded-full blur-[100px] pointer-events-none dark:hidden" />
+        {/* Light mode: volumetric diagonal light — breaks flatness, preserves palatinate feel */}
+        <div className="absolute inset-0 dark:hidden">
+          {/* Base bleed gradient — bleeds image into the elevated surface */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-elevated)] via-[var(--lm-elevated)]/85 to-[var(--lm-elevated)]/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--lm-elevated)] via-transparent to-[var(--lm-elevated)]/60" />
+          {/* Volumetric bloom — top-right corner, like a directional light source */}
+          <div className="absolute top-0 right-0 w-[65%] h-[65%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.14)_0%,transparent_65%)]" />
+          {/* Soft counter-glow — bottom-left */}
+          <div className="absolute bottom-0 left-0 w-[50%] h-[50%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.08)_0%,transparent_60%)]" />
+          {/* Diagonal atmosphere sweep */}
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(191,195,227,0.25)_50%,transparent_100%)]" />
+        </div>
       </div>
 
       {/* Grid Lines */}
@@ -57,7 +66,7 @@ export const Hero = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
         >
           Forge The <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-ink)] via-[var(--lm-ink)]/80 to-[var(--lm-ink)]/20 dark:from-white dark:via-white dark:to-white/20 transition-all duration-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-ink)] via-[var(--lm-ink)]/75 to-[var(--lm-ink)]/20 dark:from-white dark:via-white dark:to-white/20 transition-all duration-500">
             Digital Era.
           </span>
         </motion.h1>
@@ -96,7 +105,7 @@ export const Hero = () => {
           >
             <Link
               href="#courses"
-              className="group relative flex items-center justify-center w-32 h-32 rounded-full border border-[var(--lm-ink)]/20 dark:border-white/20 bg-[var(--lm-ink)]/5 dark:bg-white/5 backdrop-blur-md overflow-hidden transition-all hover:bg-[var(--lm-ink)] hover:border-[var(--lm-ink)] dark:hover:bg-white dark:hover:border-white"
+              className="group relative flex items-center justify-center w-32 h-32 rounded-full border border-[var(--lm-ink)]/20 dark:border-white/20 bg-[var(--lm-ink)]/5 dark:bg-white/5 backdrop-blur-md overflow-hidden transition-all hover:bg-[var(--lm-ink)] hover:border-[var(--lm-ink)] dark:hover:bg-white dark:hover:border-white shadow-lg dark:shadow-none"
             >
               <ArrowDownRight className="w-8 h-8 text-[var(--lm-ink)] dark:text-white group-hover:text-white dark:group-hover:text-[var(--color-brand-navy)] transition-colors" />
             </Link>

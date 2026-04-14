@@ -6,9 +6,15 @@ import { fadeIn, staggerContainer } from "@/lib/motion";
 
 export const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-32 bg-[var(--lm-panel)] dark:bg-[#050505] relative z-10 overflow-hidden transition-colors duration-500">
-      {/* Subtle blueprint grid – adapts tone per theme */}
-      <div className="absolute inset-0 z-0 opacity-[0.4] dark:opacity-100 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgNDBoNDBWMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgxNSwgMTcsIDMzLCAwLjA0KSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgNDBoNDBWMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')]" />
+    /* lm-section — one rung below ProductLines (section-strong), creating alternating rhythm */
+    <section id="testimonials" className="py-32 bg-[var(--lm-section)] dark:bg-[#050505] relative z-10 overflow-hidden transition-colors duration-500">
+      {/* blueprint cross-hatch — lighter stroke in light mode */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.35] dark:opacity-100"
+        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h40V0z' fill='none' stroke='rgba(11,12,29,0.05)' stroke-width='1'/%3E%3C/svg%3E\")" }}
+      />
+      {/* section boundary markers */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/8 dark:hidden" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--lm-ink)]/8 dark:hidden" />
 
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}>

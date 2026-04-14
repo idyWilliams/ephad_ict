@@ -19,24 +19,34 @@
   --color-glow-blue: rgba(37, 99, 235, 0.2);
 
   /*
-   * ─── LIGHT MODE SURFACE SYSTEM ─────────────────────────────────────────────
-   * Philosophy: "Lights on in the same room."
-   * A cool blue-slate mist — the same EPHAD world, fully illuminated.
-   * These tokens replace every generic #F4F3EF / #ECEBE6 / #E6E5E0 / #DFDED8 value.
+   * ─── LIGHT MODE SURFACE SYSTEM v2 ──────────────────────────────────────────
+   * Philosophy: "Daylight inside the same world."
+   * 4 clearly distinct surface levels — 33 lightness-units of ramp, increasing chroma.
+   * Each step is visually perceptible at a glance, creating real page rhythm.
    *
-   * lm-base    → Primary page background. Short "morning mist" — barely-there cool tint.
-   * lm-band    → Alternating section band. Slightly deeper, creates page rhythm.
-   * lm-panel   → Cards, panels, elevated surfaces.
-   * lm-accent  → Hero, registration, key CTAs — the deepest, most prestigious surface.
-   * lm-ink     → Primary heading text — almost-black with a subtle blue undertone.
-   * lm-body    → Body / muted text — deep cool charcoal.
+   * lm-base          → F2F3FA  Ghost white. Page skeleton, alternating rests.
+   * lm-section       → E4E6F5  Pale slate. Default section bands.
+   * lm-section-strong→ D2D5EC  Visible depth. Key bands: Paths, Courses, FAQ.
+   * lm-elevated      → BFC3E3  Deep premium surface. Hero, Registration, youth Hero.
+   * lm-ink           → 0B0C1D  Near-void navy. All key headings.
+   * lm-body          → 1C1E35  Richer cool charcoal. All body / muted text.
+   *
+   * Backward-compat aliases (old names → new names):
+   *   --lm-band   = lm-section
+   *   --lm-panel  = lm-section-strong
+   *   --lm-accent = lm-elevated
   */
-  --lm-base:   #ECEDF4;   /* cool blue-slate mist    */
-  --lm-band:   #E3E4EE;   /* slate band              */
-  --lm-panel:  #DADBEA;   /* panel surface           */
-  --lm-accent: #D1D2E4;   /* accent / hero surface   */
-  --lm-ink:    #0F1121;   /* near-black w/ blue note */
-  --lm-body:   #2D2F40;   /* deep cool charcoal      */
+  --lm-base:            #F2F3FA;   /* HSL 235°,17%,97% — ghost white           */
+  --lm-section:         #E4E6F5;   /* HSL 234°,22%,93% — pale slate            */
+  --lm-section-strong:  #D2D5EC;   /* HSL 234°,27%,88% — mid-depth             */
+  --lm-elevated:        #BFC3E3;   /* HSL 234°,33%,82% — premium deep surface  */
+  --lm-ink:             #0B0C1D;   /* HSL 237°,54%,9%  — near-void navy        */
+  --lm-body:            #1C1E35;   /* HSL 235°,33%,16% — rich cool charcoal    */
+
+  /* Backward-compat aliases — existing component refs still resolve */
+  --lm-band:   var(--lm-section);
+  --lm-panel:  var(--lm-section-strong);
+  --lm-accent: var(--lm-elevated);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);

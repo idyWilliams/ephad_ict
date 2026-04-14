@@ -10,9 +10,11 @@ import { fadeIn, staggerContainer, slideInLeft } from "@/lib/motion";
 import { youthPayConfig } from "@/lib/payments/config";
 import type { CoursePayConfig } from "@/lib/payments/types";
 import { EnrollModal } from "@/components/ui/EnrollModal";
+import { useWhatsAppCtx } from "@/context/WhatsAppContext";
 
 export default function KidsTeensPage() {
   const [selectedCourse, setSelectedCourse] = useState<CoursePayConfig | null>(null);
+  const { setCourseName } = useWhatsAppCtx();
 
   return (
     <>
@@ -21,8 +23,8 @@ export default function KidsTeensPage() {
       <div className="bg-[var(--lm-base)] dark:bg-[#02040a] transition-colors duration-500 overflow-hidden min-h-screen pb-32">
 
         {/* ─── 1. HERO ──────────────────────────────────────────────────────── */}
-        <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-[10%]">
-          <div className="absolute inset-0 z-0 overflow-hidden">
+        <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-[10%] bg-[var(--lm-elevated)] dark:bg-[#02040a] transition-colors duration-500">
+        <div className="absolute inset-0 z-0 overflow-hidden">
             <motion.div
               initial={{ scale: 1 }} animate={{ scale: 1.15 }}
               transition={{ duration: 25, repeat: Infinity, repeatType: "mirror", ease: "linear" }}
@@ -36,9 +38,15 @@ export default function KidsTeensPage() {
                 priority
               />
             </motion.div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-base)] via-[var(--lm-base)]/90 dark:from-[#02040a] dark:via-[#02040a]/90 to-[var(--lm-base)]/30 dark:to-[#02040a]/30" />
-            {/* subtle atmospheric bloom */}
-            <div className="absolute top-[-10%] right-[-5%] w-[55%] h-[55%] bg-[var(--color-brand-sky)]/[0.05] rounded-full blur-[120px] pointer-events-none dark:hidden" />
+            {/* Dark mode blends */}
+            <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[#02040a] via-[#02040a]/90 to-[#02040a]/30" />
+            {/* Light mode: elevated surface + volumetric corner blooms */}
+            <div className="absolute inset-0 dark:hidden">
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-elevated)] via-[var(--lm-elevated)]/85 to-[var(--lm-elevated)]/20" />
+              <div className="absolute top-0 right-0 w-[65%] h-[65%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.13)_0%,transparent_65%)]" />
+              <div className="absolute bottom-0 left-0 w-[45%] h-[45%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.07)_0%,transparent_60%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(191,195,227,0.22)_50%,transparent_100%)]" />
+            </div>
           </div>
 
           <div className="relative z-10 max-w-4xl">
@@ -75,7 +83,7 @@ export default function KidsTeensPage() {
         </section>
 
         {/* ─── 2. THE METHODOLOGY ──────────────────────────────────────────── */}
-        <section className="py-32 bg-[var(--lm-band)] dark:bg-[#050505] relative z-10 transition-colors duration-500 border-t border-[var(--lm-ink)]/5 dark:border-white/5">
+        <section className="py-32 bg-[var(--lm-section)] dark:bg-[#050505] relative z-10 transition-colors duration-500 border-t border-[var(--lm-ink)]/8 dark:border-white/5">
           <div className="container mx-auto px-6 md:px-[10%] relative z-20">
             <div className="mb-20">
               <div className="flex items-center gap-4 mb-4">
@@ -125,6 +133,8 @@ export default function KidsTeensPage() {
                   key={prog.id}
                   initial="hidden" whileInView="visible" viewport={{ once: true }}
                   variants={pi === 0 ? slideInLeft : fadeIn}
+                  onMouseEnter={() => setCourseName(prog.name)}
+                  onMouseLeave={() => setCourseName(null)}
                   className="border border-[var(--lm-ink)]/10 dark:border-white/10 overflow-hidden group hover:border-[var(--lm-ink)]/30 dark:hover:border-white/30 transition-colors"
                 >
                   <div className="h-64 relative bg-[var(--lm-panel)] dark:bg-[#050505]">
@@ -172,7 +182,10 @@ export default function KidsTeensPage() {
         </section>
 
         {/* ─── 4. CONTACT / ENQUIRY FORM ───────────────────────────────────── */}
-        <section id="enroll" className="py-32 bg-[var(--lm-accent)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/10 transition-colors duration-500">
+        <section id="enroll" className="py-32 bg-[var(--lm-elevated)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/10 transition-colors duration-500 relative overflow-hidden">
+          {/* light mode corner blooms */}
+          <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.10)_0%,transparent_60%)] dark:hidden pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/12 dark:hidden" />
           <div className="container mx-auto px-6 md:px-[10%] relative z-20">
             <div className="grid lg:grid-cols-12 gap-16">
               <div className="lg:col-span-5">

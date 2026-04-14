@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 import { WhatsAppRibbon } from "@/components/ui/WhatsAppRibbon";
+import { WhatsAppProvider } from "@/context/WhatsAppContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,13 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-[var(--lm-base)] dark:bg-[#02040a] text-[var(--lm-ink)] dark:text-white transition-colors duration-500`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="min-h-screen pt-0">{children}</main>
-          <Footer />
-          <WhatsAppRibbon />
-          <Toaster position="bottom-right" />
+          <WhatsAppProvider>
+            <Header />
+            <main className="min-h-screen pt-0">{children}</main>
+            <Footer />
+            <WhatsAppRibbon />
+            <Toaster position="bottom-right" />
+          </WhatsAppProvider>
         </ThemeProvider>
       </body>
     </html>

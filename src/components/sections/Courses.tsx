@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { foundationalPayConfig, careerPayConfig } from "@/lib/payments/config";
 import type { CoursePayConfig } from "@/lib/payments/types";
 import { EnrollModal } from "@/components/ui/EnrollModal";
+import { useWhatsAppCtx } from "@/context/WhatsAppContext";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { fadeIn, staggerContainer } from "@/lib/motion";
 
@@ -17,6 +18,7 @@ const SectionLabel = ({ text }: { text: string }) => (
 
 export const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<CoursePayConfig | null>(null);
+  const { setCourseName } = useWhatsAppCtx();
 
   return (
     <>
@@ -25,7 +27,9 @@ export const Courses = () => {
       <section id="courses" className="relative z-10 transition-colors duration-500">
 
         {/* ─── FOUNDATIONAL DIGITAL SKILLS ─── */}
-        <div id="foundational" className="py-28 bg-[var(--lm-band)] dark:bg-[#06070d] border-t border-[var(--lm-ink)]/5 dark:border-white/5">
+        <div id="foundational" className="py-28 bg-[var(--lm-section)] dark:bg-[#06070d] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative">
+          {/* boundary inner shadow */}
+          <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[var(--lm-ink)]/[0.03] to-transparent dark:hidden pointer-events-none" />
           <div className="container mx-auto px-6 md:px-[10%]">
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
@@ -49,6 +53,8 @@ export const Courses = () => {
               {foundationalPayConfig.map((course, i) => (
                 <motion.div
                   key={course.id} variants={fadeIn}
+                  onMouseEnter={() => setCourseName(course.name)}
+                  onMouseLeave={() => setCourseName(null)}
                   className="group relative border-b border-[var(--lm-ink)]/5 dark:border-white/10 py-10 md:py-14 transition-all duration-500 hover:bg-[var(--lm-ink)]/[0.025] dark:hover:bg-white/[0.02]"
                 >
                   <div className="absolute left-0 top-0 bottom-0 w-0 bg-[var(--color-brand-sky)] group-hover:w-1 transition-all duration-500" />
@@ -87,7 +93,8 @@ export const Courses = () => {
         </div>
 
         {/* ─── CAREER TECH BOOTCAMPS ─── */}
-        <div id="career-tech" className="py-28 bg-[var(--lm-panel)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/5 dark:border-white/5">
+        <div id="career-tech" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/10 dark:border-white/5 relative">
+          <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--lm-ink)]/[0.04] to-transparent dark:hidden pointer-events-none" />
           <div className="container mx-auto px-6 md:px-[10%]">
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
@@ -120,6 +127,8 @@ export const Courses = () => {
               {careerPayConfig.map((course, i) => (
                 <motion.div
                   key={course.id} variants={fadeIn}
+                  onMouseEnter={() => setCourseName(course.name)}
+                  onMouseLeave={() => setCourseName(null)}
                   className="group relative border-b border-[var(--lm-ink)]/5 dark:border-white/10 py-10 md:py-14 transition-all duration-500 hover:bg-[var(--lm-ink)]/[0.025] dark:hover:bg-white/[0.02]"
                 >
                   <div className="absolute left-0 top-0 bottom-0 w-0 bg-[var(--color-brand-sky)] group-hover:w-1 transition-all duration-500" />

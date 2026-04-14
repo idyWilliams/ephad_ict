@@ -5,9 +5,10 @@ import { slideInLeft, staggerContainer, fadeIn } from "@/lib/motion";
 
 export const About = () => {
   return (
+    /* Sits at lm-base — the page skeleton. Lightest surface, resting beat. */
     <section id="about" className="py-32 bg-[var(--lm-base)] dark:bg-[#02040a] relative z-10 overflow-hidden border-t border-[var(--lm-ink)]/5 dark:border-white/5 transition-colors duration-500">
-      {/* Atmospheric bloom */}
-      <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] bg-[var(--color-brand-sky)]/[0.04] rounded-full blur-[150px] pointer-events-none dark:opacity-0 opacity-100" />
+      {/* Light mode: very faint right-side bloom to mirror hero's left/right rhythm */}
+      <div className="absolute top-0 right-0 w-[40%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.05)_0%,transparent_65%)] dark:hidden pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
@@ -27,10 +28,10 @@ export const About = () => {
             </h3>
 
             <div className="mt-16 grid md:grid-cols-2 gap-12">
-              <p className="text-[var(--lm-body)]/60 dark:text-white/50 text-lg font-light leading-relaxed transition-colors duration-500">
+              <p className="text-[var(--lm-body)]/65 dark:text-white/50 text-lg font-light leading-relaxed transition-colors duration-500">
                 EPHAD operates on a fundamentally different paradigm. We strip away academic bloat, focusing entirely on high-impact technical execution. Our labs mirror production environments.
               </p>
-              <p className="text-[var(--lm-body)]/60 dark:text-white/50 text-lg font-light leading-relaxed transition-colors duration-500">
+              <p className="text-[var(--lm-body)]/65 dark:text-white/50 text-lg font-light leading-relaxed transition-colors duration-500">
                 If you are looking for easy certifications, look elsewhere. We exist to forge Africa's most lethal engineers, designers, and systems architects.
               </p>
             </div>
@@ -38,7 +39,7 @@ export const About = () => {
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={staggerContainer}
-            className="lg:col-span-4 flex flex-col gap-10 lg:pl-12 border-l border-[var(--lm-ink)]/5 dark:border-white/5 lg:py-8 transition-colors duration-500"
+            className="lg:col-span-4 flex flex-col gap-10 lg:pl-12 border-l border-[var(--lm-ink)]/8 dark:border-white/5 lg:py-8 transition-colors duration-500"
           >
             {[
               { val: "10+", label: "Years in Production" },
