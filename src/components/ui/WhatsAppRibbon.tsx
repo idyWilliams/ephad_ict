@@ -63,7 +63,7 @@ export function WhatsAppRibbon() {
         whileTap={{ scale: 0.96 }}
         transition={{ type: "spring", stiffness: 400, damping: 20 }}
         className="pointer-events-auto relative flex items-center gap-3 rounded-full shadow-2xl overflow-hidden
-          bg-[var(--lm-ink)]/95 dark:bg-[#090b18]/95 backdrop-blur-md
+          bg-[var(--lm-text-main)]/95 dark:bg-[var(--dm-base)]/95 backdrop-blur-md
           border border-white/10 dark:border-white/8
           pl-3 pr-5 py-3 group"
       >
@@ -83,7 +83,7 @@ export function WhatsAppRibbon() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -4 }}
             transition={{ duration: 0.25 }}
-            className="hidden md:block relative z-10 text-[11px] font-bold tracking-wide text-white dark:text-white whitespace-nowrap max-w-[200px] truncate"
+            className="hidden md:block relative z-10 text-[11px] font-bold tracking-wide text-white dark:text-[var(--dm-text-main)] whitespace-nowrap max-w-[200px] truncate"
           >
             {desktopLabel}
           </motion.span>

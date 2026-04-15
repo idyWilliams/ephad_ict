@@ -14,7 +14,7 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-9 h-9 border border-black/10 dark:border-white/20" />;
+    return <div className="w-9 h-9 border border-black/10 dark:border-[var(--dm-soft-line)]" />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -22,7 +22,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex items-center justify-center w-9 h-9 border border-black/10 dark:border-white/20 text-black/50 hover:text-black dark:text-white/50 dark:hover:text-white transition-all overflow-hidden"
+      className="relative flex items-center justify-center w-9 h-9 border border-black/10 dark:border-[var(--dm-soft-line)] text-black/50 hover:text-black dark:text-[var(--dm-text-main)]/50 dark:hover:text-white transition-all overflow-hidden"
       aria-label="Toggle theme"
     >
       <div className="absolute inset-0 bg-black/5 dark:bg-white/5 opacity-0 hover:opacity-100 transition-opacity" />

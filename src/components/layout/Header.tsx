@@ -26,17 +26,17 @@ export const Header = () => {
 
   return (
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b border-[var(--lm-ink)]/10 dark:border-white/5",
-      scrolled ? "bg-[var(--lm-base)]/90 dark:bg-[#090b18]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)]",
+      scrolled ? "bg-[var(--lm-base)]/90 dark:bg-[var(--dm-base)]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
     )}>
       <div className="container mx-auto px-6 md:px-[10%] flex items-center justify-between">
         
         {/* Brand */}
         <Link href="/" className="flex items-center gap-6 group z-50">
-          <div className="w-10 h-10 border border-[var(--lm-ink)]/20 dark:border-white/20 flex items-center justify-center text-[var(--lm-ink)] dark:text-white font-bold text-lg group-hover:bg-[var(--lm-ink)] group-hover:text-[var(--lm-base)] dark:group-hover:bg-white dark:group-hover:text-black transition-all">
+          <div className="w-10 h-10 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex items-center justify-center text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] font-bold text-lg group-hover:bg-[var(--lm-text-main)] group-hover:text-[var(--lm-elevated)] dark:group-hover:bg-[var(--dm-text-main)] dark:group-hover:text-black transition-all">
             E.
           </div>
-          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[var(--lm-ink)] dark:text-white">
+          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
             EPHAD
           </span>
         </Link>
@@ -47,7 +47,7 @@ export const Header = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--lm-body)]/50 dark:text-white/50 hover:text-[var(--lm-ink)] dark:hover:text-white transition-colors"
+              className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors"
             >
               {link.name}
             </Link>
@@ -55,7 +55,7 @@ export const Header = () => {
           <ThemeToggle />
           <Link 
             href="/#register" 
-            className="relative px-6 py-3 border border-[var(--color-brand-sky)] text-[var(--color-brand-sky)] text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[var(--color-brand-sky)] hover:text-white transition-colors"
+            className="relative px-6 py-3 border border-[var(--lm-accent)] text-[var(--lm-accent)] dark:border-[var(--dm-accent)] dark:text-[var(--dm-accent)] text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[var(--lm-accent)] hover:text-white dark:hover:bg-[var(--dm-accent)] transition-colors"
           >
             Apply Now
           </Link>
@@ -65,7 +65,7 @@ export const Header = () => {
         <div className="flex md:hidden items-center gap-4 z-50">
           <ThemeToggle />
           <button
-            className="text-[var(--lm-ink)] dark:text-white p-2"
+            className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,14 +80,14 @@ export const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute top-full left-0 right-0 h-screen bg-[var(--lm-base)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/10 dark:border-white/10 p-8 flex flex-col items-center justify-center gap-10"
+              className="absolute top-full left-0 right-0 h-screen bg-[var(--lm-base)] dark:bg-[var(--dm-base)] border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] p-8 flex flex-col items-center justify-center gap-10"
             >
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-4xl font-light uppercase tracking-widest text-[var(--lm-ink)]/80 dark:text-white/80 hover:text-[var(--lm-ink)] dark:hover:text-white transition-colors"
+                  className="text-4xl font-light uppercase tracking-widest text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -95,7 +95,7 @@ export const Header = () => {
               <Link 
                 href="/#register" 
                 onClick={() => setMobileMenuOpen(false)} 
-                className="mt-8 text-xl font-bold uppercase tracking-[0.3em] text-[var(--color-brand-sky)]"
+                className="mt-8 text-xl font-bold uppercase tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)]"
               >
                 Apply Now
               </Link>

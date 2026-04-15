@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-[var(--lm-base)] dark:bg-[#090b18] text-[var(--lm-ink)] dark:text-white transition-colors duration-500`}>
+      <body className={`${inter.className} antialiased transition-colors duration-500`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <WhatsAppProvider>
             <Header />

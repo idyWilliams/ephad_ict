@@ -29,10 +29,10 @@ const lines = [
 export const ProductLines = () => {
   return (
     /* Sits on lm-section-strong — clearly deeper than the About (lm-base) above it */
-    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[#090b18] border-t border-[var(--lm-ink)]/8 dark:border-white/5 relative z-10 overflow-hidden transition-colors duration-500">
+    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)] border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative z-10 overflow-hidden transition-colors duration-500">
       {/* Light mode boundary shadows */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/10 dark:hidden" />
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-ink)]/[0.03] to-transparent dark:hidden pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-soft-line)] dark:hidden" />
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-text-main)]/[0.03] to-transparent dark:hidden pointer-events-none" />
 
       {/* Dark mode ambient orbs — subtle blue wash behind the grid */}
       <div className="ambient-orb ambient-float-slow w-[700px] h-[700px] bg-blue-700/[0.09] blur-[140px] top-[-20%] left-[-10%] hidden dark:block" />
@@ -47,45 +47,45 @@ export const ProductLines = () => {
           className="mb-20"
         >
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-px bg-[var(--color-brand-sky)]" />
-            <span className="text-xs font-bold uppercase tracking-[0.35em] text-[var(--lm-body)]/50 dark:text-white/50">Our Programs</span>
+            <div className="w-8 h-px bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)]" />
+            <span className="text-xs font-bold uppercase tracking-[0.35em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">Our Programs</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--lm-ink)] dark:text-white tracking-tighter uppercase">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase">
             Three <span className="font-bold">Distinct Paths.</span>
           </h2>
         </motion.div>
 
         <motion.div
           initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={staggerContainer}
-          className="grid md:grid-cols-3 gap-0 border-l border-[var(--lm-ink)]/10 dark:border-white/10"
+          className="grid md:grid-cols-3 gap-0 border-l border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)]"
         >
           {lines.map((line) => (
             <motion.div
               key={line.index} variants={fadeIn}
-              className={`relative group border-r border-b border-[var(--lm-ink)]/10 dark:border-white/10 p-10 md:p-12 flex flex-col justify-between gap-10 transition-all duration-500 ${
+              className={`relative group border-r border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] p-10 md:p-12 flex flex-col justify-between gap-10 transition-all duration-500 ${
                 line.accent
-                  ? "bg-[var(--lm-ink)] dark:bg-white shadow-lg"
-                  : "bg-[var(--lm-section-strong)]/60 hover:bg-[var(--lm-elevated)]/60 dark:bg-transparent dark:hover:bg-white/[0.02]"
+                  ? "bg-[var(--lm-text-main)] dark:bg-[var(--dm-text-main)] shadow-lg"
+                  : "bg-[var(--lm-section-strong)]/60 hover:bg-[var(--lm-elevated)]/60 dark:bg-transparent dark:hover:bg-[var(--dm-elevated)]/20"
               }`}
             >
               <div>
                 <div className="flex items-start justify-between mb-8">
-                  <div className={`p-3 border ${line.accent ? "border-white/20 bg-white/10" : "border-[var(--lm-ink)]/15 dark:border-white/10 bg-[var(--lm-elevated)]/50 dark:bg-white/5"}`}>
-                    <line.icon size={22} className={line.accent ? "text-white dark:text-[var(--lm-ink)]" : "text-[var(--lm-ink)] dark:text-white"} />
+                  <div className={`p-3 border ${line.accent ? "border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)]" : "border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)]/50 dark:bg-[var(--dm-elevated)]/50"}`}>
+                    <line.icon size={22} className={line.accent ? "text-[var(--lm-text-main)] dark:text-[var(--dm-base)]" : "text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]"} />
                   </div>
-                  <span className={`text-4xl font-black ${line.accent ? "text-white/10 dark:text-[var(--lm-ink)]/10" : "text-[var(--lm-ink)]/10 dark:text-white/10"}`}>{line.index}</span>
+                  <span className={`text-4xl font-black ${line.accent ? "text-[var(--lm-elevated)]/10 dark:text-[var(--dm-base)]/10" : "text-[var(--lm-text-main)]/10 dark:text-[var(--dm-text-main)]/10"}`}>{line.index}</span>
                 </div>
 
-                <div className="text-[10px] font-bold uppercase tracking-[0.3em] mb-3 text-[var(--color-brand-sky)]">{line.tag}</div>
+                <div className="text-[10px] font-bold uppercase tracking-[0.3em] mb-3 text-[var(--lm-accent)] dark:text-[var(--dm-accent)]">{line.tag}</div>
 
-                <h3 className={`text-3xl font-black uppercase tracking-tighter leading-tight mb-1 ${line.accent ? "text-white dark:text-[var(--lm-ink)]" : "text-[var(--lm-ink)] dark:text-white"}`}>
+                <h3 className={`text-3xl font-black uppercase tracking-tighter leading-tight mb-1 ${line.accent ? "text-[var(--lm-elevated)] dark:text-[var(--dm-base)]" : "text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]"}`}>
                   {line.headline}
                 </h3>
-                <div className={`text-xs uppercase tracking-widest font-medium mb-6 ${line.accent ? "text-white/50 dark:text-[var(--lm-ink)]/50" : "text-[var(--lm-body)]/40 dark:text-white/40"}`}>
+                <div className={`text-xs uppercase tracking-widest font-medium mb-6 ${line.accent ? "text-[var(--lm-elevated)]/50 dark:text-[var(--dm-base)]/50" : "text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]"}`}>
                   {line.sub}
                 </div>
 
-                <p className={`font-light leading-relaxed text-sm ${line.accent ? "text-white/70 dark:text-[var(--lm-ink)]/70" : "text-[var(--lm-body)]/70 dark:text-white/60"}`}>
+                <p className={`font-light leading-relaxed text-sm ${line.accent ? "text-[var(--lm-elevated)]/70 dark:text-[var(--dm-base)]/70" : "text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]"}`}>
                   {line.desc}
                 </p>
               </div>
@@ -94,8 +94,8 @@ export const ProductLines = () => {
                 href={line.href}
                 className={`inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] group/link transition-colors ${
                   line.accent
-                    ? "text-white dark:text-[var(--lm-ink)] hover:text-[var(--color-brand-sky)] dark:hover:text-[var(--color-brand-sky)]"
-                    : "text-[var(--lm-ink)] dark:text-white hover:text-[var(--color-brand-sky)] dark:hover:text-[var(--color-brand-sky)]"
+                    ? "text-[var(--lm-elevated)] dark:text-[var(--dm-base)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)]"
+                    : "text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)]"
                 }`}
               >
                 {line.cta}

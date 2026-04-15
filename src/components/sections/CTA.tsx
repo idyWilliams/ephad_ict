@@ -21,27 +21,24 @@ export const CTA = () => {
 
   return (
     /* lm-elevated — the deepest, most prestigious surface. Premium focal point. */
-    <section id="register" className="relative min-h-[90svh] bg-[var(--lm-elevated)] dark:bg-[#090b18] flex items-center z-10 overflow-hidden transition-colors duration-500">
+    <section id="register" className="relative min-h-[90svh] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)] flex items-center z-10 overflow-hidden transition-colors duration-500">
 
       {/* Structural center line */}
-      <div className="absolute left-[50%] top-0 bottom-0 w-px bg-[var(--lm-ink)]/5 dark:bg-white/5 hidden lg:block" />
+      <div className="absolute left-[50%] top-0 bottom-0 w-px bg-[var(--lm-text-main)]/5 dark:bg-white/5 hidden lg:block" />
 
-      {/* Dark mode ambient orbs — match hero's directional light logic */}
-      <div className="ambient-orb ambient-float-slow w-[700px] h-[700px] bg-blue-600/[0.10] blur-[140px] top-[-20%] right-[-15%] hidden dark:block" />
-      <div className="ambient-orb ambient-float-mid  w-[400px] h-[400px] bg-indigo-500/[0.07] blur-[100px] bottom-[-10%] left-[10%]  hidden dark:block" />
+      {/* Dark mode ambient radial gradient */}
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_bottom_left,var(--dm-accent-soft)_0%,transparent_70%)]" />
 
       {/* Light mode volumetric atmosphere */}
       <div className="absolute inset-0 dark:hidden pointer-events-none">
-        {/* top-right corner bloom — matches hero directionality */}
-        <div className="absolute top-[-15%] right-[-8%] w-[60%] h-[80%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.12)_0%,transparent_60%)]" />
-        {/* bottom-left counter-bloom */}
-        <div className="absolute bottom-[-10%] left-[-5%] w-[45%] h-[60%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.08)_0%,transparent_60%)]" />
-        {/* diagonal sweep — premium gradient motion feel */}
-        <div className="absolute inset-0 bg-[linear-gradient(125deg,rgba(191,195,227,0)_0%,rgba(191,195,227,0.3)_45%,rgba(191,195,227,0)_90%)]" />
+        {/* Soft diagonal gradient from lm-accent-soft into transparent */}
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,var(--lm-accent-soft)_0%,transparent_60%)]" />
+        {/* top-right corner bloom — to keep consistency with the brand feel */}
+        <div className="absolute top-[-15%] right-[-8%] w-[60%] h-[80%] bg-[radial-gradient(ellipse_at_top_right,var(--lm-accent-soft)_0%,transparent_60%)]" />
       </div>
 
       {/* Boundary line */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-ink)]/12 dark:border-white/10" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-text-main)]/12 dark:border-[var(--dm-soft-line)]" />
 
       <div className="container mx-auto px-6 md:px-[10%] relative z-20 w-full">
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32 items-center">
@@ -49,18 +46,18 @@ export const CTA = () => {
           {/* Left text */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={slideInLeft}
-            className="text-[var(--lm-ink)] dark:text-white transition-colors duration-500"
+            className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] transition-colors duration-500"
           >
             <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-12">
               The <br />Next <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-brand-sky)] to-[var(--lm-ink)] dark:to-white transition-all duration-500">Move.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-accent)] to-[var(--lm-text-main)] dark:to-white transition-all duration-500">Move.</span>
             </h2>
-            <p className="text-xl text-[var(--lm-body)]/65 dark:text-white/50 font-light max-w-sm mb-12 transition-colors duration-500">
+            <p className="text-xl text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light max-w-sm mb-12 transition-colors duration-500">
               Stop consuming. Start shipping. Secure your place in our next engineering cohort.
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[var(--lm-ink)]/20 dark:bg-white/20 transition-colors duration-500" />
-              <span className="uppercase tracking-[0.2em] text-xs font-semibold text-[var(--lm-body)]/60 dark:text-white/60 transition-colors duration-500">No fluff. Just execution.</span>
+              <div className="w-12 h-px bg-[var(--lm-text-main)]/20 dark:bg-white/20 transition-colors duration-500" />
+              <span className="uppercase tracking-[0.2em] text-xs font-semibold text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] transition-colors duration-500">No fluff. Just execution.</span>
             </div>
           </motion.div>
 
@@ -72,31 +69,31 @@ export const CTA = () => {
             <form onSubmit={onSubmit} className="flex flex-col gap-12">
               <div className="relative group">
                 <input required placeholder="LEGAL NAME"
-                  className="w-full bg-transparent border-0 border-b border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-ink)] dark:text-white placeholder-[var(--lm-body)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-ink)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest" />
+                  className="w-full bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] placeholder-[var(--lm-text-muted)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-text-main)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest" />
               </div>
 
               <div className="grid md:grid-cols-2 gap-12">
                 <input required type="tel" placeholder="PHONE NUMBER"
-                  className="bg-transparent border-0 border-b border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-ink)] dark:text-white placeholder-[var(--lm-body)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-ink)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest" />
+                  className="bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] placeholder-[var(--lm-text-muted)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-text-main)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest" />
                 <input required type="email" placeholder="EMAIL ADDRESS"
-                  className="bg-transparent border-0 border-b border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-ink)] dark:text-white placeholder-[var(--lm-body)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-ink)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest" />
+                  className="bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] placeholder-[var(--lm-text-muted)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-text-main)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest" />
               </div>
 
               <div className="relative group">
                 <select required defaultValue=""
-                  className="w-full bg-[var(--lm-elevated)] dark:bg-transparent border-0 border-b border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-ink)] dark:text-white rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-ink)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest appearance-none cursor-pointer"
+                  className="w-full bg-[var(--lm-elevated)] dark:bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-text-main)] dark:focus:border-white transition-all text-xl font-light uppercase tracking-widest appearance-none cursor-pointer"
                 >
-                  <option value="" disabled className="bg-[var(--lm-elevated)] dark:bg-[#1C1C18] text-[var(--lm-body)]/50 dark:text-white/50">SELECT TRACK</option>
+                  <option value="" disabled className="bg-[var(--lm-elevated)] dark:bg-[var(--lm-text-main)] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">SELECT TRACK</option>
                   {courses.map(c => (
-                    <option key={c.id} value={c.id} className="bg-[var(--lm-elevated)] dark:bg-[#1C1C18] text-[var(--lm-ink)] dark:text-white uppercase">{c.title}</option>
+                    <option key={c.id} value={c.id} className="bg-[var(--lm-elevated)] dark:bg-[var(--lm-text-main)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase">{c.title}</option>
                   ))}
                 </select>
               </div>
 
               <button type="submit" disabled={isSubmitting}
-                className="group relative w-full h-20 bg-[var(--lm-ink)] dark:bg-white text-white dark:text-black mt-8 overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-lg dark:shadow-none btn-glow-dark"
+                className="group relative w-full h-20 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black mt-8 overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 shadow-lg dark:shadow-none btn-glow-dark"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1a1b30] to-[var(--lm-ink)] dark:from-gray-200 dark:to-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#1a1b30] to-[var(--lm-text-main)] dark:from-gray-200 dark:to-white opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="relative text-2xl font-black uppercase tracking-tighter">
                   {isSubmitting ? "Processing" : "Initialize"}
                 </span>
