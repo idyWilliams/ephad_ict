@@ -29,7 +29,7 @@ const lines = [
 export const ProductLines = () => {
   return (
     /* Sits on lm-section-strong — clearly deeper than the About (lm-base) above it */
-    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)] border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative z-10 overflow-hidden transition-colors duration-500">
+    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/40 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative z-10 overflow-hidden transition-colors duration-500">
       {/* Light mode boundary shadows */}
       <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-soft-line)] dark:hidden" />
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-text-main)]/[0.03] to-transparent dark:hidden pointer-events-none" />
@@ -70,7 +70,7 @@ export const ProductLines = () => {
             >
               <div>
                 <div className="flex items-start justify-between mb-8">
-                  <div className={`p-3 border ${line.accent ? "border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)]" : "border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)]/50 dark:bg-[var(--dm-elevated)]/50"}`}>
+                  <div className={`p-3 border ${line.accent ? "border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)]/60 dark:backdrop-blur-2xl" : "border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)]/50 dark:bg-[var(--dm-elevated)]/60 dark:backdrop-blur-2xl/50"}`}>
                     <line.icon size={22} className={line.accent ? "text-[var(--lm-text-main)] dark:text-[var(--dm-base)]" : "text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]"} />
                   </div>
                   <span className={`text-4xl font-black ${line.accent ? "text-[var(--lm-elevated)]/10 dark:text-[var(--dm-base)]/10" : "text-[var(--lm-text-main)]/10 dark:text-[var(--dm-text-main)]/10"}`}>{line.index}</span>

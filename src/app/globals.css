@@ -5,15 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  /* Ultra-Premium Sharp Web3 Palette */
-  --color-brand-navy: #090B18;     /* refined deep navy — page dark base        */
-  --color-brand-blue: #0b1f47;
-  --color-brand-sky: #2563eb;
-  --color-brand-charcoal: #0D0F1C; /* section dark                              */
-  --color-brand-steel: #64748b;
-
-  --color-background: var(--color-brand-navy);
-  --color-foreground: #ffffff;
+  /* Wire Tailwind classes to our custom base layers and shadcn primitives */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
   /* Sharp Lighting */
   --color-glow-blue: rgba(37, 99, 235, 0.2);
@@ -108,14 +102,14 @@
     --lm-accent-soft:     rgba(31,78,158,0.10);
 
     /* DARK MODE tokens */
-    --dm-base:            #050815;
-    --dm-section:         #080C1B;
-    --dm-elevated:        #0E1426;
+    --dm-base:            #050505; /* Pure dark / Deep grey instead of navy */
+    --dm-section:         #0A0A0A; /* Clean dark grey section */
+    --dm-elevated:        #121212;
     --dm-text-main:       #F5F7FF;
-    --dm-text-muted:      #A9B1D4;
+    --dm-text-muted:      #9AA5CE; /* Slightly more neon saturation */
     --dm-accent:          #4A90D9;
-    --dm-soft-line:       rgba(255,255,255,0.08);
-    --dm-accent-soft:     rgba(74,144,217,0.12);
+    --dm-soft-line:       rgba(255,255,255,0.06);
+    --dm-accent-soft:     rgba(74,144,217,0.18); /* Stronger glow / mesh effect */
 
     --brand-success:      #10B981;
 
@@ -166,13 +160,15 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Background is handled by GlobalBackground fixed layer — body stays transparent */
+    background-color: transparent;
+    color: var(--foreground);
   }
   html {
     @apply font-sans;
   }
 
-  /* Soft off-white body text in dark mode — slightly warmer than pure #FFF */
+  /* Soft off-white body text in dark mode */
   .dark body {
     color: #DDE0EF;
   }
@@ -225,6 +221,7 @@
 }
 
 /* Hover glow for primary dark mode CTAs */
+/* Hover glow for primary dark mode CTAs */
 @layer utilities {
   .btn-glow-dark {
     transition: box-shadow 0.3s ease;
@@ -232,4 +229,16 @@
   .dark .btn-glow-dark:hover {
     box-shadow: 0 0 32px rgba(96, 165, 250, 0.25), 0 0 80px rgba(37, 99, 235, 0.12);
   }
+
+  /* Beast Mode Animations */
+  .bg-mesh-pan {
+    background-size: 200% 200%;
+    animation: meshPan 20s ease infinite;
+  }
+}
+
+@keyframes meshPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

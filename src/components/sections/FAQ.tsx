@@ -12,7 +12,7 @@ export const FAQ = () => {
 
   return (
     /* lm-section-strong — same depth as ProductLines, anchors this important section */
-    <section id="faq" className="py-32 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)] relative z-10 overflow-hidden transition-colors duration-500">
+    <section id="faq" className="py-32 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/40 dark:backdrop-blur-3xl relative z-10 overflow-hidden transition-colors duration-500">
       {/* top/bottom boundary lines — clear depth demarcation in light mode */}
       <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-text-main)]/10 dark:hidden" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-[var(--lm-text-main)]/10 dark:hidden" />

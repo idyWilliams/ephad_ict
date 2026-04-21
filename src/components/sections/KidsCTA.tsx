@@ -8,14 +8,14 @@ import { fadeIn } from "@/lib/motion";
 
 export const KidsCTA = () => {
   return (
-    <section className="py-24 bg-[var(--lm-section)] dark:bg-[var(--dm-section)] relative z-10 transition-colors duration-500 overflow-hidden">
+    <section className="py-24 bg-[var(--lm-section)] dark:bg-[var(--dm-section)]/40 dark:backdrop-blur-3xl relative z-10 transition-colors duration-500 overflow-hidden">
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={fadeIn}
-          className="relative rounded-[2.5rem] overflow-hidden group border border-[#1C1C18]/10 dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)] dark:bg-[var(--dm-base)] transition-colors duration-500"
+          className="relative rounded-[2.5rem] overflow-hidden group border border-[#1C1C18]/10 dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)] dark:bg-transparent transition-colors duration-500"
         >
           {/* Subtle Background Layer */}
           <div className="absolute inset-0 z-0">

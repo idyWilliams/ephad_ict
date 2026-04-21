@@ -21,7 +21,7 @@ export const CTA = () => {
 
   return (
     /* lm-elevated — the deepest, most prestigious surface. Premium focal point. */
-    <section id="register" className="relative min-h-[90svh] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)] flex items-center z-10 overflow-hidden transition-colors duration-500">
+    <section id="register" className="relative min-h-[90svh] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)]/60 dark:backdrop-blur-2xl flex items-center z-10 overflow-hidden transition-colors duration-500">
 
       {/* Structural center line */}
       <div className="absolute left-[50%] top-0 bottom-0 w-px bg-[var(--lm-text-main)]/5 dark:bg-white/5 hidden lg:block" />
