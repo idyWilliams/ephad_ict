@@ -6,9 +6,9 @@
 
 @theme inline {
   /* Ultra-Premium Sharp Web3 Palette */
-  --color-brand-navy: #02040a; 
-  --color-brand-blue: #0b1f47; 
-  --color-brand-sky: #2563eb; 
+  --color-brand-navy: #02040a;
+  --color-brand-blue: #0b1f47;
+  --color-brand-sky: #2563eb;
   --color-brand-charcoal: #050505;
   --color-brand-steel: #64748b;
 
@@ -18,6 +18,25 @@
   /* Sharp Lighting */
   --color-glow-blue: rgba(37, 99, 235, 0.2);
 
+  /*
+   * ─── LIGHT MODE SURFACE SYSTEM ─────────────────────────────────────────────
+   * Philosophy: "Lights on in the same room."
+   * A cool blue-slate mist — the same EPHAD world, fully illuminated.
+   * These tokens replace every generic #F4F3EF / #ECEBE6 / #E6E5E0 / #DFDED8 value.
+   *
+   * lm-base    → Primary page background. Short "morning mist" — barely-there cool tint.
+   * lm-band    → Alternating section band. Slightly deeper, creates page rhythm.
+   * lm-panel   → Cards, panels, elevated surfaces.
+   * lm-accent  → Hero, registration, key CTAs — the deepest, most prestigious surface.
+   * lm-ink     → Primary heading text — almost-black with a subtle blue undertone.
+   * lm-body    → Body / muted text — deep cool charcoal.
+  */
+  --lm-base:   #ECEDF4;   /* cool blue-slate mist    */
+  --lm-band:   #E3E4EE;   /* slate band              */
+  --lm-panel:  #DADBEA;   /* panel surface           */
+  --lm-accent: #D1D2E4;   /* accent / hero surface   */
+  --lm-ink:    #0F1121;   /* near-black w/ blue note */
+  --lm-body:   #2D2F40;   /* deep cool charcoal      */
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
@@ -60,6 +79,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* shadcn/ui design tokens */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

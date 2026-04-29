@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { foundationalCourses, careerCourses } from "@/data";
-import Link from "next/link";
+import { foundationalPayConfig, careerPayConfig } from "@/lib/payments/config";
+import type { CoursePayConfig } from "@/lib/payments/types";
+import { EnrollModal } from "@/components/ui/EnrollModal";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { fadeIn, staggerContainer } from "@/lib/motion";
-import { cn } from "@/lib/utils";
 
 const SectionLabel = ({ text }: { text: string }) => (
   <div className="flex items-center gap-4 mb-3">
@@ -22,26 +23,31 @@ const calculateDiscountedPrice = (priceStr: string) => {
 };
 
 export const Courses = () => {
-  return (
-    <section id="courses" className="relative z-10 transition-colors duration-500">
+  const [selectedCourse, setSelectedCourse] = useState<CoursePayConfig | null>(null);
 
-      {/* ─── FOUNDATIONAL DIGITAL SKILLS ─────────────────────────────────────── */}
-      <div id="foundational" className="py-28 bg-[#ECEBE6] dark:bg-[#06070d] border-t border-[#1C1C18]/5 dark:border-white/5">
-        <div className="container mx-auto px-6 md:px-[10%]">
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
-            className="mb-16 grid md:grid-cols-2 gap-8 items-end"
-          >
-            <div>
-              <SectionLabel text="Program Line 02" />
-              <h2 className="text-4xl md:text-5xl font-light text-[#1C1C18] dark:text-white tracking-tighter uppercase leading-tight">
-                Foundational <span className="font-bold">Digital Skills.</span>
-              </h2>
-            </div>
-            <p className="text-[#1C1C18]/50 dark:text-white/50 font-light text-base leading-relaxed max-w-sm">
-              For absolute beginners and professionals who need a solid grounding in computers, productivity tools, and digital literacy. Zero prior experience required.
-            </p>
-          </motion.div>
+  return (
+    <>
+      <EnrollModal course={selectedCourse} onClose={() => setSelectedCourse(null)} />
+
+      <section id="courses" className="relative z-10 transition-colors duration-500">
+
+        {/* ─── FOUNDATIONAL DIGITAL SKILLS ─── */}
+        <div id="foundational" className="py-28 bg-[var(--lm-band)] dark:bg-[#06070d] border-t border-[var(--lm-ink)]/5 dark:border-white/5">
+          <div className="container mx-auto px-6 md:px-[10%]">
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
+              className="mb-16 grid md:grid-cols-2 gap-8 items-end"
+            >
+              <div>
+                <SectionLabel text="Program Line 02" />
+                <h2 className="text-4xl md:text-5xl font-light text-[var(--lm-ink)] dark:text-white tracking-tighter uppercase leading-tight">
+                  Foundational <span className="font-bold">Digital Skills.</span>
+                </h2>
+              </div>
+              <p className="text-[var(--lm-body)]/60 dark:text-white/50 font-light text-base leading-relaxed max-w-sm">
+                For absolute beginners and professionals who need a solid grounding in computers, productivity tools, and digital literacy. Zero prior experience required.
+              </p>
+            </motion.div>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={staggerContainer}
@@ -74,60 +80,51 @@ export const Courses = () => {
                         <span className="text-[9px] bg-[var(--color-brand-sky)]/10 text-[var(--color-brand-sky)] px-1.5 py-0.5 rounded font-black tracking-wider border border-[var(--color-brand-sky)]/20 shadow-sm">10% OFF</span>
                       </div>
                     </div>
+                    <div className="md:col-span-4">
+                      <p className="text-[var(--lm-body)]/60 dark:text-white/60 font-light leading-relaxed">{course.description}</p>
+                    </div>
+                    <div className="md:col-span-3 flex items-center">
+                      <button
+                        onClick={() => setSelectedCourse(course)}
+                        className="group/btn inline-flex items-center gap-2 px-6 py-3 border border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-ink)] dark:text-white text-xs font-bold uppercase tracking-widest hover:bg-[var(--lm-ink)] dark:hover:bg-white hover:text-white dark:hover:text-black transition-all hover:border-transparent"
+                      >
+                        Enroll & Pay
+                        <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                      </button>
+                    </div>
                   </div>
-                  <div className="md:col-span-4">
-                    <p className="text-[#1C1C18]/60 dark:text-white/60 font-light leading-relaxed">{course.description}</p>
-                  </div>
-                  <div className="md:col-span-3">
-                    <ul className="flex flex-col gap-2">
-                      {course.outcomes.map((o, oi) => (
-                        <li key={oi} className="flex items-start gap-2 text-xs text-[#1C1C18]/60 dark:text-white/60 font-light">
-                          <CheckCircle2 size={12} className="text-[var(--color-brand-sky)] mt-0.5 flex-shrink-0" />
-                          {o}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.8 }} className="mt-10">
-            <Link href="/#register" className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[#1C1C18] dark:text-white hover:text-[var(--color-brand-sky)] dark:hover:text-[var(--color-brand-sky)] transition-colors group">
-              Apply for Foundational Programs
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      {/* ─── CAREER TECH BOOTCAMPS ───────────────────────────────────────────── */}
-      <div id="career-tech" className="py-28 bg-[#DFDED8] dark:bg-[#02040a] border-t border-[#1C1C18]/5 dark:border-white/5">
-        <div className="container mx-auto px-6 md:px-[10%]">
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
-            className="mb-16 grid md:grid-cols-2 gap-8 items-end"
-          >
-            <div>
-              <SectionLabel text="Program Line 03" />
-              <h2 className="text-4xl md:text-5xl font-light text-[#1C1C18] dark:text-white tracking-tighter uppercase leading-tight">
-                Career Tech <span className="font-bold">Bootcamps.</span>
-              </h2>
-            </div>
-            <div className="space-y-3">
-              <p className="text-[#1C1C18]/50 dark:text-white/50 font-light text-base leading-relaxed">
-                2–3 month intensive cohorts. Real projects, portfolio outcomes, and career orientation. For adults ready to make a professional transition into the tech industry.
-              </p>
-              <div className="flex flex-wrap gap-3 pt-1">
-                {["Project-based", "Portfolio outcome", "Career-oriented", "2–3 months"].map(tag => (
-                  <span key={tag} className="px-3 py-1 text-[10px] uppercase tracking-widest font-bold border border-[#1C1C18]/20 dark:border-white/20 text-[#1C1C18]/60 dark:text-white/60">
-                    {tag}
-                  </span>
-                ))}
+        {/* ─── CAREER TECH BOOTCAMPS ─── */}
+        <div id="career-tech" className="py-28 bg-[var(--lm-panel)] dark:bg-[#02040a] border-t border-[var(--lm-ink)]/5 dark:border-white/5">
+          <div className="container mx-auto px-6 md:px-[10%]">
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
+              className="mb-16 grid md:grid-cols-2 gap-8 items-end"
+            >
+              <div>
+                <SectionLabel text="Program Line 03" />
+                <h2 className="text-4xl md:text-5xl font-light text-[var(--lm-ink)] dark:text-white tracking-tighter uppercase leading-tight">
+                  Career Tech <span className="font-bold">Bootcamps.</span>
+                </h2>
               </div>
-            </div>
-          </motion.div>
+              <div className="space-y-3">
+                <p className="text-[var(--lm-body)]/60 dark:text-white/50 font-light text-base leading-relaxed">
+                  2–3 month intensive cohorts. Real projects, portfolio outcomes, and career orientation.
+                </p>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  {["Project-based", "Portfolio outcome", "Career-oriented", "2–3 months"].map(tag => (
+                    <span key={tag} className="px-3 py-1 text-[10px] uppercase tracking-widest font-bold border border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-body)]/60 dark:text-white/60">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={staggerContainer}
@@ -175,8 +172,7 @@ export const Courses = () => {
             </Link>
           </motion.div>
         </div>
-      </div>
-
-    </section>
+      </section>
+    </>
   );
 };
