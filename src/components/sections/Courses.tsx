@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { foundationalPayConfig, careerPayConfig } from "@/lib/payments/config";
 import type { CoursePayConfig } from "@/lib/payments/types";
 import { EnrollModal } from "@/components/ui/EnrollModal";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Link } from "lucide-react";
 import { fadeIn, staggerContainer } from "@/lib/motion";
+import { careerCourses, foundationalCourses } from "@/data";
 
 const SectionLabel = ({ text }: { text: string }) => (
   <div className="flex items-center gap-4 mb-3">
@@ -80,12 +80,20 @@ export const Courses = () => {
                         <span className="text-[9px] bg-[var(--color-brand-sky)]/10 text-[var(--color-brand-sky)] px-1.5 py-0.5 rounded font-black tracking-wider border border-[var(--color-brand-sky)]/20 shadow-sm">10% OFF</span>
                       </div>
                     </div>
-                    <div className="md:col-span-4">
-                      <p className="text-[var(--lm-body)]/60 dark:text-white/60 font-light leading-relaxed">{course.description}</p>
-                    </div>
+                  </div>
+                  <div className="md:col-span-4">
+                    <p className="text-[var(--lm-body)]/60 dark:text-white/60 font-light leading-relaxed">{course.description}</p>
+                  </div>
                     <div className="md:col-span-3 flex items-center">
                       <button
-                        onClick={() => setSelectedCourse(course)}
+                        onClick={() => setSelectedCourse({
+                          id: course.id,
+                          name: course.title,
+                          description: course.description,
+                          priceNGN: Math.round((parseInt(course.price.replace(/\D/g, ""), 10) || 0) * 0.9),
+                          duration: course.duration,
+                          category: "adults-foundational"
+                        })}
                         className="group/btn inline-flex items-center gap-2 px-6 py-3 border border-[var(--lm-ink)]/20 dark:border-white/20 text-[var(--lm-ink)] dark:text-white text-xs font-bold uppercase tracking-widest hover:bg-[var(--lm-ink)] dark:hover:bg-white hover:text-white dark:hover:text-black transition-all hover:border-transparent"
                       >
                         Enroll & Pay
@@ -171,6 +179,7 @@ export const Courses = () => {
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
+        </div>
         </div>
       </section>
     </>
