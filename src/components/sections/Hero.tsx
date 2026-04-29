@@ -9,36 +9,59 @@ export const Hero = () => {
   return (
     <section className="relative min-h-[100svh] bg-[var(--lm-section)] dark:bg-transparent text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] overflow-hidden flex flex-col justify-end pt-32 pb-12 transition-colors duration-500">
 
-      {/* Background Architectural Image */}
+      {/* Background Cinematic Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
           alt="Tech background"
           fill
-          className="object-cover mix-blend-multiply dark:mix-blend-luminosity grayscale-[20%] dark:grayscale-[50%] opacity-12 dark:opacity-30"
+          className="object-cover mix-blend-multiply dark:mix-blend-luminosity grayscale-[20%] dark:grayscale-[50%] opacity-15 dark:opacity-35 theme-transition"
           priority
         />
-        {/* Dark mode: radial overlay using dm-accent-soft as requested */}
+
+        {/* Dark mode: radial overlay with accent glow */}
         <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_center,var(--dm-accent-soft)_0%,transparent_70%)]" />
 
+        {/* Dark mode: secondary teal glow for depth */}
+        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top_right,rgba(45,212,191,0.08)_0%,transparent_50%)]" />
+
         {/* Dark mode gradient bleeds */}
-        <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--dm-base)] via-[var(--dm-base)]/80 to-transparent" />
+        <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--dm-base)] via-[var(--dm-base)]/85 to-transparent" />
         <div className="absolute inset-0 hidden dark:block bg-gradient-to-r from-[var(--dm-base)] via-transparent to-[var(--dm-base)]" />
 
-        {/* Light mode: very soft diagonal gradient from lm-accent-soft into transparent */}
+        {/* Light mode: soft diagonal gradient from lm-accent-soft */}
         <div className="absolute inset-0 dark:hidden bg-[linear-gradient(135deg,var(--lm-accent-soft)_0%,transparent_60%)]" />
+
+        {/* Light mode: secondary jade accent for depth */}
+        <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(20,184,166,0.06)_0%,transparent_50%)]" />
+
+        {/* Light mode: base bleed gradient to blend image */}
         <div className="absolute inset-0 dark:hidden">
-          {/* Base bleed gradient to blend image into the surface */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-section)] via-[var(--lm-section)]/85 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[var(--lm-section)] via-transparent to-[var(--lm-section)]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-section)] via-[var(--lm-section)]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[var(--lm-section)] via-transparent to-[var(--lm-section)]/70" />
+        </div>
+
+        {/* Animated ambient orbs — light mode */}
+        <div className="absolute inset-0 dark:hidden overflow-hidden">
+          <div className="absolute top-[20%] left-[15%] w-96 h-96 bg-[var(--lm-accent)]/8 rounded-full blur-3xl ambient-float-slow" />
+          <div className="absolute bottom-[30%] right-[10%] w-80 h-80 bg-[var(--lm-accent-secondary)]/6 rounded-full blur-3xl ambient-float-mid" />
+        </div>
+
+        {/* Animated ambient orbs — dark mode */}
+        <div className="absolute inset-0 hidden dark:block overflow-hidden">
+          <div className="absolute top-[25%] left-[20%] w-[500px] h-[500px] bg-[var(--dm-accent)]/10 rounded-full blur-3xl ambient-float-slow" />
+          <div className="absolute bottom-[20%] right-[15%] w-96 h-96 bg-[var(--dm-accent-secondary)]/8 rounded-full blur-3xl ambient-float-mid" />
+          <div className="absolute top-[10%] right-[25%] w-64 h-64 bg-[var(--dm-accent)]/6 rounded-full blur-3xl ambient-float-fast radial-pulse" />
         </div>
       </div>
 
-      {/* Grid Lines */}
+      {/* Grid Lines — subtle architectural structure */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        <div className="absolute left-[10%] top-0 bottom-0 w-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] transition-colors duration-500" />
-        <div className="absolute right-[10%] top-0 bottom-0 w-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] transition-colors duration-500" />
-        <div className="absolute top-[30%] left-0 right-0 h-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] transition-colors duration-500" />
+        <div className="absolute left-[10%] top-0 bottom-0 w-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] theme-transition" />
+        <div className="absolute right-[10%] top-0 bottom-0 w-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] theme-transition" />
+        <div className="absolute top-[30%] left-0 right-0 h-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] theme-transition" />
+        {/* Subtle horizontal accent line */}
+        <div className="absolute bottom-[20%] left-[5%] right-[5%] h-px bg-gradient-to-r from-transparent via-[var(--lm-accent)]/20 via-[var(--dm-accent)]/20 to-transparent theme-transition" />
       </div>
 
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
@@ -103,9 +126,9 @@ export const Hero = () => {
           >
             <Link
               href="#courses"
-              className="group relative flex items-center justify-center w-32 h-32 rounded-full border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-text-main)]/5 dark:bg-white/5 backdrop-blur-md overflow-hidden transition-all hover:bg-[var(--lm-text-main)] hover:border-[var(--lm-text-main)] dark:hover:bg-white dark:hover:border-white shadow-lg dark:shadow-none"
+              className="group relative flex items-center justify-center w-32 h-32 rounded-full border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-text-main)]/5 dark:bg-white/5 backdrop-blur-md overflow-hidden theme-transition hover:bg-[var(--lm-text-main)] hover:border-[var(--lm-text-main)] dark:hover:bg-white dark:hover:border-white btn-glow-light dark:btn-glow-dark"
             >
-              <ArrowDownRight className="w-8 h-8 text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] group-hover:text-white dark:group-hover:text-[var(--color-brand-navy)] transition-colors" />
+              <ArrowDownRight className="w-8 h-8 text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] group-hover:text-white dark:group-hover:text-[var(--dm-base)] transition-colors" />
             </Link>
           </motion.div>
 

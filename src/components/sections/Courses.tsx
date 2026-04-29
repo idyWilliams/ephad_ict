@@ -27,9 +27,14 @@ export const Courses = () => {
       <section id="courses" className="relative z-10 transition-colors duration-500">
 
         {/* ─── FOUNDATIONAL DIGITAL SKILLS ─── */}
-        <div id="foundational" className="py-28 bg-[var(--lm-section)] dark:bg-[var(--dm-section)]/40 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative">
-          {/* boundary inner shadow */}
-          <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[var(--lm-text-main)]/[0.03] to-transparent dark:hidden pointer-events-none" />
+        <div id="foundational" className="py-28 bg-[var(--lm-section)] dark:bg-[var(--dm-section)]/50 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative theme-transition">
+          {/* Light mode: subtle top boundary */}
+          <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-[var(--lm-text-main)]/[0.04] to-transparent dark:hidden pointer-events-none" />
+          {/* Dark mode: accent glow boundary */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--dm-accent)]/30 to-transparent hidden dark:block" />
+          {/* Ambient orb accents */}
+          <div className="absolute top-[20%] right-[5%] w-64 h-64 bg-[var(--lm-accent-secondary)]/4 rounded-full blur-3xl ambient-float-mid dark:hidden pointer-events-none" />
+          <div className="absolute bottom-[10%] left-[5%] w-80 h-80 bg-[var(--dm-accent)]/6 rounded-full blur-3xl ambient-float-slow hidden dark:block pointer-events-none" />
           <div className="container mx-auto px-6 md:px-[10%]">
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}
@@ -93,8 +98,14 @@ export const Courses = () => {
         </div>
 
         {/* ─── CAREER TECH BOOTCAMPS ─── */}
-        <div id="career-tech" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/40 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative">
-          <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--lm-text-main)]/[0.04] to-transparent dark:hidden pointer-events-none" />
+        <div id="career-tech" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/50 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative theme-transition">
+          {/* Light mode: subtle top boundary */}
+          <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--lm-text-main)]/[0.05] to-transparent dark:hidden pointer-events-none" />
+          {/* Dark mode: dual accent boundary glow */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--dm-accent)]/40 to-transparent hidden dark:block" />
+          {/* Ambient orb accents */}
+          <div className="absolute top-[30%] left-[10%] w-72 h-72 bg-[var(--lm-accent)]/5 rounded-full blur-3xl ambient-float-fast dark:hidden pointer-events-none" />
+          <div className="absolute bottom-[20%] right-[10%] w-96 h-96 bg-[var(--dm-accent-secondary)]/8 rounded-full blur-3xl ambient-float-mid hidden dark:block pointer-events-none" />
           <div className="container mx-auto px-6 md:px-[10%]">
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={fadeIn}

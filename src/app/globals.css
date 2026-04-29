@@ -9,41 +9,44 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  /* Sharp Lighting */
+  /* Glow effects — electric blue for light mode, sky for dark */
   --color-glow-blue: rgba(37, 99, 235, 0.2);
+  --color-glow-sky: rgba(96, 165, 250, 0.25);
+  --color-glow-teal: rgba(45, 212, 191, 0.2);
 
   /*
-   * ─── DESIGN TOKEN SYSTEM v3 — Color Grading Pass ────────────────────────────
+   * ─── DESIGN TOKEN SYSTEM v4 — "Slate & Jade" Cinematic Grade ───────────────
    *
    * Philosophy:
-   *   Dark mode  = "Deep Space Studio" — refined navy ink, not void black.
-   *   Light mode = "Daylit Gallery"     — tinted slate paper, layered + alive.
-   *   Both share the same EPHAD blue DNA; mood changes, world stays the same.
+   *   Dark mode  = "Deep Space Studio" — layered navy depth, cozy tech glow.
+   *   Light mode = "Daylit Gallery"     — soft slate paper, editorial calm.
+   *   Accent DNA = Electric blue (primary) + Jade/teal (secondary depth).
    *
-   * ── DARK MODE SURFACES ────────────────────────────────────────────────────
-   *   All dark sections reference these values (set via component dark: classes).
-   *   --dm-base:     #090B18  deep navy (replaces void #02040a)
-   *   --dm-section:  #0D0F1C  section band — distinct from base
-   *   --dm-elevated: #141828  elevated panels — subtle lift
-   *   ...text: dark:text-white (headings), dark:text-white/60 (body) — unchanged
+   * ── LIGHT MODE (4-level surface hierarchy) ─────────────────────────────────
+   *   --lm-base           → #F8F9FC  off-white slate (page skeleton)
+   *   --lm-section        → #F0F2F7  soft section bands
+   *   --lm-section-strong → #E6E9F0  deeper sections
+   *   --lm-elevated       → #FFFFFF  cards, modals
+   *   --lm-text-main      → #1A1D2E  soft charcoal
+   *   --lm-text-muted     → #5A5F7A  warm grey-blue
+   *   --lm-accent         → #2563EB  electric blue
+   *   --lm-accent-secondary → #14B8A6  jade/teal
    *
-   * ── LIGHT MODE SURFACES (4-level hierarchy) ───────────────────────────────
-   *   lm-base          → EDEDF7  ghost white-blue  (page skeleton / resting)
-   *   lm-section       → DFE2F5  pale slate         (default section bands)
-   *   lm-section-strong→ CACFF2  mid-depth          (paths, courses, faq)
-   *   lm-elevated      → B4BAEB  deep premium       (hero, registration)
-   *   lm-ink           → 080917  near-void navy     (headings)
-   *   lm-body          → 181A33  rich cool charcoal (body text)
+   * ── DARK MODE (3-level surface hierarchy) ──────────────────────────────────
+   *   --dm-base           → #0F1118  deep charcoal-navy
+   *   --dm-section        → #161922  section layer 1
+   *   --dm-elevated       → #1C1F2E  elevated layer 2
+   *   --dm-text-main      → #E8EAF6  warm off-white
+   *   --dm-text-muted     → #9CA3C4  lavender-grey
+   *   --dm-accent         → #60A5FA  sky blue
+   *   --dm-accent-secondary → #2DD4BF  teal glow
    *
    * ── SHARED BRAND ACCENTS ──────────────────────────────────────────────────
-   *   primary   : 2563EB  (EPHAD blue)
-   *   sky       : 60A5FA  (electric sky — slightly lighter than primary)
-   *   success   : 10B981  (payment confirmed, WhatsApp)
+   *   --brand-success     → #10B981  emerald (success, WhatsApp)
    *
    * Backward-compat aliases:
    *   --lm-band   = lm-section
    *   --lm-panel  = lm-section-strong
-   *   --lm-accent = lm-elevated
   */
 
 
@@ -90,30 +93,35 @@
 
 @layer base {
   :root {
-    /* LIGHT MODE tokens */
-    --lm-base:            #EEF1F8;
-    --lm-section:         #E3E7F2;
-    --lm-section-strong:  #D7DDF0;
-    --lm-elevated:        #FFFFFF;
-    --lm-text-main:       #121528;
-    --lm-text-muted:      #4D5270;
-    --lm-accent:          #1F4E9E;
-    --lm-soft-line:       rgba(4,16,56,0.08);
-    --lm-accent-soft:     rgba(31,78,158,0.10);
+    /* ─── LIGHT MODE: "Daylit Gallery" — soft slate paper, editorial calm ──── */
+    --lm-base:            #F8F9FC;   /* off-white slate (page skeleton) */
+    --lm-section:         #F0F2F7;   /* soft section bands */
+    --lm-section-strong:  #E6E9F0;   /* deeper sections (FAQ, courses) */
+    --lm-elevated:        #FFFFFF;   /* cards, modals, elevated surfaces */
+    --lm-text-main:       #1A1D2E;   /* soft charcoal (not harsh black) */
+    --lm-text-muted:      #5A5F7A;   /* warm grey-blue secondary text */
+    --lm-accent:          #2563EB;   /* electric blue — primary brand */
+    --lm-accent-secondary:#14B8A6;   /* jade/teal — secondary accent */
+    --lm-soft-line:       rgba(26,29,46,0.08);  /* subtle dividers */
+    --lm-accent-soft:     rgba(37,99,235,0.08); /* soft blue bloom */
+    --lm-accent-glow:     rgba(37,99,235,0.15); /* hover/active glow */
 
-    /* DARK MODE tokens */
-    --dm-base:            #050505; /* Pure dark / Deep grey instead of navy */
-    --dm-section:         #0A0A0A; /* Clean dark grey section */
-    --dm-elevated:        #121212;
-    --dm-text-main:       #F5F7FF;
-    --dm-text-muted:      #9AA5CE; /* Slightly more neon saturation */
-    --dm-accent:          #4A90D9;
-    --dm-soft-line:       rgba(255,255,255,0.06);
-    --dm-accent-soft:     rgba(74,144,217,0.18); /* Stronger glow / mesh effect */
+    /* ─── DARK MODE: "Deep Space Studio" — layered navy depth, cozy tech ───── */
+    --dm-base:            #0F1118;   /* deep charcoal-navy base */
+    --dm-section:         #161922;   /* section bands (layer 1) */
+    --dm-elevated:        #1C1F2E;   /* elevated cards (layer 2) */
+    --dm-text-main:       #E8EAF6;   /* warm off-white text */
+    --dm-text-muted:      #9CA3C4;   /* soft lavender-grey secondary */
+    --dm-accent:          #60A5FA;   /* sky blue — primary brand */
+    --dm-accent-secondary:#2DD4BF;   /* teal — secondary accent glow */
+    --dm-soft-line:       rgba(255,255,255,0.06);  /* subtle dividers */
+    --dm-accent-soft:     rgba(96,165,250,0.12);   /* soft sky bloom */
+    --dm-accent-glow:     rgba(96,165,250,0.25);   /* hover/active glow */
 
-    --brand-success:      #10B981;
+    /* Shared brand accent */
+    --brand-success:      #10B981;   /* emerald — success states */
 
-    /* LIGHT MODE default mapping for shadcn */
+    /* LIGHT MODE default mapping for shadcn primitives */
     --background:         var(--lm-base);
     --foreground:         var(--lm-text-main);
     --card:               var(--lm-elevated);
@@ -142,7 +150,7 @@
     --popover:            var(--dm-elevated);
     --popover-foreground: var(--dm-text-main);
     --primary:            var(--dm-accent);
-    --primary-foreground: #050815;
+    --primary-foreground: #0F1118;
     --secondary:          var(--dm-section);
     --secondary-foreground: var(--dm-text-main);
     --muted:              var(--dm-section);
@@ -174,24 +182,50 @@
   }
 }
 
-/* ─── AMBIENT MOTION ─────────────────────────────────────────────────────────
- * CSS-only background animation for performance.
- * Used in Hero, Three Paths, and Registration sections only.
+/* ─── AMBIENT MOTION & BACKGROUND TREATMENTS ─────────────────────────────────
+ * Cinematic, smooth animations for premium feel.
+ * All timings use easing curves for natural, organic motion.
  * ─────────────────────────────────────────────────────────────────────────── */
+
+/* Slow ambient float — for background orbs, gradient blobs */
 @keyframes ambientFloat {
-  0%, 100% { transform: translate(0, 0)    scale(1);    opacity: 0.7; }
-  33%       { transform: translate(16px, -12px) scale(1.04); opacity: 1;   }
-  66%       { transform: translate(-10px, 14px) scale(0.97); opacity: 0.5; }
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  25%      { transform: translate(20px, -16px) scale(1.06); opacity: 0.9; }
+  50%      { transform: translate(-12px, 20px) scale(0.95); opacity: 0.5; }
+  75%      { transform: translate(16px, 10px) scale(1.02); opacity: 0.8; }
 }
 
+/* Gentle drift — for mesh gradients, subtle shifts */
 @keyframes ambientDrift {
   0%, 100% { transform: translate(0, 0); }
-  50%       { transform: translate(-20px, 10px); }
+  33%      { transform: translate(-15px, 8px); }
+  66%      { transform: translate(12px, -12px); }
 }
 
+/* Soft shimmer — for accent glows, hover states */
 @keyframes subtleShimmer {
-  0%, 100% { opacity: 0.6; }
-  50%       { opacity: 1; }
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+/* Gradient mesh pan — for dynamic backgrounds */
+@keyframes meshPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Radial pulse — for accent focus points */
+@keyframes radialPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50%      { transform: scale(1.15); opacity: 0.5; }
+}
+
+/* Gradient shift — for multi-color backgrounds */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Utility classes for ambient orbs */
@@ -203,42 +237,77 @@
 }
 
 .ambient-float-slow {
-  animation: ambientFloat 32s ease-in-out infinite;
+  animation: ambientFloat 36s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .ambient-float-mid {
-  animation: ambientFloat 22s ease-in-out infinite;
-  animation-delay: -8s;
+  animation: ambientFloat 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: -6s;
 }
 
 .ambient-float-fast {
-  animation: ambientFloat 18s ease-in-out infinite;
-  animation-delay: -14s;
+  animation: ambientFloat 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: -4s;
 }
 
 .ambient-shimmer {
-  animation: subtleShimmer 8s ease-in-out infinite;
+  animation: subtleShimmer 6s ease-in-out infinite;
 }
 
-/* Hover glow for primary dark mode CTAs */
-/* Hover glow for primary dark mode CTAs */
+.ambient-drift {
+  animation: ambientDrift 28s ease-in-out infinite;
+}
+
+.radial-pulse {
+  animation: radialPulse 8s ease-in-out infinite;
+}
+
+/* Mesh gradient backgrounds */
+.bg-mesh-pan {
+  background-size: 200% 200%;
+  animation: meshPan 24s ease infinite;
+}
+
+.bg-gradient-shift {
+  background-size: 300% 300%;
+  animation: gradientShift 20s ease infinite;
+}
+
 @layer utilities {
-  .btn-glow-dark {
-    transition: box-shadow 0.3s ease;
+  /* Hover glow for primary CTAs — light mode */
+  .btn-glow-light {
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-glow-light:hover {
+    box-shadow: 0 0 24px rgba(37, 99, 235, 0.2), 0 0 48px rgba(37, 99, 235, 0.1);
+  }
+
+  /* Hover glow for primary CTAs — dark mode */
+  .dark .btn-glow-dark {
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .dark .btn-glow-dark:hover {
-    box-shadow: 0 0 32px rgba(96, 165, 250, 0.25), 0 0 80px rgba(37, 99, 235, 0.12);
+    box-shadow: 0 0 32px rgba(96, 165, 250, 0.3), 0 0 80px rgba(45, 212, 191, 0.15);
   }
 
-  /* Beast Mode Animations */
-  .bg-mesh-pan {
-    background-size: 200% 200%;
-    animation: meshPan 20s ease infinite;
+  /* Soft border glow on hover */
+  .border-glow {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
-}
+  .border-glow:hover {
+    border-color: var(--lm-accent);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+  }
+  .dark .border-glow:hover {
+    border-color: var(--dm-accent);
+    box-shadow: 0 0 24px rgba(96, 165, 250, 0.25);
+  }
 
-@keyframes meshPan {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  /* Smooth color transition for theme switch */
+  .theme-transition {
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }

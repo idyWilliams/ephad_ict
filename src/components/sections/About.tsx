@@ -6,9 +6,14 @@ import { slideInLeft, staggerContainer, fadeIn } from "@/lib/motion";
 export const About = () => {
   return (
     /* Sits at lm-base — the page skeleton. Lightest surface, resting beat. */
-    <section id="about" className="py-32 bg-[var(--lm-base)] dark:bg-transparent relative z-10 overflow-hidden border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] transition-colors duration-500">
-      {/* Light mode: very faint right-side bloom to mirror hero's left/right rhythm */}
-      <div className="absolute top-0 right-0 w-[40%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.05)_0%,transparent_65%)] dark:hidden pointer-events-none" />
+    <section id="about" className="py-32 bg-[var(--lm-base)] dark:bg-transparent relative z-10 overflow-hidden border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] theme-transition">
+      {/* Light mode: faint right-side bloom with jade accent */}
+      <div className="absolute top-0 right-0 w-[40%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(37,99,235,0.06)_0%,transparent_65%)] dark:hidden pointer-events-none" />
+      <div className="absolute top-[10%] right-[10%] w-72 h-72 bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.04)_0%,transparent_70%)] dark:hidden blur-2xl ambient-float-mid pointer-events-none" />
+
+      {/* Dark mode: layered depth with sky blue and teal glows */}
+      <div className="absolute top-0 right-0 w-[50%] h-[80%] bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.08)_0%,transparent_60%)] hidden dark:block pointer-events-none" />
+      <div className="absolute bottom-0 left-[10%] w-96 h-96 bg-[radial-gradient(ellipse_at_center,rgba(45,212,191,0.06)_0%,transparent_70%)] hidden dark:block blur-3xl ambient-float-slow pointer-events-none" />
 
       <div className="container mx-auto px-6 md:px-[10%] relative z-20">
         <div className="grid lg:grid-cols-12 gap-16 items-start">

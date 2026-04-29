@@ -29,17 +29,18 @@ const lines = [
 export const ProductLines = () => {
   return (
     /* Sits on lm-section-strong — clearly deeper than the About (lm-base) above it */
-    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/40 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative z-10 overflow-hidden transition-colors duration-500">
+    <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/50 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative z-10 overflow-hidden theme-transition">
       {/* Light mode boundary shadows */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-soft-line)] dark:hidden" />
-      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-text-main)]/[0.03] to-transparent dark:hidden pointer-events-none" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--lm-soft-line)] to-transparent dark:hidden" />
+      <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-text-main)]/[0.04] to-transparent dark:hidden pointer-events-none" />
 
-      {/* Dark mode ambient orbs — subtle blue wash behind the grid */}
-      <div className="ambient-orb ambient-float-slow w-[700px] h-[700px] bg-blue-700/[0.09] blur-[140px] top-[-20%] left-[-10%] hidden dark:block" />
-      <div className="ambient-orb ambient-float-mid  w-[500px] h-[500px] bg-indigo-600/[0.06] blur-[120px] bottom-[-10%] right-[-5%] hidden dark:block" />
+      {/* Dark mode ambient orbs — sky blue and teal wash */}
+      <div className="ambient-orb ambient-float-slow w-[700px] h-[700px] bg-[var(--dm-accent)]/10 blur-[140px] top-[-20%] left-[-10%] hidden dark:block" />
+      <div className="ambient-orb ambient-float-mid  w-[500px] h-[500px] bg-[var(--dm-accent-secondary)]/8 blur-[120px] bottom-[-10%] right-[-5%] hidden dark:block" />
 
-      {/* Light mode ambient orb */}
-      <div className="ambient-orb ambient-float-slow w-[500px] h-[500px] bg-blue-400/[0.06] blur-[100px] top-[-10%] right-[-5%] dark:hidden" />
+      {/* Light mode ambient orb — jade accent */}
+      <div className="ambient-orb ambient-float-slow w-[500px] h-[500px] bg-[var(--lm-accent-secondary)]/5 blur-[100px] top-[-10%] right-[-5%] dark:hidden" />
+      <div className="ambient-orb ambient-float-mid w-[400px] h-[400px] bg-[var(--lm-accent)]/4 blur-[100px] bottom-[-5%] left-[10%] dark:hidden" />
 
       <div className="container mx-auto px-6 md:px-[10%]">
         <motion.div
@@ -47,8 +48,8 @@ export const ProductLines = () => {
           className="mb-20"
         >
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-8 h-px bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)]" />
-            <span className="text-xs font-bold uppercase tracking-[0.35em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">Our Programs</span>
+            <div className="w-8 h-px bg-gradient-to-r from-[var(--lm-accent)] to-[var(--lm-accent-secondary)] dark:from-[var(--dm-accent)] dark:to-[var(--dm-accent-secondary)] theme-transition" />
+            <span className="text-xs font-bold uppercase tracking-[0.35em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] theme-transition">Our Programs</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase">
             Three <span className="font-bold">Distinct Paths.</span>
