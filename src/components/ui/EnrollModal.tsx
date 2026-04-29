@@ -21,7 +21,7 @@ const WA_NUMBER = "2348000000000"; // ← replace with real EPHAD WhatsApp
 const WA_BASE = `https://wa.me/${WA_NUMBER}?text=`;
 
 function buildWaLink(course: CoursePayConfig, ref: string) {
-  const msg = `Hi EPHAD, I just paid for *${course.name}* (Ref: ${ref}). Please confirm my enrollment.`;
+  const msg = `Hi EPHAD, I just submitted an enrollment request for *${course.name}* (Ref: ${ref}). I'd like to complete my payment.`;
   return WA_BASE + encodeURIComponent(msg);
 }
 
@@ -105,6 +105,19 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
 
     setStep("loading");
 
+    // TEMPORARY: Skip actual Paystack payment since integration is pending
+    setTimeout(() => {
+      setResult({
+        reference: "REQ-" + Date.now(),
+        transactionId: "PENDING",
+        paidAt: new Date().toISOString(),
+        course,
+        enrollee: details,
+      });
+      setStep("success");
+    }, 1500);
+
+    /*
     await pay(course, details, {
       onSuccess: (res) => {
         setResult(res);
@@ -119,6 +132,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
         setStep("error");
       },
     });
+    */
   }
 
   if (!course) return null;
@@ -151,7 +165,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
             <div className="flex items-start justify-between p-8 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex-shrink-0">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-[var(--lm-accent)] dark:text-[var(--dm-accent)] mb-1">
-                  {step === "success" ? "Enrollment Confirmed" : step === "error" ? "Payment Failed" : "Enroll & Pay"}
+                  {step === "success" ? "Request Confirmed" : step === "error" ? "Request Failed" : "Enrollment Request"}
                 </p>
                 <h3 className="text-xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] leading-tight max-w-[320px]">
                   {course.name}
@@ -176,6 +190,16 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
                 {/* ── FORM STEP ──────────────────────────────────────── */}
                 {(step === "form" || step === "loading") && (
                   <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="p-8">
+                    <div className="mb-6 p-4 border border-yellow-500/30 bg-yellow-500/10 rounded-none flex gap-3 items-start">
+                      <AlertTriangle size={18} className="text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-bold text-yellow-700 dark:text-yellow-400 mb-1">In-App Payments Coming Soon</p>
+                        <p className="text-xs text-yellow-600/80 dark:text-yellow-400/80 leading-relaxed">
+                          We are finalizing our Paystack integration. You can still submit your enrollment request below, and our team will contact you to complete the payment manually.
+                        </p>
+                      </div>
+                    </div>
+
                     <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] text-sm font-light leading-relaxed mb-8">
                       {course.description}
                     </p>
@@ -208,7 +232,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
                             {step === "loading" ? (
                               <><Loader2 size={18} className="animate-spin" /> Processing…</>
                             ) : (
-                              <>Pay {formatNGN(course.priceNGN)} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></>
+                              <>Submit Request <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></>
                             )}
                           </span>
                         </button>
@@ -237,16 +261,16 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
 
                     <div>
                       <h4 className="text-2xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] mb-3">
-                        Payment Confirmed.
+                        Enrollment Request Received.
                       </h4>
                       <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light leading-relaxed text-sm">
-                        Thank you, <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">{result.enrollee.name}</strong>. Your payment for <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">{result.course.name}</strong> has been received.
-                        Our team will reach out to <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">{result.enrollee.email}</strong> within 24 hours with onboarding details.
+                        Thank you, <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">{result.enrollee.name}</strong>. Your request for <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">{result.course.name}</strong> has been received.
+                        Since in-app payments are coming soon, our team will reach out to <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">{result.enrollee.email}</strong> shortly with manual payment instructions to complete your onboarding.
                       </p>
                     </div>
 
                     <div className="bg-[var(--lm-band)] dark:bg-white/5 p-4 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-xs font-mono text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">
-                      <p className="mb-1 uppercase tracking-widest font-bold">Transaction Reference</p>
+                      <p className="mb-1 uppercase tracking-widest font-bold">Request Reference</p>
                       <p className="break-all text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] font-bold">{result.reference}</p>
                     </div>
 
@@ -257,7 +281,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
                       className="group w-full h-14 flex items-center justify-center gap-3 bg-[#25D366] text-white font-bold uppercase tracking-widest text-sm hover:bg-[#22c55e] transition-colors"
                     >
                       <MessageSquare size={18} />
-                      Chat on WhatsApp for Confirmation
+                      Chat on WhatsApp to Complete
                     </a>
 
                     <button
