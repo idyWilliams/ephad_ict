@@ -20,7 +20,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useWhatsAppCtx } from "@/context/WhatsAppContext";
 
-const WA_NUMBER = "2348000000000"; // ← Replace with real EPHAD WhatsApp number
+const WA_NUMBER = "+2349133333647"; // ← Replace with real EPHAD WhatsApp number
 
 function buildLink(courseName: string | null) {
   const msg = courseName

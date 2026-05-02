@@ -24,7 +24,7 @@ export default function KidsTeensPage() {
 
         {/* ─── 1. HERO ──────────────────────────────────────────────────────── */}
         <section className="relative pt-40 pb-24 md:pt-48 md:pb-32 px-6 md:px-[10%] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)] transition-colors duration-500">
-        <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden">
             <motion.div
               initial={{ scale: 1 }} animate={{ scale: 1.15 }}
               transition={{ duration: 25, repeat: Infinity, repeatType: "mirror", ease: "linear" }}
@@ -249,7 +249,7 @@ function EnquiryForm() {
       <div className="grid md:grid-cols-2 gap-8">
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">Phone Number *</label>
-          <input required type="tel" placeholder="+234 XXX" className="bg-transparent border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] h-12 focus:outline-none focus:border-[var(--lm-text-main)] dark:focus:border-white transition-colors text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase font-light tracking-wide placeholder:text-[var(--lm-text-muted)]/20 dark:placeholder:text-white/20" />
+          <input required type="tel" placeholder="+234 913 333 3647" className="bg-transparent border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] h-12 focus:outline-none focus:border-[var(--lm-text-main)] dark:focus:border-white transition-colors text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase font-light tracking-wide placeholder:text-[var(--lm-text-muted)]/20 dark:placeholder:text-white/20" />
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">Email Address *</label>
