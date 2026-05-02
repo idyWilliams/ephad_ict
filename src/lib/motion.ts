@@ -1,18 +1,20 @@
 export const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 50, filter: "blur(12px)" },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } 
+    filter: "blur(0px)",
+    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const } 
   }
 };
 
 export const slowFadeIn = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 70, filter: "blur(15px)" },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const } 
+    filter: "blur(0px)",
+    transition: { duration: 1.6, ease: [0.16, 1, 0.3, 1] as const } 
   }
 };
 
@@ -22,7 +24,7 @@ export const staggerContainer = {
     opacity: 1,
     transition: {
       staggerChildren: 0.15,
-      delayChildren: 0.1,
+      delayChildren: 0.2,
     }
   }
 };

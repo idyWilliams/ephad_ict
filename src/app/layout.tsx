@@ -6,6 +6,9 @@ import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
 import { WhatsAppRibbon } from "@/components/ui/WhatsAppRibbon";
+import { WhatsAppProvider } from "@/context/WhatsAppContext";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { GlobalBackground } from "@/components/ui/GlobalBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,15 +22,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Hot-reload trigger for Next.js to re-eval CSS cache
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased bg-[var(--lm-base)] dark:bg-[#02040a] text-[var(--lm-ink)] dark:text-white transition-colors duration-500`}>
+      <body className={`${inter.className} antialiased transition-colors duration-500`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="min-h-screen pt-0">{children}</main>
-          <Footer />
-          <WhatsAppRibbon />
-          <Toaster position="bottom-right" />
+          <GlobalBackground />
+          <SmoothScroll>
+            <WhatsAppProvider>
+              <Header />
+              <main className="min-h-screen pt-0 relative z-10">{children}</main>
+              <Footer />
+              <WhatsAppRibbon />
+              <Toaster position="bottom-right" />
+            </WhatsAppProvider>
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
