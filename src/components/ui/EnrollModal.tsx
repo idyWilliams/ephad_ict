@@ -218,7 +218,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
                       <Field
                         label="Phone Number *" id="enroll-phone" type="tel" value={details.phone}
                         onChange={(v) => setDetails((d) => ({ ...d, phone: v }))}
-                        placeholder="+234 800 000 0000" error={errors.phone}
+                        placeholder="+234 913 333 3647" error={errors.phone}
                       />
 
                       <div className="pt-4">
