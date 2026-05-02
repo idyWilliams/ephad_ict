@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { foundationalPayConfig, careerPayConfig } from "@/lib/payments/config";
 import type { CoursePayConfig } from "@/lib/payments/types";
 import { EnrollModal } from "@/components/ui/EnrollModal";
 import { useWhatsAppCtx } from "@/context/WhatsAppContext";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { fadeIn, staggerContainer } from "@/lib/motion";
+// import { careerCourses, foundationalCourses } from "@/data";
+import { careerPayConfig, foundationalPayConfig } from "@/lib/payments/config";
 
 const SectionLabel = ({ text }: { text: string }) => (
   <div className="flex items-center gap-4 mb-3">
@@ -15,6 +17,8 @@ const SectionLabel = ({ text }: { text: string }) => (
     <span className="text-[10px] font-bold uppercase tracking-[0.35em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)]">{text}</span>
   </div>
 );
+
+
 
 export const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState<CoursePayConfig | null>(null);
@@ -171,8 +175,17 @@ export const Courses = () => {
                       </button>
                     </div>
                   </div>
+
+
                 </motion.div>
               ))}
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.8 }} className="mt-10">
+              <Link href="/#register" className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-[#1C1C18] dark:text-white hover:text-[var(--color-brand-sky)] dark:hover:text-[var(--color-brand-sky)] transition-colors group">
+                Apply for Career Tech Bootcamps
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </motion.div>
           </div>
         </div>
