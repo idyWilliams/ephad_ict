@@ -34,19 +34,20 @@ export default function KidsTeensPage() {
                 src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
                 alt="Code editor on screen"
                 fill
-                className="object-cover opacity-20 dark:opacity-30 mix-blend-multiply dark:mix-blend-luminosity grayscale-[10%] dark:grayscale-[30%]"
+                className="object-cover grayscale-[5%] dark:grayscale-[10%] opacity-30 dark:opacity-45"
                 priority
               />
             </motion.div>
-            {/* Dark mode blends */}
-            <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[#090b18] via-[#090b18]/90 to-[#090b18]/30" />
-            {/* Light mode: elevated surface + volumetric corner blooms */}
-            <div className="absolute inset-0 dark:hidden">
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--lm-elevated)] via-[var(--lm-elevated)]/85 to-[var(--lm-elevated)]/20" />
-              <div className="absolute top-0 right-0 w-[65%] h-[65%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.13)_0%,transparent_65%)]" />
-              <div className="absolute bottom-0 left-0 w-[45%] h-[45%] bg-[radial-gradient(ellipse_at_bottom_left,rgba(37,99,235,0.07)_0%,transparent_60%)]" />
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(191,195,227,0.22)_50%,transparent_100%)]" />
-            </div>
+            {/* Light mode: soft elevated surface blend */}
+            <div className="absolute inset-0 dark:hidden bg-gradient-to-t from-[var(--lm-elevated)] via-[var(--lm-elevated)]/70 to-transparent" />
+            {/* Dark mode: soft blend — no heavy darkness */}
+            <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--dm-elevated)] via-[var(--dm-elevated)]/60 to-transparent" />
+            {/* Light mode: soft corner blooms */}
+            <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(45,212,191,0.06)_0%,transparent_50%)]" />
+            {/* Dark mode: soft corner blooms */}
+            <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.10)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom_left,rgba(94,234,212,0.08)_0%,transparent_50%)]" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
@@ -145,7 +146,7 @@ export default function KidsTeensPage() {
                       }
                       alt={prog.name}
                       fill
-                      className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-700 mix-blend-multiply dark:mix-blend-luminosity grayscale-[20%] dark:grayscale-[40%]"
+                      className="object-cover opacity-90 dark:opacity-85 group-hover:scale-105 transition-transform duration-700 grayscale-[5%] dark:grayscale-[10%]"
                     />
                     <div className="absolute bottom-4 left-4">
                       <span className="px-4 py-2 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-[var(--lm-text-main)] text-xs font-bold uppercase tracking-widest">
