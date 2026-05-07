@@ -2,21 +2,49 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { courses } from "@/data";
+import { foundationalPayConfig, careerPayConfig } from "@/lib/payments/config";
 import { toast } from "sonner";
 import { fadeIn, slideInLeft } from "@/lib/motion";
 
 export const CTA = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      toast.success("Application received. Welcome to the frontier.");
-      (e.target as HTMLFormElement).reset();
+
+    const form = e.currentTarget;
+    const googleFormData = new URLSearchParams();
+
+    let trackValue = (form.elements.namedItem("track") as HTMLSelectElement).value;
+    // The Google Form has a typo with double spaces, so we must map it back to match exactly
+    if (trackValue === "Basic Computer Studies") {
+      trackValue = "Basic  Computer Studies";
+    }
+
+    // Map our form names to Google's entry IDs
+    googleFormData.append("entry.948731426", (form.elements.namedItem("name") as HTMLInputElement).value);
+    googleFormData.append("entry.1422271660", (form.elements.namedItem("phone") as HTMLInputElement).value);
+    googleFormData.append("entry.916693452", (form.elements.namedItem("email") as HTMLInputElement).value);
+    googleFormData.append("entry.781878625", trackValue);
+
+    try {
+      await fetch("https://docs.google.com/forms/d/e/1FAIpQLSetpOKpMx-KnyCjvPWevB3uFKkkma2C5r-1IjDmieFNmXEePA/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: googleFormData.toString(),
+      });
+
+      toast.success("Application received. Welcome to Ephad ICT Academy.");
+      form.reset();
+    } catch (error) {
+      toast.error("Something went wrong. Please try again or reach out on WhatsApp.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   }
 
   return (
@@ -77,24 +105,24 @@ export const CTA = () => {
           >
             <form onSubmit={onSubmit} className="flex flex-col gap-12">
               <div className="relative group">
-                <input required placeholder="LEGAL NAME"
+                <input required placeholder="LEGAL NAME" name="name"
                   className="w-full bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] placeholder-[var(--lm-text-muted)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-accent)] dark:focus:border-[var(--dm-accent)] transition-all text-xl font-light uppercase tracking-widest border-glow" />
               </div>
 
               <div className="grid md:grid-cols-2 gap-12">
-                <input required type="tel" placeholder="PHONE NUMBER"
+                <input required type="tel" placeholder="PHONE NUMBER" name="phone"
                   className="bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] placeholder-[var(--lm-text-muted)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-accent)] dark:focus:border-[var(--dm-accent)] transition-all text-xl font-light uppercase tracking-widest border-glow" />
-                <input required type="email" placeholder="EMAIL ADDRESS"
+                <input required type="email" placeholder="EMAIL ADDRESS" name="email"
                   className="bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] placeholder-[var(--lm-text-muted)]/30 dark:placeholder-white/30 rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-accent)] dark:focus:border-[var(--dm-accent)] transition-all text-xl font-light uppercase tracking-widest border-glow" />
               </div>
 
               <div className="relative group">
-                <select required defaultValue=""
+                <select required defaultValue="" name="track"
                   className="w-full bg-[var(--lm-elevated)] dark:bg-transparent border-0 border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] rounded-none h-14 px-0 focus:outline-none focus:ring-0 focus:border-[var(--lm-accent)] dark:focus:border-[var(--dm-accent)] transition-all text-xl font-light uppercase tracking-widest appearance-none cursor-pointer border-glow"
                 >
                   <option value="" disabled className="bg-[var(--lm-elevated)] dark:bg-[var(--lm-text-main)] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">SELECT TRACK</option>
-                  {courses.map(c => (
-                    <option key={c.id} value={c.id} className="bg-[var(--lm-elevated)] dark:bg-[var(--lm-text-main)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase">{c.title}</option>
+                  {[...foundationalPayConfig, ...careerPayConfig].map(c => (
+                    <option key={c.id} value={c.name} className="bg-[var(--lm-elevated)] dark:bg-[var(--lm-text-main)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase">{c.name}</option>
                   ))}
                 </select>
               </div>
