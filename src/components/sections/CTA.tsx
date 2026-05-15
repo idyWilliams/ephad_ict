@@ -136,6 +136,24 @@ export const CTA = () => {
                 </span>
               </button>
             </form>
+
+            <div className="mt-12 flex flex-col gap-6">
+              <div className="flex items-center gap-4">
+                <div className="h-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] flex-1" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">Or Register via Google Forms</span>
+                <div className="h-px bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] flex-1" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <a href="https://forms.gle/B5heJpL5k9Lsow4G9" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center h-14 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:border-[var(--lm-accent)] dark:hover:border-[var(--dm-accent)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)] transition-all uppercase tracking-widest text-sm font-semibold hover:bg-[var(--lm-accent)]/5 dark:hover:bg-[var(--dm-accent)]/5">
+                  Adults Form
+                </a>
+                <a href="https://forms.gle/bqhbNg2Z48HjBaf2A" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center justify-center h-14 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:border-[var(--lm-accent)] dark:hover:border-[var(--dm-accent)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)] transition-all uppercase tracking-widest text-sm font-semibold hover:bg-[var(--lm-accent)]/5 dark:hover:bg-[var(--dm-accent)]/5">
+                  Kids Form
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
