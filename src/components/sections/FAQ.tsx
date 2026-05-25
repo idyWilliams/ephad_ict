@@ -30,9 +30,9 @@ export const FAQ = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
             className="lg:col-span-4"
           >
-            <h2 className="text-xs font-semibold tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] uppercase mb-4 theme-transition">Intelligence</h2>
+            <h2 className="text-xs font-semibold tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] uppercase mb-4 theme-transition">Support</h2>
             <h3 className="text-4xl md:text-5xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase tracking-tighter leading-tight theme-transition">
-              Parameters & <br /><span className="font-bold">Protocols</span>
+              Frequently Asked <br /><span className="font-bold">Questions</span>
             </h3>
           </motion.div>
 

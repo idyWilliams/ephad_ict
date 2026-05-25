@@ -18,10 +18,10 @@ export const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Syllabus", href: "/#courses" },
-    { name: "Youth Labs", href: "/kids-teens" },
-    { name: "Intel", href: "/#about" },
-    { name: "Intercepts", href: "/#testimonials" },
+    { name: "Programs", href: "/#courses" },
+    { name: "Youth Academy", href: "/kids-teens" },
+    { name: "About", href: "/#about" },
+    { name: "Testimonials", href: "/#testimonials" },
   ];
 
   return (
