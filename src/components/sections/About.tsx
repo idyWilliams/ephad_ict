@@ -7,6 +7,15 @@ export const About = () => {
   return (
     /* Sits at lm-base — the page skeleton. Lightest surface, resting beat. */
     <section id="about" className="py-32 bg-[var(--lm-base)] dark:bg-transparent relative z-10 overflow-hidden border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] theme-transition">
+      {/* Background Cinematic Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+          alt="Collaboration background"
+          fill
+          className="object-cover grayscale opacity-[0.03] dark:opacity-[0.05] theme-transition"
+        />
+      </div>
       {/* Light mode: faint right-side bloom with amber accent */}
       <div className="absolute top-0 right-0 w-[40%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(79,70,229,0.06)_0%,transparent_65%)] dark:hidden pointer-events-none" />
       <div className="absolute top-[10%] right-[10%] w-72 h-72 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.04)_0%,transparent_70%)] dark:hidden blur-2xl ambient-float-mid pointer-events-none" />

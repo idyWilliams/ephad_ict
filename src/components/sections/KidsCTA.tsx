@@ -20,8 +20,8 @@ export const KidsCTA = () => {
           {/* Subtle Background Layer */}
           <div className="absolute inset-0 z-0">
              <Image 
-               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
-               alt="Youth learning"
+               src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop"
+               alt="Black youth learning"
                fill
                className="object-cover opacity-[0.05] dark:opacity-20 mix-blend-multiply dark:mix-blend-luminosity grayscale transition-transform duration-1000 group-hover:scale-105"
              />

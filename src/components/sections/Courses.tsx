@@ -103,6 +103,15 @@ export const Courses = () => {
 
         {/* ─── CAREER TECH BOOTCAMPS ─── */}
         <div id="career-tech" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/50 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative theme-transition">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
+              alt="Coding background"
+              fill
+              className="object-cover grayscale opacity-[0.04] dark:opacity-[0.07] theme-transition"
+            />
+          </div>
           {/* Light mode: subtle top boundary */}
           <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-[var(--lm-text-main)]/[0.05] to-transparent dark:hidden pointer-events-none" />
           {/* Dark mode: dual accent boundary glow */}
@@ -191,5 +200,7 @@ export const Courses = () => {
         </div>
       </section>
     </>
+  );
+};
   );
 };

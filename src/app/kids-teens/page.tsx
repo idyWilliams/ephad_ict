@@ -141,8 +141,8 @@ export default function KidsTeensPage() {
                   <div className="h-64 relative bg-[var(--lm-panel)] dark:bg-[var(--dm-section)]">
                     <Image
                       src={prog.id === "kids-ict-club"
-                        ? "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop"
-                        : "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop"
+                        ? "https://images.unsplash.com/photo-1516534775068-ba3e84529519?q=80&w=2070&auto=format&fit=crop"
+                        : "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
                       }
                       alt={prog.name}
                       fill
@@ -294,5 +294,8 @@ function EnquiryForm() {
         </span>
       </button>
     </form>
+  );
+}
+>
   );
 }
