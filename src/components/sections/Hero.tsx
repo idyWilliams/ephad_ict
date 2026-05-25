@@ -78,9 +78,9 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
-          Forge The <br />
+          Build Your <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-text-main)] via-[var(--lm-text-main)]/75 to-[var(--lm-text-main)]/20 dark:from-[var(--dm-text-main)] dark:via-[var(--dm-text-main)] dark:to-[var(--dm-text-main)]/20 transition-all duration-500">
-            Digital Era.
+            Digital Future.
           </span>
         </motion.h1>
 
@@ -94,7 +94,7 @@ export const Hero = () => {
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
           >
             <p className="text-lg md:text-xl text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-medium leading-relaxed max-w-sm transition-colors duration-500">
-              We engineer talent. No standard classrooms—just intensive, real-world execution designed to build Africa's finest tech operators.
+              Master the skills that matter. We provide hands-on mentorship and practical training designed to help you thrive in the tech industry.
             </p>
           </motion.div>
 

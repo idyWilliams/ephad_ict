@@ -24,20 +24,20 @@ export const About = () => {
           >
             <div className="mb-12 flex items-center gap-6">
               <div className="h-px w-24 bg-[var(--lm-text-main)]/20 dark:bg-white/20 transition-colors duration-500" />
-              <h2 className="text-sm font-semibold tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] uppercase">The Directive</h2>
+              <h2 className="text-sm font-semibold tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] uppercase">Our Mission</h2>
             </div>
 
             <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] leading-[1.05] uppercase transition-colors duration-500">
-              Theory is dead. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-text-main)]/70 to-[var(--lm-text-main)]/20 dark:from-white/70 dark:to-white/20 transition-all duration-500">We build operators.</span>
+              Learning by Doing. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-text-main)]/70 to-[var(--lm-text-main)]/20 dark:from-white/70 dark:to-white/20 transition-all duration-500">Master by Creating.</span>
             </h3>
 
             <div className="mt-16 grid md:grid-cols-2 gap-12">
               <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] text-lg font-light leading-relaxed transition-colors duration-500">
-                EPHAD operates on a fundamentally different paradigm. We strip away academic bloat, focusing entirely on high-impact technical execution. Our labs mirror production environments.
+                At EPHAD, we believe that true mastery comes through practical application. We provide a dynamic learning environment where you can experiment, build, and grow your technical skills.
               </p>
               <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] text-lg font-light leading-relaxed transition-colors duration-500">
-                If you are looking for easy certifications, look elsewhere. We exist to forge Africa's most lethal engineers, designers, and systems architects.
+                Our programs are designed to bridge the gap between curiosity and expertise. We're here to empower the next generation of tech leaders, designers, and problem-solvers.
               </p>
             </div>
           </motion.div>
@@ -47,8 +47,8 @@ export const About = () => {
             className="lg:col-span-4 flex flex-col gap-10 lg:pl-12 border-l border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] lg:py-8 transition-colors duration-500"
           >
             {[
-              { val: "10+", label: "Years in Production" },
-              { val: "100%", label: "Practical Application" },
+              { val: "10+", label: "Years of Excellence" },
+              { val: "100%", label: "Hands-on Learning" },
               { val: "O.S.", label: "Open Source Ethos" }
             ].map((m, i) => (
               <motion.div key={i} variants={fadeIn} className="group cursor-default">

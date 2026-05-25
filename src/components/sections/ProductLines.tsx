@@ -9,19 +9,19 @@ const lines = [
   {
     index: "01", icon: Rocket, tag: "Program Line 01", label: "Youth Labs",
     headline: "Kids & Teens", sub: "Ages 7 – 17",
-    desc: "Structured, safe, and fun ICT programs specifically built for children and teenagers. Two dedicated tracks: Kids ICT & Coding Club and Teens Coding & Web. Available as term-based, holiday, or bootcamp formats.",
+    desc: "Inspire the next generation of creators. Our fun and engaging programs help kids and teens build a strong foundation in coding and digital literacy through hands-on projects.",
     cta: "Explore Youth Programs", href: "/kids-teens", accent: true,
   },
   {
     index: "02", icon: Monitor, tag: "Program Line 02", label: "Adult Foundational",
     headline: "Digital Foundations", sub: "Zero experience required",
-    desc: "Basic Computer & Microsoft Office plus ICT Fundamentals & Digital Literacy—for adults starting from scratch or needing a professional grounding in technology.",
+    desc: "Gain essential computer skills and digital literacy. Perfect for adults starting from scratch or looking to build a professional grounding in modern technology.",
     cta: "View Foundational Programs", href: "/#foundational", accent: false,
   },
   {
     index: "03", icon: Laptop, tag: "Program Line 03", label: "Career Tech",
     headline: "Bootcamp Tracks", sub: "2–3 month intensives",
-    desc: "Frontend, Backend, Python, UI/UX, Data Analysis, Web Design, and Ethical Hacking Fundamentals. Project-led, portfolio-driven career programs for adults making a real move into tech.",
+    desc: "Launch your tech career with confidence. Our project-led programs in Frontend, Backend, UI/UX, and more are designed to help you build a professional portfolio and master industry tools.",
     cta: "View Career Bootcamps", href: "/#career-tech", accent: false,
   },
 ];
