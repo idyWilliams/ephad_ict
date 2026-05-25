@@ -54,18 +54,18 @@ export const CTA = () => {
       {/* Structural center line */}
       <div className="absolute left-[50%] top-0 bottom-0 w-px bg-[var(--lm-text-main)]/5 dark:bg-white/5 hidden lg:block theme-transition" />
 
-      {/* Dark mode ambient radial gradient with secondary teal accent */}
+      {/* Dark mode ambient radial gradient with secondary gold accent */}
       <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_bottom_left,var(--dm-accent-soft)_0%,transparent_70%)]" />
-      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.06)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.06)_0%,transparent_60%)]" />
 
-      {/* Light mode volumetric atmosphere with jade accent */}
+      {/* Light mode volumetric atmosphere with amber accent */}
       <div className="absolute inset-0 dark:hidden pointer-events-none">
         {/* Soft diagonal gradient from lm-accent-soft */}
         <div className="absolute inset-0 bg-[linear-gradient(135deg,var(--lm-accent-soft)_0%,transparent_60%)]" />
         {/* Top-right corner bloom */}
         <div className="absolute top-[-15%] right-[-8%] w-[60%] h-[80%] bg-[radial-gradient(ellipse_at_top_right,var(--lm-accent-soft)_0%,transparent_60%)]" />
-        {/* Subtle jade accent bottom-left */}
-        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.04)_0%,transparent_70%)] ambient-float-slow" />
+        {/* Subtle amber accent bottom-left */}
+        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.04)_0%,transparent_70%)] ambient-float-slow" />
       </div>
 
       {/* Dark mode animated orbs */}

@@ -27,7 +27,7 @@ export const Footer = () => {
                 <span className="font-semibold tracking-[0.4em] uppercase text-sm text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] transition-colors duration-500">EPHAD</span>
               </Link>
               <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light max-w-sm text-sm leading-relaxed mb-8 transition-colors duration-500">
-                Engineering Africa's next generation of systems architects, designers, and technical operators from our high-performance labs in Abuja.
+                Empowering Africa's next generation of tech leaders, designers, and developers through hands-on mentorship and creative learning in Abuja.
               </p>
             </div>
             <a href="mailto:hello@ephad.com" className="group inline-flex items-center gap-4 text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)] transition-colors w-fit">
@@ -42,7 +42,7 @@ export const Footer = () => {
           <div className="md:col-span-3 md:col-start-8">
             <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] mb-8 transition-colors duration-500">Navigation</h4>
             <ul className="flex flex-col gap-4">
-              {['Syllabus', 'Intel', 'Intercepts', 'Registration'].map((item) => (
+              {['Programs', 'About', 'Testimonials', 'Registration'].map((item) => (
                 <li key={item}>
                   <Link href={item === 'Registration' ? '/#register' : `/#${item.toLowerCase()}`}
                     className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] uppercase tracking-widest text-sm font-light transition-colors">
@@ -82,7 +82,7 @@ export const Footer = () => {
         <div className="flex flex-col items-center justify-between gap-4 text-[10px] uppercase tracking-[0.2em] font-medium text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] md:flex-row transition-colors duration-500">
           <p>© {new Date().getFullYear()} EPHAD ICT Academy.</p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors">Privacy Protocol</Link>
+            <Link href="#" className="hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors">Terms of Service</Link>
           </div>
           <p>
@@ -98,3 +98,4 @@ export const Footer = () => {
     </footer>
   );
 };
+

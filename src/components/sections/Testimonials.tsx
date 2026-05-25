@@ -10,7 +10,7 @@ export const Testimonials = () => {
     <section id="testimonials" className="py-32 bg-[var(--lm-section)] dark:bg-[var(--dm-section)]/50 dark:backdrop-blur-3xl relative z-10 overflow-hidden theme-transition">
       {/* blueprint cross-hatch — lighter stroke in light mode */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.35] dark:opacity-100 theme-transition"
-        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h40V0z' fill='none' stroke='rgba(11,12,29,0.05)' stroke-width='1'/%3E%3C/svg%3E\")" }}
+        style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h40V0z' fill='none' stroke='rgba(15,23,42,0.05)' stroke-width='1'/%3E%3C/svg%3E\")" }}
       />
       {/* Ambient orbs — light mode */}
       <div className="absolute top-[15%] right-[10%] w-80 h-80 bg-[var(--lm-accent-secondary)]/4 rounded-full blur-3xl ambient-float-slow dark:hidden pointer-events-none" />

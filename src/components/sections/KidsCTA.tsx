@@ -20,12 +20,12 @@ export const KidsCTA = () => {
           {/* Subtle Background Layer */}
           <div className="absolute inset-0 z-0">
              <Image 
-               src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=2070&auto=format&fit=crop"
+               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
                alt="Youth learning"
                fill
                className="object-cover opacity-[0.05] dark:opacity-20 mix-blend-multiply dark:mix-blend-luminosity grayscale transition-transform duration-1000 group-hover:scale-105"
              />
-             <div className="absolute inset-0 bg-gradient-to-r from-[#F4F3EF] via-[#F4F3EF]/90 dark:from-[#090b18] dark:via-[#090b18]/90 to-transparent transition-colors duration-500" />
+             <div className="absolute inset-0 bg-gradient-to-r from-[var(--lm-elevated)] via-[var(--lm-elevated)]/90 dark:from-[var(--dm-base)] dark:via-[var(--dm-base)]/90 to-transparent transition-colors duration-500" />
           </div>
 
           <div className="relative z-10 p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">

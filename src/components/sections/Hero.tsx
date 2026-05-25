@@ -12,8 +12,8 @@ export const Hero = () => {
       {/* Background Cinematic Image — Clean & Visible */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-          alt="Tech background"
+          src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+          alt="Tech school background"
           fill
           className="object-cover grayscale-[10%] dark:grayscale-[15%] opacity-25 dark:opacity-40 theme-transition"
           priority
@@ -26,12 +26,12 @@ export const Hero = () => {
         <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--dm-base)]/50 via-[var(--dm-base)]/30 to-transparent" />
 
         {/* Light mode: soft corner blooms */}
-        <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(59,130,246,0.06)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_top_right,rgba(45,212,191,0.05)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(79,70,229,0.06)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_top_right,rgba(245,158,11,0.05)_0%,transparent_50%)]" />
 
         {/* Dark mode: soft corner blooms — lighter, fresher */}
-        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom_left,rgba(96,165,250,0.08)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top_right,rgba(94,234,212,0.06)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom_left,rgba(129,140,248,0.08)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top_right,rgba(251,191,36,0.06)_0%,transparent_50%)]" />
 
         {/* Animated ambient orbs — light mode */}
         <div className="absolute inset-0 dark:hidden overflow-hidden">

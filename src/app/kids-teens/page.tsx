@@ -31,8 +31,8 @@ export default function KidsTeensPage() {
               className="absolute inset-0 w-full h-full"
             >
               <Image
-                src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
-                alt="Code editor on screen"
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop"
+                alt="Kids learning tech"
                 fill
                 className="object-cover grayscale-[5%] dark:grayscale-[10%] opacity-30 dark:opacity-45"
                 priority
@@ -43,11 +43,11 @@ export default function KidsTeensPage() {
             {/* Dark mode: soft blend — no heavy darkness */}
             <div className="absolute inset-0 hidden dark:block bg-gradient-to-t from-[var(--dm-elevated)] via-[var(--dm-elevated)]/60 to-transparent" />
             {/* Light mode: soft corner blooms */}
-            <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_top_right,rgba(59,130,246,0.08)_0%,transparent_60%)]" />
-            <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(45,212,191,0.06)_0%,transparent_50%)]" />
+            <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_top_right,rgba(79,70,229,0.08)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 dark:hidden bg-[radial-gradient(ellipse_at_bottom_left,rgba(245,158,11,0.06)_0%,transparent_50%)]" />
             {/* Dark mode: soft corner blooms */}
-            <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top_right,rgba(96,165,250,0.10)_0%,transparent_60%)]" />
-            <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom_left,rgba(94,234,212,0.08)_0%,transparent_50%)]" />
+            <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_top_right,rgba(129,140,248,0.10)_0%,transparent_60%)]" />
+            <div className="absolute inset-0 hidden dark:block bg-[radial-gradient(ellipse_at_bottom_left,rgba(251,191,36,0.08)_0%,transparent_50%)]" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
@@ -140,9 +140,9 @@ export default function KidsTeensPage() {
                 >
                   <div className="h-64 relative bg-[var(--lm-panel)] dark:bg-[var(--dm-section)]">
                     <Image
-                      src={pi === 0
-                        ? "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                        : "https://images.pexels.com/photos/4145153/pexels-photo-4145153.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                      src={prog.id === "kids-ict-club"
+                        ? "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop"
+                        : "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop"
                       }
                       alt={prog.name}
                       fill
@@ -185,7 +185,7 @@ export default function KidsTeensPage() {
         {/* ─── 4. CONTACT / ENQUIRY FORM ───────────────────────────────────── */}
         <section id="enroll" className="py-32 bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)] border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] transition-colors duration-500 relative overflow-hidden">
           {/* light mode corner blooms */}
-          <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.10)_0%,transparent_60%)] dark:hidden pointer-events-none" />
+          <div className="absolute top-[-10%] right-[-5%] w-[50%] h-[70%] bg-[radial-gradient(ellipse_at_top_right,rgba(79,70,229,0.10)_0%,transparent_60%)] dark:hidden pointer-events-none" />
           <div className="absolute top-0 left-0 right-0 h-px bg-[var(--lm-text-main)]/12 dark:hidden" />
           <div className="container mx-auto px-6 md:px-[10%] relative z-20">
             <div className="grid lg:grid-cols-12 gap-16">

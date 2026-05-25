@@ -15,38 +15,34 @@
   --color-glow-teal: rgba(45, 212, 191, 0.2);
 
   /*
-   * ─── DESIGN TOKEN SYSTEM v5 — "Fresh & Clean" Modern Grade ─────────────────
+   * ─── DESIGN TOKEN SYSTEM v6 — "Premium Academy" ────────────────────────────
    *
    * Philosophy:
-   *   Dark mode  = "Soft Tech Lounge" — warm charcoal base, gentle gradients, no harsh blacks.
-   *   Light mode = "Soft Paper Studio" — warm off-white, gentle contrast, editorial freshness.
-   *   Accent DNA = Vibrant blue (primary) + Soft teal (secondary) — clean, modern, approachable.
+   *   Dark mode  = "Deep Space Academy" — deep navy base, indigo glows, amber accents.
+   *   Light mode = "Academic Studio" — crisp white, indigo primary, gold secondary.
+   *   Accent DNA = Deep Indigo (primary) + Amber Gold (secondary) — professional & vibrant.
    *
    * ── LIGHT MODE (4-level surface hierarchy) ─────────────────────────────────
-   *   --lm-base           → #FAFBFF  warm soft white (page skeleton)
-   *   --lm-section        → #F5F7FA  soft section bands
-   *   --lm-section-strong → #EEF1F6  deeper sections
+   *   --lm-base           → #F8FAFC  alice blue (page skeleton)
+   *   --lm-section        → #F1F5F9  cool grey/blue bands
+   *   --lm-section-strong → #E2E8F0  deeper sections
    *   --lm-elevated       → #FFFFFF  cards, modals
-   *   --lm-text-main      → #2D3142  soft charcoal (not harsh black)
-   *   --lm-text-muted     → #6B7280  warm grey secondary text
-   *   --lm-accent         → #3B82F6  vibrant blue
-   *   --lm-accent-secondary → #2DD4BF  fresh teal
+   *   --lm-text-main      → #0F172A  deep navy
+   *   --lm-text-muted     → #475569  slate grey
+   *   --lm-accent         → #4F46E5  vibrant indigo
+   *   --lm-accent-secondary → #F59E0B  vibrant amber
    *
    * ── DARK MODE (3-level surface hierarchy) ──────────────────────────────────
-   *   --dm-base           → #1E2029  warm charcoal (not pure black)
-   *   --dm-section        → #252833  section layer 1
-   *   --dm-elevated       → #2D3142  elevated layer 2
-   *   --dm-text-main      → #F1F5F9  soft white
-   *   --dm-text-muted     → #94A3B8  soft grey
-   *   --dm-accent         → #60A5FA  soft sky blue
-   *   --dm-accent-secondary → #5EEAD4  soft teal
+   *   --dm-base           → #0F172A  deep navy (academic base)
+   *   --dm-section        → #1E293B  section layer 1
+   *   --dm-elevated       → #334155  elevated layer 2
+   *   --dm-text-main      → #F8FAFC  soft white
+   *   --dm-text-muted     → #94A3B8  slate blue
+   *   --dm-accent         → #818CF8  soft indigo
+   *   --dm-accent-secondary → #FBBF24  bright gold
    *
    * ── SHARED BRAND ACCENTS ──────────────────────────────────────────────────
    *   --brand-success     → #10B981  emerald (success, WhatsApp)
-   *
-   * Backward-compat aliases:
-   *   --lm-band   = lm-section
-   *   --lm-panel  = lm-section-strong
   */
 
 
@@ -93,30 +89,30 @@
 
 @layer base {
   :root {
-    /* ─── LIGHT MODE: "Soft Paper Studio" — warm, fresh, approachable ──────── */
-    --lm-base:            #FAFBFF;   /* warm soft white (page skeleton) */
-    --lm-section:         #F5F7FA;   /* soft section bands */
-    --lm-section-strong:  #EEF1F6;   /* deeper sections (FAQ, courses) */
+    /* ─── LIGHT MODE: "Academic Studio" — crisp, professional, vibrant ─────── */
+    --lm-base:            #F8FAFC;   /* crisp soft white */
+    --lm-section:         #F1F5F9;   /* cool grey bands */
+    --lm-section-strong:  #E2E8F0;   /* deeper sections (FAQ, courses) */
     --lm-elevated:        #FFFFFF;   /* cards, modals, elevated surfaces */
-    --lm-text-main:       #2D3142;   /* soft charcoal (not harsh black) */
-    --lm-text-muted:      #6B7280;   /* warm grey secondary text */
-    --lm-accent:          #3B82F6;   /* vibrant blue — primary brand */
-    --lm-accent-secondary:#2DD4BF;   /* fresh teal — secondary accent */
-    --lm-soft-line:       rgba(45,49,66,0.08);  /* subtle dividers */
-    --lm-accent-soft:     rgba(59,130,246,0.08); /* soft blue bloom */
-    --lm-accent-glow:     rgba(59,130,246,0.15); /* hover/active glow */
+    --lm-text-main:       #0F172A;   /* deep navy charcoal */
+    --lm-text-muted:      #475569;   /* slate grey secondary text */
+    --lm-accent:          #4F46E5;   /* vibrant indigo — primary brand */
+    --lm-accent-secondary:#F59E0B;   /* vibrant amber — secondary accent */
+    --lm-soft-line:       rgba(15,23,42,0.08);  /* subtle dividers */
+    --lm-accent-soft:     rgba(79,70,229,0.08); /* soft indigo bloom */
+    --lm-accent-glow:     rgba(79,70,229,0.15); /* hover/active glow */
 
-    /* ─── DARK MODE: "Soft Tech Lounge" — warm charcoal, no harsh blacks ───── */
-    --dm-base:            #1E2029;   /* warm charcoal base (not pure black) */
-    --dm-section:         #252833;   /* section bands (layer 1) */
-    --dm-elevated:        #2D3142;   /* elevated cards (layer 2) */
-    --dm-text-main:       #F1F5F9;   /* soft white text */
-    --dm-text-muted:      #94A3B8;   /* soft grey secondary */
-    --dm-accent:          #60A5FA;   /* soft sky blue — primary brand */
-    --dm-accent-secondary:#5EEAD4;   /* soft teal — secondary accent */
+    /* ─── DARK MODE: "Deep Space Academy" — deep navy, indigo & gold ───────── */
+    --dm-base:            #0F172A;   /* deep navy base */
+    --dm-section:         #1E293B;   /* section bands (layer 1) */
+    --dm-elevated:        #334155;   /* elevated cards (layer 2) */
+    --dm-text-main:       #F8FAFC;   /* soft white text */
+    --dm-text-muted:      #94A3B8;   /* slate blue secondary */
+    --dm-accent:          #818CF8;   /* soft indigo — primary brand */
+    --dm-accent-secondary:#FBBF24;   /* bright gold — secondary accent */
     --dm-soft-line:       rgba(255,255,255,0.08);  /* subtle dividers */
-    --dm-accent-soft:     rgba(96,165,250,0.12);   /* soft sky bloom */
-    --dm-accent-glow:     rgba(96,165,250,0.20);   /* hover/active glow */
+    --dm-accent-soft:     rgba(129,140,248,0.12);  /* soft indigo bloom */
+    --dm-accent-glow:     rgba(129,140,248,0.20);  /* hover/active glow */
 
     /* Shared brand accent */
     --brand-success:      #10B981;   /* emerald — success states */
