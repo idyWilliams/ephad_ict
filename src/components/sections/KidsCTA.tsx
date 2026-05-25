@@ -38,7 +38,7 @@ export const KidsCTA = () => {
                 Discover the <span className="font-bold">Youth Academy.</span>
               </h3>
               <p className="text-lg text-[#1C1C18]/60 dark:text-[var(--dm-text-main)]/60 font-light leading-relaxed">
-                Structured ICT fundamentals, coding, and web design tracks exclusively engineered for children and teenagers. Prepare them early for the digital frontier.
+                Inspiring programs in coding, web design, and digital literacy designed specifically for kids and teenagers. Helping young minds grow and create in a digital world.
               </p>
             </div>
 

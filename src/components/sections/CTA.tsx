@@ -86,15 +86,15 @@ export const CTA = () => {
             className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] theme-transition"
           >
             <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] mb-12">
-              The <br />Next <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-accent)] to-[var(--lm-text-main)] dark:from-[var(--dm-accent)] dark:to-[var(--dm-text-main)] transition-all duration-500">Move.</span>
+              Start <br />Your <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-accent)] to-[var(--lm-text-main)] dark:from-[var(--dm-accent)] dark:to-[var(--dm-text-main)] transition-all duration-500">Journey.</span>
             </h2>
             <p className="text-xl text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light max-w-sm mb-12 theme-transition">
-              Stop consuming. Start shipping. Secure your place in our next engineering cohort.
+              Transform your curiosity into skill. Join our next cohort and start building your future in tech today.
             </p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-px bg-gradient-to-r from-[var(--lm-text-main)]/30 to-[var(--lm-accent)]/50 dark:from-white/20 dark:to-[var(--dm-accent)] theme-transition" />
-              <span className="uppercase tracking-[0.2em] text-xs font-semibold text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] theme-transition">No fluff. Just execution.</span>
+              <span className="uppercase tracking-[0.2em] text-xs font-semibold text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] theme-transition">Hands-on learning. Real results.</span>
             </div>
           </motion.div>
 
@@ -132,7 +132,7 @@ export const CTA = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-[var(--lm-accent)] to-[var(--lm-text-main)] dark:from-[var(--dm-accent)] dark:to-white opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="relative text-2xl font-black uppercase tracking-tighter">
-                  {isSubmitting ? "Processing" : "Initialize"}
+                  {isSubmitting ? "Processing" : "Apply Now"}
                 </span>
               </button>
             </form>

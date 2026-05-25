@@ -58,14 +58,14 @@ export default function KidsTeensPage() {
               </div>
 
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter uppercase text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] leading-[0.9] mb-10">
-                Securing <br />
+                Inspiring <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-text-main)] to-[var(--lm-text-main)]/40 dark:from-white dark:to-white/20">
-                  Their Future.
+                  Young Creators.
                 </span>
               </h1>
 
               <p className="text-xl md:text-2xl text-[var(--lm-text-muted)]/70 dark:text-[var(--dm-text-main)]/70 font-light leading-relaxed max-w-2xl mb-4">
-                Two structured tracks for young learners aged 7–17. Safe, guided, and hands-on programs that build real digital skills—turning screen consumers into creators.
+                Engaging programs designed specifically for kids and teens aged 7–17. We turn screen time into creative time, helping young minds build the skills they need for a bright digital future.
               </p>
               <p className="text-sm text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] uppercase tracking-widest font-medium mb-12">
                 Available as term-based · holiday programs · bootcamp sprints
@@ -89,16 +89,16 @@ export default function KidsTeensPage() {
             <div className="mb-20">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-8 h-px bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)]" />
-                <h2 className="text-xs font-bold tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] uppercase">Core Philosophy</h2>
+                <h2 className="text-xs font-bold tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] uppercase">Our Approach</h2>
               </div>
-              <h3 className="text-4xl md:text-5xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase">The <span className="font-bold">Methodology.</span></h3>
+              <h3 className="text-4xl md:text-5xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase">How We <span className="font-bold">Learn.</span></h3>
             </div>
 
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="grid md:grid-cols-3 gap-16 lg:gap-24">
               {[
-                { icon: ShieldCheck, title: "Controlled Environment", desc: "A rigorously moderated, distraction-free lab space. We prioritize emotional safety and guided encouragement so young minds can experiment fearlessly." },
-                { icon: Gamepad2, title: "Applied Engineering", desc: "Theory is secondary. Students grasp complex computer science concepts by building their own video games, web interfaces, and interactive projects." },
-                { icon: Brain, title: "Cognitive Architecture", desc: "Beyond syntax, our curriculum fundamentally rewires how young brains approach problems—forging deep analytical skills, spatial logic, and creative resilience." }
+                { icon: ShieldCheck, title: "Supportive Environment", desc: "A safe and encouraging space where young learners can explore technology with confidence. We prioritize mentorship and guided discovery." },
+                { icon: Gamepad2, title: "Creative Building", desc: "We believe in learning by doing. Students master complex concepts by creating their own games, websites, and interactive projects." },
+                { icon: Brain, title: "Problem Solving Skills", desc: "Beyond coding, we help kids develop logical thinking and creative resilience, preparing them to tackle challenges with confidence and curiosity." }
               ].map((feature, i) => (
                 <motion.div key={i} variants={fadeIn} className="relative group mt-8 md:mt-0">
                   <span className="absolute -top-16 -left-8 text-[10rem] font-black leading-none text-[var(--lm-text-main)]/[0.04] dark:text-[var(--dm-text-main)]/[0.03] select-none pointer-events-none group-hover:-translate-y-2 group-hover:text-[var(--lm-accent)] dark:text-[var(--dm-accent)]/10 transition-all duration-700">
@@ -125,7 +125,7 @@ export default function KidsTeensPage() {
                 <div className="w-8 h-px bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)]" />
                 <h2 className="text-xs font-bold tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] uppercase">Dedicated Tracks</h2>
               </div>
-              <h3 className="text-4xl md:text-5xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase">The <span className="font-bold">Curriculum.</span></h3>
+              <h3 className="text-4xl md:text-5xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase">Our <span className="font-bold">Programs.</span></h3>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-16">
