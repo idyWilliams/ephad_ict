@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { CoursePayConfig } from "@/lib/payments/types";
 import { EnrollModal } from "@/components/ui/EnrollModal";
 import { useWhatsAppCtx } from "@/context/WhatsAppContext";

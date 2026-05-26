@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Monitor, Laptop, Rocket } from "lucide-react";
 import { fadeIn, staggerContainer } from "@/lib/motion";
 
@@ -30,6 +31,15 @@ export const ProductLines = () => {
   return (
     /* Sits on lm-section-strong — clearly deeper than the About (lm-base) above it */
     <section id="programs" className="py-28 bg-[var(--lm-section-strong)] dark:bg-[var(--dm-section)]/50 dark:backdrop-blur-3xl border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] relative z-10 overflow-hidden theme-transition">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop"
+          alt="Classroom background"
+          fill
+          className="object-cover grayscale opacity-[0.03] dark:opacity-[0.05] theme-transition"
+        />
+      </div>
       {/* Light mode boundary shadows */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--lm-soft-line)] to-transparent dark:hidden" />
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[var(--lm-text-main)]/[0.04] to-transparent dark:hidden pointer-events-none" />
