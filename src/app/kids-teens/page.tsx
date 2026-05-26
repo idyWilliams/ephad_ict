@@ -296,6 +296,3 @@ function EnquiryForm() {
     </form>
   );
 }
->
-  );
-}

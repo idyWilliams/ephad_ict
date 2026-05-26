@@ -26,7 +26,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} antialiased transition-colors duration-500`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+          suppressHydrationWarning
+        >
           <GlobalBackground />
           <SmoothScroll>
             <WhatsAppProvider>
