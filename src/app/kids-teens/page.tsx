@@ -176,15 +176,11 @@ export default function KidsTeensPage() {
                         <span className="text-2xl font-black text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">₦{prog.priceNGN.toLocaleString()}</span>
                       </div>
                       <button
-                        onClick={() => !prog.registrationClosed && setSelectedCourse(prog)}
-                        disabled={prog.registrationClosed}
-                        className={`group/btn inline-flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all ${prog.registrationClosed
-                          ? "bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] opacity-50 cursor-not-allowed"
-                          : "bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black hover:opacity-90"
-                          }`}
+                        onClick={() => setSelectedCourse(prog)}
+                        className={`group/btn inline-flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black hover:opacity-90`}
                       >
-                        {prog.registrationClosed ? "Closed" : "Enroll & Pay"}
-                        {!prog.registrationClosed && <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />}
+                        Enroll & Pay
+                        <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
                       </button>
                     </div>
                   </div>
