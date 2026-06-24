@@ -13,8 +13,48 @@ import { GlobalBackground } from "@/components/ui/GlobalBackground";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ict.ephadinternationalacademy.org"),
+  title: {
+    default: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+    template: "%s | EPHAD ICT Academy",
+  },
   description: "Empowering the digital generation through practical tech education. Offering Frontend, Backend, UI/UX, Data Science and Kids Coding courses in Kubwa, Abuja.",
+  keywords: ["ICT Academy in Abuja", "Coding school in Kubwa", "Learn frontend development", "Backend engineering course", "UI/UX design classes", "Kubernetes training", "Kids coding bootcamp", "Ephad"],
+  authors: [{ name: "EPHAD ICT" }],
+  creator: "EPHAD ICT",
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    url: "/",
+    title: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+    description: "Empowering the digital generation through practical tech education in Kubwa, Abuja.",
+    siteName: "EPHAD ICT Academy",
+    images: [
+      {
+        url: "/og-image.jpg", // Create this image later or place in public folder
+        width: 1200,
+        height: 630,
+        alt: "EPHAD ICT Academy",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+    description: "Empowering the digital generation through practical tech education in Kubwa, Abuja.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

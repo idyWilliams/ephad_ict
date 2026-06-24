@@ -22,6 +22,10 @@ export interface CoursePayConfig {
   duration: string;
   /** Which product line this course belongs to */
   category: PaymentCategory;
+  /** Optional status label for cohort status, e.g. "Cohort 1 Running" */
+  statusLabel?: string;
+  /** Whether registration for this course is closed */
+  registrationClosed?: boolean;
 }
 
 /** What the EnrollModal collects before payment */

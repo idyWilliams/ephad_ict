@@ -30,9 +30,9 @@ export const Footer = () => {
                 Empowering Africa's next generation of tech leaders, designers, and developers through hands-on mentorship and creative learning in Abuja.
               </p>
             </div>
-            <a href="mailto:hello@ephad.com" className="group inline-flex items-center gap-4 text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)] transition-colors w-fit">
+            <a href="mailto:ephadict@gmail.com" className="group inline-flex items-center gap-4 text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)] transition-colors w-fit">
               <span className="text-xl font-light uppercase tracking-widest border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] pb-1 group-hover:border-[var(--lm-accent)] transition-colors duration-500">
-                hello@ephad.com
+                ephadict@gmail.com
               </span>
               <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
@@ -57,11 +57,16 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] mb-8 transition-colors duration-500">Network</h4>
             <ul className="flex flex-col gap-4">
-              {['Twitter / X', 'LinkedIn', 'GitHub'].map((social) => (
-                <li key={social}>
-                  <a href="#" className="group inline-flex items-center gap-3 text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors">
+              {[
+                { name: 'Instagram', url: 'https://www.instagram.com/ephad_ictacademy/' },
+                { name: 'Facebook', url: 'https://www.facebook.com/EphadICTAcademy' },
+                { name: 'TikTok', url: 'https://tiktok.com/@ephadictacademy' },
+                { name: 'LinkedIn', url: 'https://www.linkedin.com/company/ephad-ict-academy' }
+              ].map((social) => (
+                <li key={social.name}>
+                  <a href={social.url} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors">
                     <span className="uppercase tracking-widest text-sm font-light relative">
-                      {social}
+                      {social.name}
                       <span className="absolute -bottom-1 left-0 w-0 h-px bg-[var(--lm-accent)] transition-all group-hover:w-full" />
                     </span>
                   </a>
