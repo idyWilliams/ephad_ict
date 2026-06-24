@@ -78,6 +78,12 @@ export const Courses = () => {
                       <h3 className="text-2xl md:text-3xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] group-hover:text-[var(--lm-accent)] dark:text-[var(--dm-accent)] transition-colors leading-tight">
                         {course.name}
                       </h3>
+                      {course.statusLabel && (
+                        <div className="mt-2 mb-1 inline-flex items-center px-2 py-1 text-[9px] uppercase font-bold tracking-widest bg-[var(--lm-accent)]/10 text-[var(--lm-accent)] dark:bg-[var(--dm-accent)]/10 dark:text-[var(--dm-accent)] border border-[var(--lm-accent)]/20 dark:border-[var(--dm-accent)]/20">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)] mr-2 animate-pulse" />
+                          {course.statusLabel}
+                        </div>
+                      )}
                       <div className="flex items-center gap-4 mt-3 text-xs uppercase tracking-widest text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-semibold">
                         <span>{course.duration}</span><span>·</span>
                         <span className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] font-bold">₦{course.priceNGN.toLocaleString()}</span>
@@ -88,11 +94,16 @@ export const Courses = () => {
                     </div>
                     <div className="md:col-span-3 flex items-center">
                       <button
-                        onClick={() => setSelectedCourse(course)}
-                        className="group/btn inline-flex items-center gap-2 px-6 py-3 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] text-xs font-bold uppercase tracking-widest hover:bg-[var(--lm-text-main)] dark:hover:bg-white hover:text-white dark:hover:text-black transition-all hover:border-transparent"
+                        onClick={() => !course.registrationClosed && setSelectedCourse(course)}
+                        disabled={course.registrationClosed}
+                        className={`group/btn inline-flex items-center gap-2 px-6 py-3 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-xs font-bold uppercase tracking-widest transition-all ${
+                          course.registrationClosed 
+                            ? "opacity-50 cursor-not-allowed text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] bg-[var(--lm-panel)] dark:bg-[var(--dm-base)]" 
+                            : "text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:bg-[var(--lm-text-main)] dark:hover:bg-white hover:text-white dark:hover:text-black hover:border-transparent"
+                        }`}
                       >
-                        Enroll & Pay
-                        <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                        {course.registrationClosed ? "Closed" : "Enroll & Pay"}
+                        {!course.registrationClosed && <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />}
                       </button>
                     </div>
                   </div>
@@ -167,6 +178,12 @@ export const Courses = () => {
                       <h3 className="text-2xl md:text-3xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] group-hover:text-[var(--lm-accent)] dark:text-[var(--dm-accent)] transition-colors leading-tight">
                         {course.name}
                       </h3>
+                      {course.statusLabel && (
+                        <div className="mt-2 mb-1 inline-flex items-center px-2 py-1 text-[9px] uppercase font-bold tracking-widest bg-[var(--lm-accent)]/10 text-[var(--lm-accent)] dark:bg-[var(--dm-accent)]/10 dark:text-[var(--dm-accent)] border border-[var(--lm-accent)]/20 dark:border-[var(--dm-accent)]/20">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)] mr-2 animate-pulse" />
+                          {course.statusLabel}
+                        </div>
+                      )}
                       <div className="flex items-center gap-4 mt-2 text-xs uppercase tracking-widest text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-semibold">
                         <span>{course.duration}</span>
                       </div>
@@ -177,11 +194,16 @@ export const Courses = () => {
                     <div className="md:col-span-3 flex flex-col items-start gap-3">
                       <span className="text-xl font-black text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">₦{course.priceNGN.toLocaleString()}</span>
                       <button
-                        onClick={() => setSelectedCourse(course)}
-                        className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-all"
+                        onClick={() => !course.registrationClosed && setSelectedCourse(course)}
+                        disabled={course.registrationClosed}
+                        className={`group/btn inline-flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all ${
+                          course.registrationClosed 
+                            ? "bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] opacity-50 cursor-not-allowed" 
+                            : "bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black hover:opacity-90"
+                        }`}
                       >
-                        Enroll & Pay
-                        <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                        {course.registrationClosed ? "Closed" : "Enroll & Pay"}
+                        {!course.registrationClosed && <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />}
                       </button>
                     </div>
                   </div>

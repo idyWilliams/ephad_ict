@@ -28,6 +28,8 @@ export const foundationalPayConfig: CoursePayConfig[] = [
     priceNGN: 60_000,
     duration: "4 weeks",
     category: "adults-foundational",
+    statusLabel: "Cohort 1 is Currently Running",
+    registrationClosed: true,
   },
   {
     id: "kids-ict-club",
@@ -88,6 +90,8 @@ export const careerPayConfig: CoursePayConfig[] = [
     priceNGN: 250_000,
     duration: "8 weeks",
     category: "adults-career",
+    statusLabel: "Cohort 1 is Currently Running",
+    registrationClosed: true,
   },
   {
     id: "ethical-hacking",
@@ -109,6 +113,16 @@ export const careerPayConfig: CoursePayConfig[] = [
 
 // ─── YOUTH PROGRAMS (Kids & Teens) ───────────────────────────────────────────
 export const youthPayConfig: CoursePayConfig[] = [
+  {
+    id: "basic-computer",
+    name: "Basic Computer Studies",
+    description: "Master everyday computer skills: Word, Excel, PowerPoint, email, internet browsing, and file management.",
+    priceNGN: 60_000,
+    duration: "4 weeks",
+    category: "youth",
+    statusLabel: "Cohort 1 is Currently Running",
+    registrationClosed: true,
+  },
   {
     id: "kids-ict-club",
     name: "Coding Foundations & ICT Fundamentals for Kids",

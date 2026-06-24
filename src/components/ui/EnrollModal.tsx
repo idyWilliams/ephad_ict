@@ -213,7 +213,7 @@ export function EnrollModal({ course, onClose }: EnrollModalProps) {
                       <Field
                         label="Email Address *" id="enroll-email" type="email" value={details.email}
                         onChange={(v) => setDetails((d) => ({ ...d, email: v }))}
-                        placeholder="HELLO@EXAMPLE.COM" error={errors.email}
+                        placeholder="ephadict@gmail.com" error={errors.email}
                       />
                       <Field
                         label="Phone Number *" id="enroll-phone" type="tel" value={details.phone}

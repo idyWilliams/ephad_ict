@@ -141,8 +141,10 @@ export default function KidsTeensPage() {
                   <div className="h-64 relative bg-[var(--lm-panel)] dark:bg-[var(--dm-section)]">
                     <Image
                       src={prog.id === "kids-ict-club"
-                        ? "https://images.unsplash.com/photo-1516534775068-ba3e84529519?q=80&w=2070&auto=format&fit=crop"
-                        : "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+                        ? "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=2070&auto=format&fit=crop"
+                        : prog.id === "basic-computer"
+                          ? "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
+                          : "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
                       }
                       alt={prog.name}
                       fill
@@ -150,7 +152,7 @@ export default function KidsTeensPage() {
                     />
                     <div className="absolute bottom-4 left-4">
                       <span className="px-4 py-2 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-[var(--lm-text-main)] text-xs font-bold uppercase tracking-widest">
-                        {prog.id === "kids-ict-club" ? "Ages 7 – 12" : "Ages 13 – 17"}
+                        {prog.id === "kids-ict-club" ? "Ages 7 – 12" : prog.id === "basic-computer" ? "All Ages" : "Ages 13 – 17"}
                       </span>
                     </div>
                   </div>
@@ -159,7 +161,13 @@ export default function KidsTeensPage() {
                     <div className="mb-2">
                       <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)]">{prog.duration}</span>
                     </div>
-                    <h4 className="text-3xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] mb-4">{prog.name}</h4>
+                    <h4 className="text-3xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] mb-2">{prog.name}</h4>
+                    {prog.statusLabel && (
+                      <div className="mb-4 inline-flex items-center px-2 py-1 text-[9px] uppercase font-bold tracking-widest bg-[var(--lm-accent)]/10 text-[var(--lm-accent)] dark:bg-[var(--dm-accent)]/10 dark:text-[var(--dm-accent)] border border-[var(--lm-accent)]/20 dark:border-[var(--dm-accent)]/20">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)] mr-2 animate-pulse" />
+                        {prog.statusLabel}
+                      </div>
+                    )}
                     <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] mb-8 font-light leading-relaxed">{prog.description}</p>
 
                     <div className="flex items-center justify-between pt-6 border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)]">
@@ -168,11 +176,15 @@ export default function KidsTeensPage() {
                         <span className="text-2xl font-black text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">₦{prog.priceNGN.toLocaleString()}</span>
                       </div>
                       <button
-                        onClick={() => setSelectedCourse(prog)}
-                        className="group/btn inline-flex items-center gap-2 px-6 py-3 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black text-xs font-bold uppercase tracking-widest hover:opacity-90 transition-all"
+                        onClick={() => !prog.registrationClosed && setSelectedCourse(prog)}
+                        disabled={prog.registrationClosed}
+                        className={`group/btn inline-flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-all ${prog.registrationClosed
+                          ? "bg-[var(--lm-soft-line)] dark:bg-[var(--dm-soft-line)] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] opacity-50 cursor-not-allowed"
+                          : "bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black hover:opacity-90"
+                          }`}
                       >
-                        Enroll & Pay
-                        <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                        {prog.registrationClosed ? "Closed" : "Enroll & Pay"}
+                        {!prog.registrationClosed && <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />}
                       </button>
                     </div>
                   </div>
@@ -254,7 +266,7 @@ function EnquiryForm() {
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-[10px] uppercase font-bold tracking-[0.2em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">Email Address *</label>
-          <input required type="email" placeholder="HELLO@DOMAIN.COM" className="bg-transparent border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] h-12 focus:outline-none focus:border-[var(--lm-text-main)] dark:focus:border-white transition-colors text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase font-light tracking-wide placeholder:text-[var(--lm-text-muted)]/20 dark:placeholder:text-white/20" />
+          <input required type="email" placeholder="ephadict@gmail.com" className="bg-transparent border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] h-12 focus:outline-none focus:border-[var(--lm-text-main)] dark:focus:border-white transition-colors text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase font-light tracking-wide placeholder:text-[var(--lm-text-muted)]/20 dark:placeholder:text-white/20" />
         </div>
       </div>
 
