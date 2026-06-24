@@ -76,7 +76,7 @@ export default function RootLayout({
           <SmoothScroll>
             <WhatsAppProvider>
               <Header />
-              <main className="min-h-screen pt-0 relative z-10">{children}</main>
+              <main className="min-h-screen pt-0 relative">{children}</main>
               <Footer />
               <WhatsAppRibbon />
               <Toaster position="bottom-right" />
