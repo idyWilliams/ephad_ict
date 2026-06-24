@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -30,13 +31,19 @@ export const Header = () => {
       scrolled ? "bg-[var(--lm-base)]/90 dark:bg-[var(--dm-base)]/90 backdrop-blur-2xl py-4" : "bg-transparent py-6"
     )}>
       <div className="container mx-auto px-6 md:px-[10%] flex items-center justify-between">
-        
+
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-6 group z-50">
-          <div className="w-10 h-10 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex items-center justify-center text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] font-bold text-lg group-hover:bg-[var(--lm-text-main)] group-hover:text-[var(--lm-elevated)] dark:group-hover:bg-[var(--dm-text-main)] dark:group-hover:text-black transition-all">
-            E.
+        <Link href="/" className="flex items-center gap-4 group z-50">
+          <div className="w-12 h-12 relative flex items-center justify-center overflow-hidden border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] group-hover:scale-105 transition-transform duration-300">
+            <Image
+              src="/ephad-logo.jpg"
+              alt="EPHAD Logo"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
-          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
+          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hidden sm:block">
             EPHAD
           </span>
         </Link>
@@ -53,9 +60,9 @@ export const Header = () => {
             </Link>
           ))}
           <ThemeToggle />
-          <Link 
-            href="/#register" 
-            className="relative px-6 py-3 border border-[var(--lm-accent)] text-[var(--lm-accent)] dark:border-[var(--dm-accent)] dark:text-[var(--dm-accent)] text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[var(--lm-accent)] hover:text-white dark:hover:bg-[var(--dm-accent)] transition-colors"
+          <Link
+            href="/#register"
+            className="relative px-6 py-3 border border-[var(--lm-accent)] text-[var(--lm-accent)] dark:border-[var(--dm-accent)] dark:text-[var(--dm-accent)] text-xs font-semibold tracking-[0.2em] uppercase hover:bg-[var(--lm-accent)] hover:text-white dark:hover:bg-[var(--dm-accent)] dark:hover:text-black transition-colors"
           >
             Apply Now
           </Link>
@@ -92,10 +99,10 @@ export const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link 
-                href="/#register" 
-                onClick={() => setMobileMenuOpen(false)} 
-                className="mt-8 text-xl font-bold uppercase tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)]"
+              <Link
+                href="/#register"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-8 text-xl font-bold uppercase tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] hover:text-white dark:hover:text-black"
               >
                 Apply Now
               </Link>

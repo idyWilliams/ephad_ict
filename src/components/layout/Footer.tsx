@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 export const Footer = () => {
@@ -21,8 +22,8 @@ export const Footer = () => {
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <Link href="/" className="inline-flex items-center gap-4 group mb-6">
-                <div className="w-12 h-12 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex items-center justify-center text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] font-bold text-xl group-hover:bg-[var(--lm-text-main)] group-hover:text-[var(--lm-base)] dark:group-hover:bg-[var(--dm-text-main)] dark:group-hover:text-[var(--dm-base)] transition-all shadow-sm dark:shadow-none">
-                  E.
+                <div className="w-14 h-14 relative overflow-hidden border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex items-center justify-center shadow-sm dark:shadow-none group-hover:scale-105 transition-transform duration-300">
+                  <Image src="/ephad-logo.jpg" alt="EPHAD Logo" fill className="object-cover" />
                 </div>
                 <span className="font-semibold tracking-[0.4em] uppercase text-sm text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] transition-colors duration-500">EPHAD</span>
               </Link>
