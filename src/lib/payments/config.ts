@@ -26,7 +26,7 @@ export const foundationalPayConfig: CoursePayConfig[] = [
     name: "Basic Computer Studies",
     description: "Master everyday computer skills: Word, Excel, PowerPoint, email, internet browsing, and file management.",
     priceNGN: 60_000,
-    duration: "4 weeks",
+    duration: "8 weeks",
     category: "adults-foundational",
     statusLabel: "Cohort 1 is Currently Running",
     registrationClosed: true,
