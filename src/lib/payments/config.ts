@@ -32,11 +32,12 @@ export const foundationalPayConfig: CoursePayConfig[] = [
     registrationClosed: true,
   },
   {
+
     id: "kids-ict-club",
     name: "Coding Foundations & ICT Fundamentals for Kids",
     description: "Safe, structured intro to computers, internet, and visual coding for children aged 7–12.",
     priceNGN: 70_000,
-    duration: "4–6 weeks",
+    duration: "8 weeks",
     category: "youth",
   },
   {
@@ -44,7 +45,7 @@ export const foundationalPayConfig: CoursePayConfig[] = [
     name: "Coding & Web Starter for Teens",
     description: "HTML, CSS, JavaScript basics, and Python intro for teenagers aged 13–17.",
     priceNGN: 100_000,
-    duration: "6–8 weeks",
+    duration: "8 weeks",
     category: "youth",
   },
 ];
@@ -56,7 +57,7 @@ export const careerPayConfig: CoursePayConfig[] = [
     name: "Frontend Engineering",
     description: "React, Next.js, and modern CSS to build production-ready, responsive user interfaces.",
     priceNGN: 250_000,
-    duration: "10 weeks",
+    duration: "12 weeks",
     category: "adults-career",
   },
   {
@@ -128,7 +129,7 @@ export const youthPayConfig: CoursePayConfig[] = [
     name: "Coding Foundations & ICT Fundamentals for Kids",
     description: "Safe, structured intro to computers, internet, and visual coding for children aged 7–12.",
     priceNGN: 70_000,
-    duration: "4–6 weeks",
+    duration: "8 weeks",
     category: "youth",
   },
   {
@@ -136,7 +137,7 @@ export const youthPayConfig: CoursePayConfig[] = [
     name: "Coding & Web Starter for Teens",
     description: "HTML, CSS, JavaScript basics, and Python intro for teenagers aged 13–17.",
     priceNGN: 100_000,
-    duration: "6–8 weeks",
+    duration: "8 weeks",
     category: "youth",
   },
 ];
