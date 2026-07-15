@@ -54,6 +54,9 @@ export const metadata: Metadata = {
   ],  
   authors: [{ name: "EPHAD ICT" }],
   creator: "EPHAD ICT",
+  verification: {
+    google: "cfyKlGYw4B7pkIhEKbYReleS7-Bx9Esaw5MUS9jvwbQ",
+  },
   openGraph: {
     type: "website",
     locale: "en_NG",
