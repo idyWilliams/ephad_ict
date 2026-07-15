@@ -15,11 +15,43 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ict.ephadinternationalacademy.org"),
   title: {
-    default: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+    default: "Ephad ICT Academy | Best Coding & Tech School in Kubwa, Abuja",
     template: "%s | EPHAD ICT Academy",
   },
-  description: "Empowering the digital generation through practical tech education. Offering Frontend, Backend, UI/UX, Data Science and Kids Coding courses in Kubwa, Abuja.",
-  keywords: ["ICT Academy in Abuja", "Coding school in Kubwa", "Learn frontend development", "Backend engineering course", "UI/UX design classes", "Kubernetes training", "Kids coding bootcamp", "Ephad"],
+  description: "Kickstart your tech career at Ephad ICT Academy in Kubwa, Abuja. Learn practical programming, UI/UX design, and data science from expert mentors. Enroll today!",
+ keywords: [
+    // --- Brand & Trust ---
+    "Ephad ICT Academy",
+    "Ephad ICT Academy Kubwa",
+    "Ephad ICT Academy fees",
+
+    // --- High-Intent Local Searches ---
+    "ICT Academy in Abuja",
+    "Coding school in Kubwa",
+    "Abuja tech school",
+    "IT training centers in Kubwa Abuja",
+    "Best computer training school in Kubwa",
+    "Where to learn coding in Kubwa",
+    "Tech training in Nigeria",
+    "Affordable tech schools in Abuja",
+
+    // --- Course-Specific Local Searches (Career Tracks) ---
+    "Learn frontend development Abuja",
+    "Backend engineering course Abuja",
+    "UI/UX design classes Abuja",
+    "Software engineering course Abuja",
+    "Data science training Abuja",
+    "Full stack web development training Abuja",
+    "Mobile app development training Abuja",
+    "DevOps training in Abuja",
+    "IT certification Abuja",
+
+    // --- Kids & Teens Programs ---
+    "Kids coding bootcamp Abuja",
+    "Coding classes for teens Abuja",
+    "Summer coding camp for kids Abuja",
+    "Weekend coding classes for kids Kubwa"
+  ],  
   authors: [{ name: "EPHAD ICT" }],
   creator: "EPHAD ICT",
   openGraph: {
