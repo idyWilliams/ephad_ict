@@ -25,10 +25,10 @@ export const Footer = () => {
                 <div className="w-14 h-14 relative overflow-hidden border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex items-center justify-center shadow-sm dark:shadow-none group-hover:scale-105 transition-transform duration-300">
                   <Image src="/ephad-logo.jpg" alt="EPHAD Logo" fill className="object-cover" />
                 </div>
-                <span className="font-semibold tracking-[0.4em] uppercase text-sm text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] transition-colors duration-500">EPHAD</span>
+                {/* <span className="font-semibold tracking-[0.4em] uppercase text-sm text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] transition-colors duration-500">EPHAD</span> */}
               </Link>
               <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light max-w-sm text-sm leading-relaxed mb-8 transition-colors duration-500">
-                Empowering Africa's next generation of tech leaders, designers, and developers through hands-on mentorship and creative learning in Abuja.
+                Empowering Africa&apos;s next generation of tech leaders, designers, and developers through hands-on mentorship and creative learning in Abuja.
               </p>
             </div>
             <a href="mailto:ephadict@gmail.com" className="group inline-flex items-center gap-4 text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)] transition-colors w-fit">
@@ -43,11 +43,17 @@ export const Footer = () => {
           <div className="md:col-span-3 md:col-start-8">
             <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] mb-8 transition-colors duration-500">Navigation</h4>
             <ul className="flex flex-col gap-4">
-              {['Programs', 'About', 'Testimonials', 'Registration'].map((item) => (
-                <li key={item}>
-                  <Link href={item === 'Registration' ? '/#register' : `/#${item.toLowerCase()}`}
+              {[
+                { label: "Programs", href: "/#courses" },
+                { label: "Summer Bootcamp", href: "/summer-bootcamp" },
+                { label: "About", href: "/#about" },
+                { label: "Testimonials", href: "/#testimonials" },
+                { label: "Registration", href: "/#register" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href}
                     className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] uppercase tracking-widest text-sm font-light transition-colors">
-                    {item}
+                    {item.label}
                   </Link>
                 </li>
               ))}

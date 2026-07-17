@@ -20,6 +20,7 @@ export const Header = () => {
 
   const navLinks = [
     { name: "Programs", href: "/#courses" },
+    { name: "Summer Bootcamp", href: "/summer-bootcamp", highlight: true },
     { name: "Youth Academy", href: "/kids-teens" },
     { name: "About", href: "/#about" },
     { name: "Testimonials", href: "/#testimonials" },
@@ -43,9 +44,9 @@ export const Header = () => {
               priority
             />
           </div>
-          <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hidden sm:block">
+          {/* <span className="font-semibold tracking-[0.3em] uppercase text-xs text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] hidden sm:block">
             EPHAD
-          </span>
+          </span> */}
         </Link>
 
         {/* Desktop Nav */}
@@ -54,7 +55,12 @@ export const Header = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors"
+              className={cn(
+                "text-xs font-semibold tracking-[0.2em] uppercase transition-colors",
+                link.highlight
+                  ? "text-[var(--lm-accent-secondary)] dark:text-[var(--dm-accent-secondary)] hover:text-[var(--lm-accent)] dark:hover:text-[var(--dm-accent)]"
+                  : "text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)]"
+              )}
             >
               {link.name}
             </Link>
@@ -94,7 +100,12 @@ export const Header = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-4xl font-light uppercase tracking-widest text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)] transition-colors"
+                  className={cn(
+                    "text-4xl font-light uppercase tracking-widest transition-colors",
+                    link.highlight
+                      ? "text-[var(--lm-accent-secondary)] dark:text-[var(--dm-accent-secondary)]"
+                      : "text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] hover:text-[var(--lm-text-main)] dark:hover:text-[var(--dm-text-main)]"
+                  )}
                 >
                   {link.name}
                 </Link>
