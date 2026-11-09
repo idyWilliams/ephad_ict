@@ -45,7 +45,7 @@ export const Footer = () => {
             <ul className="flex flex-col gap-4">
               {[
                 { label: "Programs", href: "/#courses" },
-                { label: "Summer Bootcamp", href: "/summer-bootcamp" },
+                // { label: "Summer Bootcamp", href: "/summer-bootcamp" },
                 { label: "About", href: "/#about" },
                 { label: "Testimonials", href: "/#testimonials" },
                 { label: "Registration", href: "/#register" },
