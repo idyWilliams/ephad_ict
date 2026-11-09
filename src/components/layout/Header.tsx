@@ -18,9 +18,9 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks: { name: string; href: string; highlight?: boolean }[] = [
     { name: "Programs", href: "/#courses" },
-    { name: "Summer Bootcamp", href: "/summer-bootcamp", highlight: true },
+    // { name: "Summer Bootcamp", href: "/summer-bootcamp", highlight: true },
     { name: "Youth Academy", href: "/kids-teens" },
     { name: "About", href: "/#about" },
     { name: "Testimonials", href: "/#testimonials" },

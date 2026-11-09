@@ -9,7 +9,7 @@ import { WhatsAppRibbon } from "@/components/ui/WhatsAppRibbon";
 import { WhatsAppProvider } from "@/context/WhatsAppContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
-import { BootcampWidget } from "@/components/ui/BootcampWidget";
+// import { BootcampWidget } from "@/components/ui/BootcampWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -115,7 +115,7 @@ export default function RootLayout({
               <main className="min-h-screen pt-0 relative">{children}</main>
               <Footer />
               <WhatsAppRibbon />
-              <BootcampWidget />
+              {/* <BootcampWidget /> */}
               <Toaster position="bottom-right" />
             </WhatsAppProvider>
           </SmoothScroll>
