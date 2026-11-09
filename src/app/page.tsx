@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
+import { SummerBootcampBanner } from "@/components/sections/SummerBootcampBanner";
 import { About } from "@/components/sections/About";
 import { ProductLines } from "@/components/sections/ProductLines";
 import { Courses } from "@/components/sections/Courses";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <SummerBootcampBanner />
       <About />
       <ProductLines />
       <Courses />

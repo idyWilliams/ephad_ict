@@ -112,6 +112,68 @@ export const careerPayConfig: CoursePayConfig[] = [
   },
 ];
 
+// ─── SUMMER BOOTCAMP 2026 (Kids & Teens) ───────────────────────────────────
+const SUMMER_DURATION = "4 weeks · Aug 3 – Sep 4, 2026";
+
+export const summerBootcampPayConfig: CoursePayConfig[] = [
+  {
+    id: "sb-basic-computer",
+    name: "Basic Computer Skills — Summer Bootcamp 2026",
+    description: "Microsoft Word, Excel, PowerPoint, internet browsing, typing, and file management.",
+    priceNGN: 30_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+  {
+    id: "sb-coding-programming",
+    name: "Coding & Programming — Summer Bootcamp 2026",
+    description: "Games, animations, and interactive apps through fun, hands-on programming projects.",
+    priceNGN: 40_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+  {
+    id: "sb-mobile-app",
+    name: "Mobile App Development — Summer Bootcamp 2026",
+    description: "Design and build simple Android applications from the ground up.",
+    priceNGN: 40_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+  {
+    id: "sb-website-dev",
+    name: "Website Development — Summer Bootcamp 2026",
+    description: "Build modern, responsive websites with web design principles and front-end skills.",
+    priceNGN: 40_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+  {
+    id: "sb-graphic-design",
+    name: "Graphic Design — Summer Bootcamp 2026",
+    description: "Create flyers, logos, posters, and social media graphics with professional design skills.",
+    priceNGN: 35_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+  {
+    id: "sb-cybersecurity",
+    name: "Cybersecurity — Summer Bootcamp 2026",
+    description: "Protect personal information, identify online threats, and practice responsible digital citizenship.",
+    priceNGN: 40_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+  {
+    id: "sb-ai-automation",
+    name: "AI Automation — Summer Bootcamp 2026",
+    description: "Use AI to learn smarter, automate tasks, enhance creativity, and solve real-world problems.",
+    priceNGN: 40_000,
+    duration: SUMMER_DURATION,
+    category: "youth",
+  },
+];
+
 // ─── YOUTH PROGRAMS (Kids & Teens) ───────────────────────────────────────────
 export const youthPayConfig: CoursePayConfig[] = [
   {
@@ -147,6 +209,7 @@ export const allCourses: CoursePayConfig[] = [
   ...foundationalPayConfig,
   ...careerPayConfig,
   ...youthPayConfig,
+  ...summerBootcampPayConfig,
 ];
 
 export function getCourseById(id: string): CoursePayConfig | undefined {
