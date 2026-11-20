@@ -182,6 +182,67 @@ export const summerBootcampPayConfig: CoursePayConfig[] = [
   // },
 ];
 
+// ─── TECHY DECEMBER 2026 (Foundation Bootcamp — Module 1) ─────────────────────
+const TECHY_DECEMBER_DURATION = "3 weeks · Dec 2 – Dec 21, 2026";
+
+export const techyDecemberDepositConfig: CoursePayConfig = {
+  id: "td-seat-deposit",
+  name: "Techy December 2026 — Seat Deposit",
+  description:
+    "Reserve your seat for Techy December 2026 (any track). Balance due by November 27, 2026.",
+  priceNGN: 10_000,
+  duration: TECHY_DECEMBER_DURATION,
+  category: "adults-foundational",
+};
+
+export const techyDecemberPayConfig: CoursePayConfig[] = [
+  {
+    id: "td-basic-computing",
+    name: "Basic Computing & Office Productivity — Techy December 2026",
+    description:
+      "Module 1: Use Word, Excel, PowerPoint, and the internet confidently and safely. ₦30,000 credited toward full course in Jan 2027.",
+    priceNGN: 30_000,
+    duration: TECHY_DECEMBER_DURATION,
+    category: "adults-foundational",
+  },
+  {
+    id: "td-web-dev",
+    name: "Web Development — Techy December 2026",
+    description:
+      "Module 1: Build and publish a responsive personal webpage (HTML, CSS, JavaScript basics). ₦30,000 credited toward full course in Jan 2027.",
+    priceNGN: 30_000,
+    duration: TECHY_DECEMBER_DURATION,
+    category: "adults-career",
+  },
+  {
+    id: "td-data-analytics",
+    name: "Data Analytics — Techy December 2026",
+    description:
+      "Module 1: Clean and analyse a dataset in Excel and present a chart-based report. ₦30,000 credited toward full course in Jan 2027.",
+    priceNGN: 30_000,
+    duration: TECHY_DECEMBER_DURATION,
+    category: "adults-career",
+  },
+  {
+    id: "td-mobile-app",
+    name: "Mobile App Development — Techy December 2026",
+    description:
+      "Module 1 (Introductory): Build and run a simple working mobile app screen flow. ₦30,000 credited toward full course in Jan 2027.",
+    priceNGN: 30_000,
+    duration: TECHY_DECEMBER_DURATION,
+    category: "adults-career",
+  },
+  {
+    id: "td-ai-automation",
+    name: "AI Automation — Techy December 2026",
+    description:
+      "Module 1 (Introductory): Use AI tools to automate everyday and business tasks. ₦30,000 credited toward full course in Jan 2027.",
+    priceNGN: 30_000,
+    duration: TECHY_DECEMBER_DURATION,
+    category: "adults-career",
+  },
+];
+
 // ─── YOUTH PROGRAMS (Kids & Teens) ───────────────────────────────────────────
 export const youthPayConfig: CoursePayConfig[] = [
 
@@ -218,6 +279,8 @@ export const allCourses: CoursePayConfig[] = [
   ...foundationalPayConfig,
   ...careerPayConfig,
   ...youthPayConfig,
+  ...techyDecemberPayConfig,
+  techyDecemberDepositConfig,
   // ...summerBootcampPayConfig,
 ];
 

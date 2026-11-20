@@ -22,8 +22,21 @@ export const Footer = () => {
           <div className="md:col-span-5 flex flex-col justify-between">
             <div>
               <Link href="/" className="inline-flex items-center gap-4 group mb-6">
-                <div className="w-14 h-14 relative overflow-hidden border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] flex items-center justify-center shadow-sm dark:shadow-none group-hover:scale-105 transition-transform duration-300">
-                  <Image src="/ephad-logo.jpg" alt="EPHAD Logo" fill className="object-cover" />
+                <div className="w-36 h-16 relative overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <Image
+                    src="/dark_ephad_logo.png"
+                    alt="EPHAD ICT Academy Logo"
+                    fill
+                    sizes="144px"
+                    className="object-cover dark:hidden"
+                  />
+                  <Image
+                    src="/ephad_light_logo.png"
+                    alt="EPHAD ICT Academy Logo"
+                    fill
+                    sizes="144px"
+                    className="object-cover hidden dark:block"
+                  />
                 </div>
                 {/* <span className="font-semibold tracking-[0.4em] uppercase text-sm text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] transition-colors duration-500">EPHAD</span> */}
               </Link>
@@ -45,6 +58,7 @@ export const Footer = () => {
             <ul className="flex flex-col gap-4">
               {[
                 { label: "Programs", href: "/#courses" },
+                { label: "Techy December", href: "/techy-december" },
                 // { label: "Summer Bootcamp", href: "/summer-bootcamp" },
                 { label: "About", href: "/#about" },
                 { label: "Testimonials", href: "/#testimonials" },

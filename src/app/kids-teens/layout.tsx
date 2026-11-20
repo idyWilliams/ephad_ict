@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: '/kids-teens',
+  },
   title: 'Coding Classes for Kids & Teens in Kubwa, Abuja | Ephad',
   description: 'Interactive weekend coding classes and summer bootcamps for kids and teens in Abuja. We teach game design, Python, and web development in a fun environment!',
   keywords: [
