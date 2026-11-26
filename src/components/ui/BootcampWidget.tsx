@@ -67,7 +67,7 @@ export function BootcampWidget() {
                     <Rocket className="w-4 h-4 text-pink-500 animate-pulse" />
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Start your 3-month tech course with <strong className="text-foreground font-semibold">Module 1 for ₦30,000</strong> — 100% credited toward Jan 2027!
+                    Join our <strong className="text-foreground font-semibold">3-week intensive bootcamp</strong> for <strong className="text-foreground font-semibold">₦30,000</strong> across 6 practical tech tracks!
                   </p>
                   
                   {/* CTA Button */}

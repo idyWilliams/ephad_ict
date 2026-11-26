@@ -14,9 +14,9 @@ import {
   CheckCircle2,
   Sparkles,
   MapPin,
-  Gift,
   Users,
   Award,
+  Laptop,
   ExternalLink,
 } from "lucide-react";
 import { fadeIn, staggerContainer } from "@/lib/motion";
@@ -70,8 +70,7 @@ export default function TechyDecemberPage() {
               <div className="flex flex-wrap items-center gap-3 mb-8">
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[var(--lm-accent-secondary)]/15 dark:bg-[var(--dm-accent-secondary)]/15 text-[var(--lm-accent-secondary)] dark:text-[var(--dm-accent-secondary)] text-[10px] font-bold uppercase tracking-[0.25em] rounded-full border border-[var(--lm-accent-secondary)]/25">
                   <Sparkles size={12} />
-                  End-of-Year Foundation Bootcamp · {TECHY_DECEMBER.seatLimit}{" "}
-                  Seats
+                  3-Week Intensive Bootcamp · {TECHY_DECEMBER.seatLimit} Seats
                 </span>
               </div>
 
@@ -90,12 +89,13 @@ export default function TechyDecemberPage() {
               </h1>
 
               <p className="text-xl md:text-2xl text-[var(--lm-text-muted)]/85 dark:text-[var(--dm-text-main)]/75 font-light leading-relaxed max-w-2xl mb-10">
-                Start your 3-month tech course this December with{" "}
+                A hands-on{" "}
                 <strong className="font-semibold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
-                  Module 1 for only ₦30,000
-                </strong>{" "}
-                (regular price from ₦200,000). Build a real project, graduate on
-                Demo Day, and credit your full ₦30,000 toward January 2027.
+                  3-week intensive tech bootcamp for only ₦30,000
+                </strong>
+                . Choose from 6 practical tracks, build a real project in our
+                Kubwa lab, and graduate on Demo Day with a Certificate of
+                Completion.
               </p>
 
               <div className="flex flex-wrap gap-6 mb-12">
@@ -121,12 +121,15 @@ export default function TechyDecemberPage() {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="#tracks"
-                  className="inline-flex h-14 items-center justify-center bg-[var(--lm-text-main)] dark:bg-white text-[var(--lm-base)] dark:text-black px-8 font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform"
+                <a
+                  href={TECHY_DECEMBER.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-14 items-center justify-center gap-2 bg-[var(--lm-text-main)] dark:bg-white text-[var(--lm-base)] dark:text-black px-8 font-bold uppercase tracking-widest text-xs hover:scale-105 transition-transform"
                 >
-                  Explore 5 Tracks
-                </Link>
+                  Register Now
+                  <ExternalLink size={14} />
+                </a>
                 <button
                   type="button"
                   onClick={() => setSelectedCourse(techyDecemberDepositConfig)}
@@ -134,17 +137,12 @@ export default function TechyDecemberPage() {
                 >
                   Reserve Seat (₦10,000)
                 </button>
-                <a
-                  href={buildTechyDecemberWaLink(
-                    "Hi EPHAD ICT Academy, I'd like to attend a Free Taster Session for *Techy December 2026*."
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="#tracks"
                   className="inline-flex h-14 items-center justify-center gap-2 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] px-8 font-bold uppercase tracking-widest text-xs hover:bg-[var(--lm-text-main)]/5 dark:hover:bg-white/5 transition-colors"
                 >
-                  Free Taster Session
-                  <ExternalLink size={14} />
-                </a>
+                  Explore 6 Tracks
+                </Link>
               </div>
             </motion.div>
 
@@ -207,7 +205,7 @@ export default function TechyDecemberPage() {
           </div>
         </section>
 
-        {/* Tracks & Module 1 Outcomes */}
+        {/* Tracks & Outcomes */}
         <section
           id="tracks"
           className="py-28 bg-[var(--lm-base)] dark:bg-[var(--dm-base)] relative z-10"
@@ -217,16 +215,16 @@ export default function TechyDecemberPage() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-8 h-px bg-[var(--lm-accent)] dark:bg-[var(--dm-accent)]" />
                 <h2 className="text-xs font-bold tracking-[0.3em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] uppercase">
-                  5 Tracks · Module 1 Foundation
+                  6 Tracks · 3-Week Intensive
                 </h2>
               </div>
               <h3 className="text-4xl md:text-5xl font-light text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] tracking-tighter uppercase mb-4">
                 Choose Your <span className="font-bold">Track.</span>
               </h3>
               <p className="text-sm md:text-base text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light leading-relaxed">
-                Each track delivers Module 1 of our regular 3-month course. You
-                leave with a real, showcased project on Demo Day and a
-                Certificate of Completion (Foundation Level).
+                Every track is taught through guided lab exercises and real
+                projects. You leave with a showcased capstone on Demo Day (Dec
+                23) and a Certificate of Completion.
               </p>
             </div>
 
@@ -269,7 +267,7 @@ export default function TechyDecemberPage() {
                         </div>
                         {course.introductory && (
                           <span className="px-2.5 py-1 bg-black/75 text-white text-[10px] font-bold uppercase tracking-widest rounded-sm">
-                            Small Cohort · Intro
+                            Small Cohort
                           </span>
                         )}
                       </div>
@@ -277,7 +275,7 @@ export default function TechyDecemberPage() {
 
                     <div className="flex flex-col flex-1 p-8">
                       <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] mb-2">
-                        Module 1 · 3 Weeks
+                        3 Weeks · Mon, Wed &amp; Fri
                       </p>
                       <h4 className="text-xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] mb-3 uppercase tracking-tight">
                         {course.title}
@@ -292,7 +290,7 @@ export default function TechyDecemberPage() {
                       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-6 border-t border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)]">
                         <div className="flex-1">
                           <span className="text-[10px] uppercase tracking-widest font-bold text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] block mb-1">
-                            Promo Fee
+                            Bootcamp Fee
                           </span>
                           <div className="flex items-baseline gap-2">
                             <span className="text-2xl font-black text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
@@ -338,7 +336,7 @@ export default function TechyDecemberPage() {
           </div>
         </section>
 
-        {/* January 2027 Continuation Credit Callout */}
+        {/* Bootcamp Experience Highlight */}
         <section className="py-20 bg-[var(--lm-section)] dark:bg-[var(--dm-section)] border-y border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)]">
           <div className="container mx-auto px-6 md:px-[10%]">
             <div className="grid lg:grid-cols-12 gap-10 items-center">
@@ -346,21 +344,20 @@ export default function TechyDecemberPage() {
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-8 h-px bg-[var(--lm-accent-secondary)] dark:bg-[var(--dm-accent-secondary)]" />
                   <span className="text-xs font-bold uppercase tracking-[0.3em] text-[var(--lm-accent-secondary)] dark:text-[var(--dm-accent-secondary)]">
-                    Built for Long-Term Growth
+                    Practical · Project-Driven
                   </span>
                 </div>
                 <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] leading-[0.98] mb-5">
-                  Your ₦30,000 Credits Into{" "}
+                  3 Weeks of Real{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--lm-accent)] to-[var(--lm-accent-secondary)] dark:from-[var(--dm-accent)] dark:to-[var(--dm-accent-secondary)]">
-                    January 2027.
+                    Hands-On Building.
                   </span>
                 </h2>
                 <p className="text-base text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light leading-relaxed max-w-2xl">
-                  Techy December is not a disconnected crash course—it is Module
-                  1 of our full 3-month programme. Continue into Modules 2 &amp;
-                  3 in January 2027 and have your entire ₦30,000 fee credited
-                  against your regular course tuition when you enrol by January
-                  31, 2027.
+                  From December 2 to December 21, every session focuses on
+                  practical lab work with dedicated instructors, weekend virtual
+                  check-ins for project feedback, and a live Demo Day showcase
+                  on December 23 where every graduate presents what they built.
                 </p>
               </div>
 
@@ -368,13 +365,13 @@ export default function TechyDecemberPage() {
                 {[
                   {
                     icon: Award,
-                    title: "Demo Day Showcase",
-                    desc: "Present your finished Module 1 project and earn your Foundation Certificate on Dec 23.",
+                    title: "Demo Day & Certificate",
+                    desc: "Present your finished project and earn a Certificate of Completion on Dec 23.",
                   },
                   {
-                    icon: Gift,
-                    title: "100% Fee Credit",
-                    desc: "Every naira paid for Techy December counts directly toward Modules 2 & 3 in January.",
+                    icon: Laptop,
+                    title: "Full Lab Access",
+                    desc: "Workstations, steady power, and high-speed internet provided at our Kubwa campus.",
                   },
                 ].map((card) => {
                   const CardIcon = card.icon;
@@ -401,7 +398,7 @@ export default function TechyDecemberPage() {
           </div>
         </section>
 
-        {/* Pricing Tiers, Free Tasters & Referrals */}
+        {/* Pricing, Free Taster & Referrals */}
         <section className="py-24 bg-[var(--lm-base)] dark:bg-[var(--dm-base)]">
           <div className="container mx-auto px-6 md:px-[10%]">
             <div className="grid md:grid-cols-3 gap-8">
@@ -421,15 +418,6 @@ export default function TechyDecemberPage() {
                     </strong>
                   </li>
                   <li className="flex justify-between border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] pb-3">
-                    <span>
-                      Early-Bird (First {TECHY_DECEMBER.earlyBirdSlots}, by Nov
-                      22)
-                    </span>
-                    <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
-                      ₦{TECHY_DECEMBER.earlyBirdFeeNGN.toLocaleString()}
-                    </strong>
-                  </li>
-                  <li className="flex justify-between border-b border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] pb-3">
                     <span>Group Rate (5+ Students)</span>
                     <strong className="text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
                       ₦{TECHY_DECEMBER.groupFeeNGN.toLocaleString()} / ea
@@ -444,13 +432,13 @@ export default function TechyDecemberPage() {
                 </ul>
               </div>
 
-              {/* Free Taster Sessions */}
+              {/* Free Taster Session */}
               <div className="p-8 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] bg-[var(--lm-elevated)] dark:bg-[var(--dm-elevated)] flex flex-col">
                 <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--lm-accent-secondary)] dark:text-[var(--dm-accent-secondary)] mb-3">
                   Try Before You Enrol
                 </p>
                 <h3 className="text-2xl font-bold uppercase tracking-tight text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] mb-4">
-                  Free Taster Sessions
+                  Free Taster Session
                 </h3>
                 <p className="text-sm text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light leading-relaxed mb-6 flex-1">
                   Not sure which track fits you best? Visit our Kubwa lab for a
@@ -473,7 +461,7 @@ export default function TechyDecemberPage() {
                 </div>
                 <a
                   href={buildTechyDecemberWaLink(
-                    "Hi EPHAD ICT Academy, I'd like to book a spot for the Techy December Free Taster Session."
+                    "Hi EPHAD ICT Academy, I'd like to book a spot for the Techy December Free Taster Session on Nov 28."
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -498,8 +486,7 @@ export default function TechyDecemberPage() {
                   December. Earn ₦
                   {TECHY_DECEMBER.referralRewardNGN.toLocaleString()} for every
                   referred student who pays in full and attends the first class.
-                  Ambassadors with 5+ referrals also receive a branded T-shirt
-                  and priority January placement.
+                  Ambassadors with 5+ referrals also receive a branded T-shirt.
                 </p>
                 <a
                   href={buildTechyDecemberWaLink(
@@ -614,7 +601,7 @@ export default function TechyDecemberPage() {
                     3 Simple Steps
                   </p>
                   <h3 className="text-2xl md:text-3xl font-bold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)] uppercase tracking-tight mb-4">
-                    Ready to Level Up Before 2027?
+                    Ready to Build This December?
                   </h3>
                   <p className="text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light leading-relaxed mb-8">
                     Pick your track, pay your ₦10,000 seat deposit or full
@@ -624,7 +611,7 @@ export default function TechyDecemberPage() {
 
                   <ol className="flex flex-col gap-4 mb-8">
                     {[
-                      "Choose one of the 5 practical tracks above.",
+                      "Choose one of the 6 practical tracks above.",
                       "Pay your ₦10,000 seat deposit or ₦30,000 full fee online (or at the academy).",
                       "Start building on December 2 and showcase your project on Demo Day (Dec 23).",
                     ].map((step, idx) => (
@@ -642,23 +629,23 @@ export default function TechyDecemberPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href={TECHY_DECEMBER.registrationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 inline-flex items-center justify-center gap-2 h-14 px-8 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black text-xs font-bold uppercase tracking-[0.2em] hover:opacity-90 transition-opacity"
+                  >
+                    Register Now
+                    <ExternalLink size={14} />
+                  </a>
                   <button
                     type="button"
                     onClick={() => setSelectedCourse(techyDecemberDepositConfig)}
-                    className="flex-1 inline-flex items-center justify-center gap-2 h-14 px-8 bg-[var(--lm-text-main)] dark:bg-white text-white dark:text-black text-xs font-bold uppercase tracking-[0.2em] hover:opacity-90 transition-opacity"
+                    className="flex-1 inline-flex items-center justify-center gap-2 h-14 px-8 border border-[var(--lm-accent)] dark:border-[var(--dm-accent)] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] text-xs font-bold uppercase tracking-[0.2em] hover:bg-[var(--lm-accent)] hover:text-white dark:hover:bg-[var(--dm-accent)] dark:hover:text-black transition-colors"
                   >
                     Pay ₦10,000 Deposit
                     <ArrowRight size={14} />
                   </button>
-                  <a
-                    href={buildTechyDecemberWaLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 h-14 px-8 border border-[var(--lm-accent)] dark:border-[var(--dm-accent)] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] text-xs font-bold uppercase tracking-[0.2em] hover:bg-[var(--lm-accent)] hover:text-white dark:hover:bg-[var(--dm-accent)] dark:hover:text-black transition-colors"
-                  >
-                    Register on WhatsApp
-                    <ExternalLink size={14} />
-                  </a>
                 </div>
               </div>
             </div>

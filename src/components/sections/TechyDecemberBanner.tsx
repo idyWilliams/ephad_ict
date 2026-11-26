@@ -8,7 +8,6 @@ import { fadeIn } from "@/lib/motion";
 import {
   TECHY_DECEMBER,
   TECHY_DECEMBER_ASSETS,
-  buildTechyDecemberWaLink,
 } from "@/data/techyDecember";
 
 export const TechyDecemberBanner = () => {
@@ -50,17 +49,17 @@ export const TechyDecemberBanner = () => {
               </h2>
 
               <p className="text-base md:text-lg text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)] font-light leading-relaxed mb-6">
-                Start your 3-month tech course with{" "}
+                Join our{" "}
                 <strong className="font-semibold text-[var(--lm-text-main)] dark:text-[var(--dm-text-main)]">
-                  Module 1 for only ₦30,000
-                </strong>{" "}
-                (regular price from ₦200,000). Continue in January 2027 with your
-                full ₦30,000 credited toward Modules 2 &amp; 3.
+                  3-week intensive tech bootcamp for only ₦30,000
+                </strong>
+                . Learn hands-on in our Kubwa lab across 6 practical tracks,
+                build a real project, and graduate on Demo Day (Dec 23).
               </p>
 
               <div className="flex flex-wrap gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--lm-text-muted)] dark:text-[var(--dm-text-muted)]">
                 <span className="px-3 py-1.5 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] rounded-full">
-                  5 Practical Tracks
+                  6 Practical Tracks
                 </span>
                 <span className="px-3 py-1.5 border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] rounded-full">
                   {TECHY_DECEMBER.schedule.period}
@@ -109,12 +108,12 @@ export const TechyDecemberBanner = () => {
                   />
                 </Link>
                 <a
-                  href={buildTechyDecemberWaLink()}
+                  href={TECHY_DECEMBER.registrationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-14 px-8 border border-[var(--lm-accent)] dark:border-[var(--dm-accent)] text-[var(--lm-accent)] dark:text-[var(--dm-accent)] font-bold text-xs uppercase tracking-[0.2em] hover:bg-[var(--lm-accent)] hover:text-white dark:hover:bg-[var(--dm-accent)] dark:hover:text-black transition-colors"
                 >
-                  Reserve Seat
+                  Register Now
                 </a>
               </div>
             </div>
