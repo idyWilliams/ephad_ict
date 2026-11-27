@@ -23,7 +23,7 @@ export const TECHY_DECEMBER = {
   depositBalanceDue: "November 27, 2026",
   referralRewardNGN: 3_000,
   audience: "Students, Youth & Career-Changers",
-  registrationUrl: "https://bit.ly/TechyDecember",
+  registrationUrl: "https://tinyurl.com/TechyDecember",
   venue: "Ephad ICT Academy, Plot 1755, Gbazango, Kubwa, Abuja",
   tasterDates: ["Saturday, Nov 28, 2026"] as const,
   schedule: {
