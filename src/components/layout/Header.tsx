@@ -20,6 +20,7 @@ export const Header = () => {
 
   const navLinks: { name: string; href: string; highlight?: boolean }[] = [
     { name: "Programs", href: "/#courses" },
+    { name: "Techy December", href: "/techy-december", highlight: true },
     // { name: "Summer Bootcamp", href: "/summer-bootcamp", highlight: true },
     { name: "Youth Academy", href: "/kids-teens" },
     { name: "About", href: "/#about" },
@@ -35,12 +36,21 @@ export const Header = () => {
 
         {/* Brand */}
         <Link href="/" className="flex items-center gap-4 group z-50">
-          <div className="w-12 h-12 relative flex items-center justify-center overflow-hidden border border-[var(--lm-soft-line)] dark:border-[var(--dm-soft-line)] group-hover:scale-105 transition-transform duration-300">
+          <div className="w-28 h-12 relative flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
             <Image
-              src="/ephad-logo.jpg"
-              alt="EPHAD Logo"
+              src="/dark_ephad_logo.png"
+              alt="EPHAD ICT Academy Logo"
               fill
-              className="object-cover"
+              sizes="112px"
+              className="object-cover dark:hidden"
+              priority
+            />
+            <Image
+              src="/ephad_light_logo.png"
+              alt="EPHAD ICT Academy Logo"
+              fill
+              sizes="112px"
+              className="object-cover hidden dark:block"
               priority
             />
           </div>

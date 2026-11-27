@@ -56,34 +56,33 @@ export function BootcampWidget() {
                 <div className="flex items-center gap-2">
                   <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider font-bold bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full">
                     <Sparkles className="w-3 h-3" />
-                    Upcoming Event
+                    Dec 2 – 21 · 60 Seats Only
                   </span>
                 </div>
                 
                 {/* Content */}
                 <div>
                   <h3 className="font-extrabold text-lg text-foreground mb-1.5 flex items-center gap-2">
-                    Tech Summer Bootcamp
+                    Techy December 2026
                     <Rocket className="w-4 h-4 text-pink-500 animate-pulse" />
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                    Master <strong className="text-foreground font-semibold">Coding</strong> & <strong className="text-foreground font-semibold">UI/UX</strong> this summer. Join our immersive hands-on training sessions!
+                    Join our <strong className="text-foreground font-semibold">3-week intensive bootcamp</strong> for <strong className="text-foreground font-semibold">₦30,000</strong> across 6 practical tech tracks!
                   </p>
                   
                   {/* CTA Button */}
-                  <a 
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSdkV4ci2hP1rs9PkjmOC3LhUBPo_yMjfeafu736M9wVe4hfvg/viewform?usp=send_form"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/techy-december"
+                    onClick={() => setIsVisible(false)}
                     className="relative flex items-center justify-center gap-2 w-full font-semibold text-white bg-indigo-600 hover:bg-indigo-500 py-2.5 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(79,70,229,0.25)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] overflow-hidden group/btn"
                   >
                     {/* Button hover effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                     
                     <Code2 className="w-4 h-4" />
-                    <span>Secure Your Spot</span>
+                    <span>Explore Tracks</span>
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

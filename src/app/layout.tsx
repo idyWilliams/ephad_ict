@@ -9,12 +9,45 @@ import { WhatsAppRibbon } from "@/components/ui/WhatsAppRibbon";
 import { WhatsAppProvider } from "@/context/WhatsAppContext";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
-// import { BootcampWidget } from "@/components/ui/BootcampWidget";
+import { BootcampWidget } from "@/components/ui/BootcampWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://ict.ephadinternationalacademy.org"
+).replace(/\/$/, "");
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  name: "Ephad ICT Academy",
+  url: SITE_URL,
+  logo: `${SITE_URL}/ephad-logo.jpg`,
+  image: `${SITE_URL}/img/class-1.jpeg`,
+  description:
+    "Practical coding, software engineering, UI/UX design, data science, and AI training academy in Kubwa, Abuja.",
+  email: "ephadict@gmail.com",
+  telephone: "+2349133333647",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Plot 1755, Gbazango, Kubwa",
+    addressLocality: "Abuja",
+    addressRegion: "FCT",
+    addressCountry: "NG",
+  },
+  sameAs: [
+    "https://www.instagram.com/ephad_ictacademy/",
+    "https://www.facebook.com/EphadICTAcademy",
+    "https://tiktok.com/@ephadictacademy",
+    "https://www.linkedin.com/company/ephad-ict-academy",
+  ],
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ict.ephadinternationalacademy.org"),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Ephad ICT Academy | Best Coding & Tech School in Kubwa, Abuja",
     template: "%s | EPHAD ICT Academy",
@@ -57,28 +90,31 @@ export const metadata: Metadata = {
   creator: "EPHAD ICT",
   verification: {
     google: "cfyKlGYw4B7pkIhEKbYReleS7-Bx9Esaw5MUS9jvwbQ",
+    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION } }
+      : {}),
   },
   openGraph: {
     type: "website",
     locale: "en_NG",
     url: "/",
-    title: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+    title: "EPHAD ICT Academy | Coding, UI/UX & Tech Training in Kubwa, Abuja",
     description: "Empowering the digital generation through practical tech education in Kubwa, Abuja.",
     siteName: "EPHAD ICT Academy",
     images: [
       {
-        url: "/og-image.jpg", // Create this image later or place in public folder
+        url: "/img/class-1.jpeg",
         width: 1200,
         height: 630,
-        alt: "EPHAD ICT Academy",
+        alt: "EPHAD ICT Academy in Kubwa, Abuja",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EPHAD ICT Academy | Kubernetes, Coding, UI/UX in Kubwa",
+    title: "EPHAD ICT Academy | Coding, UI/UX & Tech Training in Kubwa, Abuja",
     description: "Empowering the digital generation through practical tech education in Kubwa, Abuja.",
-    images: ["/og-image.jpg"],
+    images: ["/img/class-1.jpeg"],
   },
   robots: {
     index: true,
@@ -102,6 +138,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} antialiased transition-colors duration-500`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -115,7 +155,7 @@ export default function RootLayout({
               <main className="min-h-screen pt-0 relative">{children}</main>
               <Footer />
               <WhatsAppRibbon />
-              {/* <BootcampWidget /> */}
+              <BootcampWidget />
               <Toaster position="bottom-right" />
             </WhatsAppProvider>
           </SmoothScroll>

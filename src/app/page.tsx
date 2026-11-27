@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 // import { SummerBootcampBanner } from "@/components/sections/SummerBootcampBanner";
+import { TechyDecemberBanner } from "@/components/sections/TechyDecemberBanner";
 import { About } from "@/components/sections/About";
 import { ProductLines } from "@/components/sections/ProductLines";
 import { Courses } from "@/components/sections/Courses";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       {/* <SummerBootcampBanner /> */}
+      <TechyDecemberBanner />
       <About />
       <ProductLines />
       <Courses />
